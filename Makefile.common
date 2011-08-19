@@ -8,7 +8,6 @@ SRCRPMDIR ?= $(WORKDIR)/srpm
 BUILDDIR ?= $(WORKDIR)
 RPMDIR ?= $(WORKDIR)/rpm
 SOURCEDIR := $(WORKDIR)
-VERSION := $(shell cat version)
 
 NO_OF_CPUS := $(shell grep -c ^processor /proc/cpuinfo)
 
