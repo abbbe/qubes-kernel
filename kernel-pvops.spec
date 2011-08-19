@@ -158,7 +158,7 @@ cd %kernel_build_dir
 
 mkdir -p %buildroot/boot
 cp -p System.map %buildroot/boot/System.map-%kernelrelease
-cp -p arch/x86/boot/vmlinuz %buildroot/boot/vmlinuz-%kernelrelease
+cp -p arch/x86/boot/bzImage %buildroot/boot/vmlinuz-%kernelrelease
 cp .config %buildroot/boot/config-%kernelrelease
 
 %if %install_vdso
@@ -192,7 +192,6 @@ pushd %build_src_dir
 cp --parents `find  -type f -name "Makefile*" -o -name "Kconfig*"` %buildroot/lib/modules/%kernelrelease/build
 cp -a scripts %buildroot/lib/modules/%kernelrelease/build
 cp -a --parents arch/x86/include/asm %buildroot/lib/modules/%kernelrelease/build/
-cp -a --parents arch/x86/include/mach-xen %buildroot/lib/modules/%kernelrelease/build/
 cp -a include %buildroot/lib/modules/%kernelrelease/build/include
 popd
 
@@ -271,7 +270,7 @@ rm -f modinfo modnames
 
 # Move the devel headers out of the root file system
 mkdir -p %buildroot/usr/src/kernels
-mv %buildroot/lib/modules/%kernelrelease/build/* %buildroot/%src_install_dir
+mv %buildroot/lib/modules/%kernelrelease/build/* %buildroot/%src_install_dir/
 mv %buildroot/lib/modules/%kernelrelease/build/.config %buildroot/%src_install_dir
 rmdir %buildroot/lib/modules/%kernelrelease/build
 ln -sf %src_install_dir %buildroot/lib/modules/%kernelrelease/build
@@ -283,6 +282,10 @@ msg="$(/sbin/depmod -F %buildroot/boot/System.map-%kernelrelease \
 if [ $? -ne 0 ] || echo "$msg" | grep  'needs unknown symbol'; then
 exit 1
 fi
+
+mv  %buildroot/lib/firmware %buildroot/lib/firmware-all
+mkdir -p %buildroot/lib/firmware
+mv  %buildroot/lib/firmware-all %buildroot/lib/firmware/%kernelrelease
 
 # Prepare initramfs for Qubes VM
 mkdir -p %buildroot/%vm_install_dir
