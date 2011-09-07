@@ -4,7 +4,7 @@
 
 #%define _unpackaged_files_terminate_build 0
 %define variant pvops.qubes
-%define rel %(cat rel).%{variant}
+%define rel %(cat rel-pvops).%{variant}
 
 %define _buildshell /bin/bash
 %define build_flavor pvops
