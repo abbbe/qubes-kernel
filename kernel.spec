@@ -5,7 +5,8 @@
 #%define _unpackaged_files_terminate_build 0
 %define variant %{build_flavor}.qubes
 %define rel %(cat rel-%{build_flavor}).%{variant}
-%define version %(cat version-%{build_flavor})
+%define realversion %(cat version-%{build_flavor})
+%define rpm_version %(echo %{realversion}|tr - _)
 
 %define _buildshell /bin/bash
 %define build_xen	1
@@ -13,13 +14,13 @@
 %global cpu_arch x86_64
 %define cpu_arch_flavor %cpu_arch/%build_flavor
 
-%define kernelrelease %version-%rel.%cpu_arch
+%define kernelrelease %realversion-%rel.%cpu_arch
 %define my_builddir %_builddir/%{name}-%{version}
 
-%define build_src_dir %my_builddir/linux-%version
+%define build_src_dir %my_builddir/linux-%realversion
 %define src_install_dir /usr/src/kernels/%kernelrelease
 %define kernel_build_dir %my_builddir/linux-obj
-%define vm_install_dir /var/lib/qubes/vm-kernels/%version
+%define vm_install_dir /var/lib/qubes/vm-kernels/%realversion
 
 %(chmod +x %_sourcedir/{guards,apply-patches,check-for-config-changes})
 
@@ -27,7 +28,7 @@
 
 Name:           kernel
 Summary:        The Xen Kernel
-Version:        %{version}
+Version:        %{rpm_version}
 Epoch:          1000
 Release:        %{rel}
 License:        GPL v2 only
@@ -37,7 +38,7 @@ AutoReqProv:    on
 BuildRequires:  coreutils module-init-tools sparse
 BuildRequires:  qubes-core-vm-devel
 Provides:       multiversion(kernel)
-Provides:       %name = %version-%kernelrelease
+Provides:       %name = %rpm_version-%kernelrelease
 
 Provides:       kernel-xen-dom0
 Provides:       kernel-qubes-dom0
@@ -57,7 +58,7 @@ Conflicts:      lvm2 < 2.02.33
 Provides:       kernel = %kernelrelease
 Provides:       kernel-uname-r = %kernelrelease
 
-Source0:        linux-%version.tar.bz2
+Source0:        linux-%realversion.tar.bz2
 Source14:       series-%{build_flavor}.conf
 Source16:       guards
 Source17:       apply-patches
@@ -81,7 +82,7 @@ ExclusiveArch:  x86_64
 Qubes Dom0 kernel.
 
 %prep
-if ! [ -e %_sourcedir/linux-%version.tar.bz2 ]; then
+if ! [ -e %_sourcedir/linux-%realversion.tar.bz2 ]; then
     echo "The %name-%version.nosrc.rpm package does not contain the" \
 	 "complete sources. Please install kernel-source-%version.src.rpm."
     exit 1
@@ -94,18 +95,18 @@ SYMBOLS="xen-dom0 %{build_flavor}"
 
 mkdir -p %kernel_build_dir
 
-cd linux-%version
+cd linux-%realversion
 
-if [ -r %_sourcedir/series-%{version}-%{build_flavor}.conf ]; then
-    %_sourcedir/apply-patches %_sourcedir/series-%{version}-%{build_flavor}.conf %_sourcedir $SYMBOLS
+if [ -r %_sourcedir/series-%{realversion}-%{build_flavor}.conf ]; then
+    %_sourcedir/apply-patches %_sourcedir/series-%{realversion}-%{build_flavor}.conf %_sourcedir $SYMBOLS
 else
     %_sourcedir/apply-patches %_sourcedir/series-%{build_flavor}.conf %_sourcedir $SYMBOLS
 fi
 
 cd %kernel_build_dir
 
-if [ -f %_sourcedir/config-%{version}-%{build_flavor} ]; then
-    cp %_sourcedir/config-%{version}-%{build_flavor} .config
+if [ -f %_sourcedir/config-%{realversion}-%{build_flavor} ]; then
+    cp %_sourcedir/config-%{realversion}-%{build_flavor} .config
 else
     cp %_sourcedir/config-%{build_flavor} .config
 fi
@@ -396,7 +397,7 @@ fi
 
 %package qubes-vm
 Summary:        The Xen Kernel
-Version:        %{version}
+Version:        %{rpm_version}
 Release:        %{rel}
 License:        GPL v2 only
 Group:          System/Kernel
@@ -415,7 +416,7 @@ Conflicts:      sysfsutils < 2.0
 # root-lvm only works with newer udevs
 Conflicts:      udev < 118
 Conflicts:      lvm2 < 2.02.33
-Provides:       kernel-qubes-vm = %version-%kernelrelease
+Provides:       kernel-qubes-vm = %rpm_version-%kernelrelease
 
 %description qubes-vm
 Qubes domU kernel.
@@ -433,7 +434,7 @@ umount /tmp/qubes-modules-%kernelrelease
 rmdir /tmp/qubes-modules-%kernelrelease
 mv /tmp/qubes-modules-%kernelrelease.img %vm_install_dir/modules.img
 
-qubes-prefs --set default-kernel %version
+qubes-prefs --set default-kernel %realversion
 
 %files qubes-vm
 %defattr(-, root, root)
