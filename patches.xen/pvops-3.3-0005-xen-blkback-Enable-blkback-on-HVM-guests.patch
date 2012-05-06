@@ -1,0 +1,27 @@
+From 6720a356e7a09ba7ff85bfe52cab6dd0051e7968 Mon Sep 17 00:00:00 2001
+From: Daniel De Graaf <dgdegra@tycho.nsa.gov>
+Date: Mon, 28 Nov 2011 11:49:05 -0500
+Subject: [PATCH 05/27] xen/blkback: Enable blkback on HVM guests
+
+Signed-off-by: Daniel De Graaf <dgdegra@tycho.nsa.gov>
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/block/xen-blkback/blkback.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/drivers/block/xen-blkback/blkback.c b/drivers/block/xen-blkback/blkback.c
+index 1e256dc..fbffdf0 100644
+--- a/drivers/block/xen-blkback/blkback.c
++++ b/drivers/block/xen-blkback/blkback.c
+@@ -823,7 +823,7 @@ static int __init xen_blkif_init(void)
+ 	int i, mmap_pages;
+ 	int rc = 0;
+ 
+-	if (!xen_pv_domain())
++	if (!xen_domain())
+ 		return -ENODEV;
+ 
+ 	blkbk = kzalloc(sizeof(struct xen_blkbk), GFP_KERNEL);
+-- 
+1.7.4.4
+

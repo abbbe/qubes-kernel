@@ -1,0 +1,53 @@
+From b742e79502e52b8b8ada82301e0b75012f5a33ba Mon Sep 17 00:00:00 2001
+From: Akinobu Mita <akinobu.mita@gmail.com>
+Date: Sat, 21 Jan 2012 00:15:26 +0900
+Subject: [PATCH 07/27] xen-blkfront: use bitmap_set() and bitmap_clear()
+
+Use bitmap_set and bitmap_clear rather than modifying individual bits
+in a memory region.
+
+Signed-off-by: Akinobu Mita <akinobu.mita@gmail.com>
+Cc: Jeremy Fitzhardinge <jeremy.fitzhardinge@citrix.com>
+Cc: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+Cc: xen-devel@lists.xensource.com
+Cc: virtualization@lists.linux-foundation.org
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/block/xen-blkfront.c |    7 +++----
+ 1 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
+index 9fd3ee2..cae10b6 100644
+--- a/drivers/block/xen-blkfront.c
++++ b/drivers/block/xen-blkfront.c
+@@ -43,6 +43,7 @@
+ #include <linux/slab.h>
+ #include <linux/mutex.h>
+ #include <linux/scatterlist.h>
++#include <linux/bitmap.h>
+ 
+ #include <xen/xen.h>
+ #include <xen/xenbus.h>
+@@ -176,8 +177,7 @@ static int xlbd_reserve_minors(unsigned int minor, unsigned int nr)
+ 
+ 	spin_lock(&minor_lock);
+ 	if (find_next_bit(minors, end, minor) >= end) {
+-		for (; minor < end; ++minor)
+-			__set_bit(minor, minors);
++		bitmap_set(minors, minor, nr);
+ 		rc = 0;
+ 	} else
+ 		rc = -EBUSY;
+@@ -192,8 +192,7 @@ static void xlbd_release_minors(unsigned int minor, unsigned int nr)
+ 
+ 	BUG_ON(end > nr_minors);
+ 	spin_lock(&minor_lock);
+-	for (; minor < end; ++minor)
+-		__clear_bit(minor, minors);
++	bitmap_clear(minors,  minor, nr);
+ 	spin_unlock(&minor_lock);
+ }
+ 
+-- 
+1.7.4.4
+

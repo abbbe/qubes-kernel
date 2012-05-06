@@ -1,0 +1,113 @@
+From 2bcb08bfac638de5c40ed1379ff49721817b7d9e Mon Sep 17 00:00:00 2001
+From: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+Date: Wed, 14 Mar 2012 13:04:00 -0400
+Subject: [PATCH 24/27] xen/blkback: Make optional features be really
+ optional.
+
+They were using the xenbus_dev_fatal() function which would
+change the state of the connection immediately. Which is not
+what we want when we advertise optional features.
+
+So make 'feature-discard','feature-barrier','feature-flush-cache'
+optional.
+
+Suggested-by: Jan Beulich <JBeulich@suse.com>
+[v1: Made the discard function void and static]
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/block/xen-blkback/xenbus.c |   35 ++++++++++++++---------------------
+ 1 files changed, 14 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/block/xen-blkback/xenbus.c b/drivers/block/xen-blkback/xenbus.c
+index d417c13..89860f3 100644
+--- a/drivers/block/xen-blkback/xenbus.c
++++ b/drivers/block/xen-blkback/xenbus.c
+@@ -381,12 +381,12 @@ int xen_blkbk_flush_diskcache(struct xenbus_transaction xbt,
+ 	err = xenbus_printf(xbt, dev->nodename, "feature-flush-cache",
+ 			    "%d", state);
+ 	if (err)
+-		xenbus_dev_fatal(dev, err, "writing feature-flush-cache");
++		dev_warn(&dev->dev, "writing feature-flush-cache (%d)", err);
+ 
+ 	return err;
+ }
+ 
+-int xen_blkbk_discard(struct xenbus_transaction xbt, struct backend_info *be)
++static void xen_blkbk_discard(struct xenbus_transaction xbt, struct backend_info *be)
+ {
+ 	struct xenbus_device *dev = be->dev;
+ 	struct xen_blkif *blkif = be->blkif;
+@@ -400,17 +400,15 @@ int xen_blkbk_discard(struct xenbus_transaction xbt, struct backend_info *be)
+ 			"discard-granularity", "%u",
+ 			q->limits.discard_granularity);
+ 		if (err) {
+-			xenbus_dev_fatal(dev, err,
+-				"writing discard-granularity");
+-			goto out;
++			dev_warn(&dev->dev, "writing discard-granularity (%d)", err);
++			return;
+ 		}
+ 		err = xenbus_printf(xbt, dev->nodename,
+ 			"discard-alignment", "%u",
+ 			q->limits.discard_alignment);
+ 		if (err) {
+-			xenbus_dev_fatal(dev, err,
+-				"writing discard-alignment");
+-			goto out;
++			dev_warn(&dev->dev, "writing discard-alignment (%d)", err);
++			return;
+ 		}
+ 		state = 1;
+ 		/* Optional. */
+@@ -418,17 +416,14 @@ int xen_blkbk_discard(struct xenbus_transaction xbt, struct backend_info *be)
+ 				    "discard-secure", "%d",
+ 				    blkif->vbd.discard_secure);
+ 		if (err) {
+-			xenbus_dev_fatal(dev, err,
+-					"writting discard-secure");
+-			goto out;
++			dev_warn(dev-dev, "writing discard-secure (%d)", err);
++			return;
+ 		}
+ 	}
+ 	err = xenbus_printf(xbt, dev->nodename, "feature-discard",
+ 			    "%d", state);
+ 	if (err)
+-		xenbus_dev_fatal(dev, err, "writing feature-discard");
+-out:
+-	return err;
++		dev_warn(&dev->dev, "writing feature-discard (%d)", err);
+ }
+ int xen_blkbk_barrier(struct xenbus_transaction xbt,
+ 		      struct backend_info *be, int state)
+@@ -439,7 +434,7 @@ int xen_blkbk_barrier(struct xenbus_transaction xbt,
+ 	err = xenbus_printf(xbt, dev->nodename, "feature-barrier",
+ 			    "%d", state);
+ 	if (err)
+-		xenbus_dev_fatal(dev, err, "writing feature-barrier");
++		dev_warn(&dev->dev, "writing feature-barrier (%d)", err);
+ 
+ 	return err;
+ }
+@@ -671,14 +666,12 @@ again:
+ 		return;
+ 	}
+ 
+-	err = xen_blkbk_flush_diskcache(xbt, be, be->blkif->vbd.flush_support);
+-	if (err)
+-		goto abort;
++	/* If we can't advertise it is OK. */
++	xen_blkbk_flush_diskcache(xbt, be, be->blkif->vbd.flush_support);
+ 
+-	err = xen_blkbk_discard(xbt, be);
++	xen_blkbk_discard(xbt, be);
+ 
+-	/* If we can't advertise it is OK. */
+-	err = xen_blkbk_barrier(xbt, be, be->blkif->vbd.flush_support);
++	xen_blkbk_barrier(xbt, be, be->blkif->vbd.flush_support);
+ 
+ 	err = xenbus_printf(xbt, dev->nodename, "sectors", "%llu",
+ 			    (unsigned long long)vbd_sz(&be->blkif->vbd));
+-- 
+1.7.4.4
+

@@ -1,0 +1,40 @@
+From 42c46e6ba5461fcab289bf4a1b7160f94c10aa28 Mon Sep 17 00:00:00 2001
+From: Stefano Stabellini <stefano.stabellini@eu.citrix.com>
+Date: Tue, 13 Mar 2012 18:30:44 +0000
+Subject: [PATCH 19/27] xen/xenbus: ignore console/0
+
+Unfortunately xend creates a bogus console/0 frotend/backend entry pair
+on xenstore that console backends cannot properly cope with.
+Any guest behavior that is not completely ignoring console/0 is going
+to either cause problems with xenconsoled or qemu.
+Returning 0 or -ENODEV from xencons_probe is not enough because it is
+going to cause the frontend state to become 4 or 6 respectively.
+The best possible thing we can do here is just ignore the entry from
+xenbus_probe_frontend.
+
+Signed-off-by: Stefano Stabellini <stefano.stabellini@eu.citrix.com>
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/xen/xenbus/xenbus_probe_frontend.c |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+diff --git a/drivers/xen/xenbus/xenbus_probe_frontend.c b/drivers/xen/xenbus/xenbus_probe_frontend.c
+index 9c57819..f20c5f1 100644
+--- a/drivers/xen/xenbus/xenbus_probe_frontend.c
++++ b/drivers/xen/xenbus/xenbus_probe_frontend.c
+@@ -53,6 +53,12 @@ static int xenbus_probe_frontend(struct xen_bus_type *bus, const char *type,
+ 	char *nodename;
+ 	int err;
+ 
++	/* ignore console/0 */
++	if (!strncmp(type, "console", 7) && !strncmp(name, "0", 1)) {
++		DPRINTK("Ignoring buggy device entry console/0");
++		return 0;
++	}
++
+ 	nodename = kasprintf(GFP_KERNEL, "%s/%s/%s", bus->root, type, name);
+ 	if (!nodename)
+ 		return -ENOMEM;
+-- 
+1.7.4.4
+

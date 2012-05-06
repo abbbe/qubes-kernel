@@ -1,0 +1,38 @@
+From bd0d5aa417d40d6b996fb7b5c926bcecd56c8984 Mon Sep 17 00:00:00 2001
+From: Jan Beulich <JBeulich@suse.com>
+Date: Mon, 5 Mar 2012 17:11:31 +0000
+Subject: [PATCH 15/27] xenbus: don't free other end details too early
+
+The individual drivers' remove functions could legitimately attempt to
+access this information (for logging messages if nothing else). Note
+that I did not in fact observe a problem anywhere, but I came across
+this while looking into the reasons for what turned out to need the
+fix at https://lkml.org/lkml/2012/3/5/336 to vsprintf().
+
+Signed-off-by: Jan Beulich <jbeulich@suse.com>
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/xen/xenbus/xenbus_probe.c |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/drivers/xen/xenbus/xenbus_probe.c b/drivers/xen/xenbus/xenbus_probe.c
+index 3864967..b793723 100644
+--- a/drivers/xen/xenbus/xenbus_probe.c
++++ b/drivers/xen/xenbus/xenbus_probe.c
+@@ -257,11 +257,12 @@ int xenbus_dev_remove(struct device *_dev)
+ 	DPRINTK("%s", dev->nodename);
+ 
+ 	free_otherend_watch(dev);
+-	free_otherend_details(dev);
+ 
+ 	if (drv->remove)
+ 		drv->remove(dev);
+ 
++	free_otherend_details(dev);
++
+ 	xenbus_switch_state(dev, XenbusStateClosed);
+ 	return 0;
+ }
+-- 
+1.7.4.4
+

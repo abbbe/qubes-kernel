@@ -1,0 +1,48 @@
+From 5ac0800143181a0fdae6a7c1b2fa0fa942c1cd06 Mon Sep 17 00:00:00 2001
+From: Jan Beulich <JBeulich@suse.com>
+Date: Fri, 24 Feb 2012 11:46:32 +0000
+Subject: [PATCH 10/27] xenbus: address compiler warnings
+
+- casting pointers to integer types of different size is being warned on
+- an uninitialized variable warning occurred on certain gcc versions
+
+Signed-off-by: Jan Beulich <jbeulich@suse.com>
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/xen/xenbus/xenbus_client.c |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/xen/xenbus/xenbus_client.c b/drivers/xen/xenbus/xenbus_client.c
+index 566d2ad..b3e146e 100644
+--- a/drivers/xen/xenbus/xenbus_client.c
++++ b/drivers/xen/xenbus/xenbus_client.c
+@@ -569,7 +569,7 @@ int xenbus_map_ring(struct xenbus_device *dev, int gnt_ref,
+ {
+ 	struct gnttab_map_grant_ref op;
+ 
+-	gnttab_set_map_op(&op, (phys_addr_t)vaddr, GNTMAP_host_map, gnt_ref,
++	gnttab_set_map_op(&op, (unsigned long)vaddr, GNTMAP_host_map, gnt_ref,
+ 			  dev->otherend_id);
+ 
+ 	if (HYPERVISOR_grant_table_op(GNTTABOP_map_grant_ref, &op, 1))
+@@ -662,7 +662,7 @@ static int xenbus_unmap_ring_vfree_hvm(struct xenbus_device *dev, void *vaddr)
+ 			goto found;
+ 		}
+ 	}
+-	node = NULL;
++	node = addr = NULL;
+  found:
+ 	spin_unlock(&xenbus_valloc_lock);
+ 
+@@ -698,7 +698,7 @@ int xenbus_unmap_ring(struct xenbus_device *dev,
+ {
+ 	struct gnttab_unmap_grant_ref op;
+ 
+-	gnttab_set_unmap_op(&op, (phys_addr_t)vaddr, GNTMAP_host_map, handle);
++	gnttab_set_unmap_op(&op, (unsigned long)vaddr, GNTMAP_host_map, handle);
+ 
+ 	if (HYPERVISOR_grant_table_op(GNTTABOP_unmap_grant_ref, &op, 1))
+ 		BUG();
+-- 
+1.7.4.4
+

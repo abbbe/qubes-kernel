@@ -1,0 +1,77 @@
+From ead1d01425bbd28c4354b539caa4075bde00ed72 Mon Sep 17 00:00:00 2001
+From: Jan Beulich <JBeulich@suse.com>
+Date: Wed, 14 Mar 2012 12:34:19 -0400
+Subject: [PATCH 20/27] xen: constify all instances of "struct
+ attribute_group"
+
+The functions these get passed to have been taking pointers to const
+since at least 2.6.16.
+
+Signed-off-by: Jan Beulich <jbeulich@suse.com>
+Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+---
+ drivers/xen/sys-hypervisor.c  |    6 +++---
+ drivers/xen/xen-balloon.c     |    2 +-
+ drivers/xen/xen-selfballoon.c |    2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/xen/sys-hypervisor.c b/drivers/xen/sys-hypervisor.c
+index 1e0fe01..fdb6d22 100644
+--- a/drivers/xen/sys-hypervisor.c
++++ b/drivers/xen/sys-hypervisor.c
+@@ -97,7 +97,7 @@ static struct attribute *version_attrs[] = {
+ 	NULL
+ };
+ 
+-static struct attribute_group version_group = {
++static const struct attribute_group version_group = {
+ 	.name = "version",
+ 	.attrs = version_attrs,
+ };
+@@ -210,7 +210,7 @@ static struct attribute *xen_compile_attrs[] = {
+ 	NULL
+ };
+ 
+-static struct attribute_group xen_compilation_group = {
++static const struct attribute_group xen_compilation_group = {
+ 	.name = "compilation",
+ 	.attrs = xen_compile_attrs,
+ };
+@@ -340,7 +340,7 @@ static struct attribute *xen_properties_attrs[] = {
+ 	NULL
+ };
+ 
+-static struct attribute_group xen_properties_group = {
++static const struct attribute_group xen_properties_group = {
+ 	.name = "properties",
+ 	.attrs = xen_properties_attrs,
+ };
+diff --git a/drivers/xen/xen-balloon.c b/drivers/xen/xen-balloon.c
+index 3832e30..3f7922e 100644
+--- a/drivers/xen/xen-balloon.c
++++ b/drivers/xen/xen-balloon.c
+@@ -207,7 +207,7 @@ static struct attribute *balloon_info_attrs[] = {
+ 	NULL
+ };
+ 
+-static struct attribute_group balloon_info_group = {
++static const struct attribute_group balloon_info_group = {
+ 	.name = "info",
+ 	.attrs = balloon_info_attrs
+ };
+diff --git a/drivers/xen/xen-selfballoon.c b/drivers/xen/xen-selfballoon.c
+index 767ff65..146c948 100644
+--- a/drivers/xen/xen-selfballoon.c
++++ b/drivers/xen/xen-selfballoon.c
+@@ -488,7 +488,7 @@ static struct attribute *selfballoon_attrs[] = {
+ 	NULL
+ };
+ 
+-static struct attribute_group selfballoon_group = {
++static const struct attribute_group selfballoon_group = {
+ 	.name = "selfballoon",
+ 	.attrs = selfballoon_attrs
+ };
+-- 
+1.7.4.4
+
