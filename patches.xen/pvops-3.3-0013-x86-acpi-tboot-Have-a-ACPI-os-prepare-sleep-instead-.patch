@@ -138,9 +138,9 @@ diff --git a/include/linux/acpi.h b/include/linux/acpi.h
 index 6001b4da..fccd017 100644
 --- a/include/linux/acpi.h
 +++ b/include/linux/acpi.h
-@@ -359,4 +359,14 @@ static inline int suspend_nvs_register(unsigned long a, unsigned long b)
- }
- #endif
+@@ -371,4 +371,14 @@
+ 
+ #endif	/* !CONFIG_ACPI */
  
 +#ifdef CONFIG_ACPI
 +void acpi_os_set_prepare_sleep(int (*func)(u8 sleep_state,

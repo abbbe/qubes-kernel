@@ -52,15 +52,15 @@ diff --git a/drivers/xen/Makefile b/drivers/xen/Makefile
 index 974fffd..0435996 100644
 --- a/drivers/xen/Makefile
 +++ b/drivers/xen/Makefile
-@@ -17,7 +17,7 @@ obj-$(CONFIG_XEN_SYS_HYPERVISOR)	+= sys-hypervisor.o
+@@ -17,7 +17,7 @@
  obj-$(CONFIG_XEN_PVHVM)			+= platform-pci.o
  obj-$(CONFIG_XEN_TMEM)			+= tmem.o
  obj-$(CONFIG_SWIOTLB_XEN)		+= swiotlb-xen.o
 -obj-$(CONFIG_XEN_DOM0)			+= pci.o
 +obj-$(CONFIG_XEN_DOM0)			+= pci.o acpi.o
  obj-$(CONFIG_XEN_PCIDEV_BACKEND)	+= xen-pciback/
- 
- xen-evtchn-y				:= evtchn.o
+ obj-$(CONFIG_XEN_PRIVCMD)		+= xen-privcmd.o
+ obj-$(CONFIG_XEN_ACPI_PROCESSOR)	+= xen-acpi-processor.o
 diff --git a/drivers/xen/acpi.c b/drivers/xen/acpi.c
 new file mode 100644
 index 0000000..119d42a
