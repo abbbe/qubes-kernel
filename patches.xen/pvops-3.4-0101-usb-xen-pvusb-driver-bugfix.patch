@@ -1,0 +1,13 @@
+Index: linux-3.4.12/drivers/usb/host/xen-usbfront.c
+===================================================================
+--- linux-3.4.12.orig/drivers/usb/host/xen-usbfront.c
++++ linux-3.4.12/drivers/usb/host/xen-usbfront.c
+@@ -1419,7 +1419,7 @@ static int setup_rings(struct xenbus_dev
+ 					get_zeroed_page(GFP_NOIO|__GFP_HIGH);
+ 	if (!conn_sring) {
+ 		xenbus_dev_fatal(dev, -ENOMEM, "allocating conn ring");
+-		return -ENOMEM;
++		return -ENOMEM; // FIXME: should go to fail?
+ 	}
+ 	SHARED_RING_INIT(conn_sring);
+ 	FRONT_RING_INIT(&info->conn_ring, conn_sring, PAGE_SIZE);
