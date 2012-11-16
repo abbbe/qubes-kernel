@@ -1,0 +1,13 @@
+Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
+===================================================================
+--- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
+@@ -267,7 +267,7 @@ static void usbbk_free_urb(struct urb *u
+ 		usb_free_coherent(urb->dev, urb->transfer_buffer_length,
+ 				urb->transfer_buffer, urb->transfer_dma);
+ 	barrier();
+-	usb_free_urb(urb);
++	/// usb_free_urb(urb);
+ }
+ 
+ static void usbbk_free_urbs(void)
