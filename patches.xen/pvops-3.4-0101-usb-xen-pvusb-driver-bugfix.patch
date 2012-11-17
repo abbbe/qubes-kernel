@@ -6,14 +6,14 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  static void usbif_notify_work(struct xen_usbif *usbif)
  {
-+	printk("wake up usbif->wq=%pR", &usbif->wq);
++	printk("wake up usbif->wq=%pR\n", &usbif->wq);
  	usbif->waiting_reqs = 1;
  	wake_up(&usbif->wq);
  }
  
  irqreturn_t xen_usbif_be_int(int irq, void *dev_id)
  {
-+	printk("xen_usbif_be_int() called with dev_id=%pR", dev_id);
++	printk("xen_usbif_be_int() called with dev_id=%pR\n", dev_id);
  	usbif_notify_work(dev_id);
  	return IRQ_HANDLED;
  }
@@ -22,10 +22,10 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  	spin_unlock_irqrestore(&usbif->urb_ring_lock, flags);
  
 -	if (notify)
-+	printk("usbbk_do_response(): pushed response=%pR", res);
++	printk("usbbk_do_response(): pushed response=%pR\n", res);
 +
 +	if (notify) {
-+		printk("usbbk_do_response(): notify remote via IRQ");
++		printk("usbbk_do_response(): notify remote via IRQ\n");
  		notify_remote_via_irq(usbif->irq);
 +	}
  }
@@ -36,10 +36,10 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  	spin_unlock_irqrestore(&usbif->conn_ring_lock, flags);
  
 -	if (notify)
-+	printk("xen_usbif_hotplug_notify(usbif=%pR): pushed response=%pR", usbif, res);
++	printk("xen_usbif_hotplug_notify(usbif=%pR): pushed response=%pR\n", usbif, res);
 +
 +	if (notify) {
-+		printk("xen_usbif_hotplug_notify(usbif=%pR): notify remote via IRQ", usbif);
++		printk("xen_usbif_hotplug_notify(usbif=%pR): notify remote via IRQ\n", usbif);
  		notify_remote_via_irq(usbif->irq);
 +	}
  }
@@ -49,10 +49,10 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  	usbif_get(usbif);
  
  	while (!kthread_should_stop()) {
-+		printk("xen_usbif_schedule(%pR): waiting for wq %pR", arg, &usbif->wq);
++		printk("xen_usbif_schedule(%pR): waiting for wq %pR\n", arg, &usbif->wq);
  		wait_event_interruptible(usbif->wq,
  				usbif->waiting_reqs || kthread_should_stop());
-+		printk("xen_usbif_schedule(%pR): waiting for pending_free_wq %pR", arg, &usbbk->pending_free_wq);
++		printk("xen_usbif_schedule(%pR): waiting for pending_free_wq %pR\n", arg, &usbbk->pending_free_wq);
 +		// XXX wierd
  		wait_event_interruptible(usbbk->pending_free_wq,
  		    !list_empty(&usbbk->pending_free) || kthread_should_stop());
@@ -65,7 +65,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  	spin_unlock_irqrestore(&usbbk->pending_free_lock, flags);
 -	if (was_empty)
 +	if (was_empty) {
-+		printk("wake up usbbk->pending_free_wq=%pR", &usbbk->pending_free_wq);
++		printk("wake up usbbk->pending_free_wq=%pR\n", &usbbk->pending_free_wq);
  		wake_up(&usbbk->pending_free_wq);
 +	}
  }
@@ -77,24 +77,24 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  	rp = urb_ring->sring->req_prod;
  	rmb();
  
-+	printk("usbbk_start_submit_urb(usbif=%pR) start", usbif);
++	printk("usbbk_start_submit_urb(usbif=%pR) start\n", usbif);
 +
  	while (rc != rp) {
  		if (RING_REQUEST_CONS_OVERFLOW(urb_ring, rc)) {
-+			printk("usbbk_start_submit_urb(%pR): RING_REQUEST_CONS_OVERFLOW", usbif);
++			printk("usbbk_start_submit_urb(%pR): RING_REQUEST_CONS_OVERFLOW\n", usbif);
  			pr_warn(DRV_PFX "RING_REQUEST_CONS_OVERFLOW\n");
  			break;
  		}
  
  		pending_req = alloc_req();
  		if (NULL == pending_req) {
-+			printk("usbbk_start_submit_urb(%pR): alloc_req() failed", usbif);
++			printk("usbbk_start_submit_urb(%pR): alloc_req() failed\n", usbif);
  			more_to_do = 1;
  			break;
  		}
  
  		req = RING_GET_REQUEST(urb_ring, rc);
-+		printk("usbbk_start_submit_urb(%pR): got request=%pR", usbif, req);
++		printk("usbbk_start_submit_urb(%pR): got request=%pR\n", usbif, req);
  		urb_ring->req_cons = ++rc;
  
  		dispatch_request_to_pending_reqs(usbif, req, pending_req);
