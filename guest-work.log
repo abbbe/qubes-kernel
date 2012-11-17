@@ -1,0 +1,1510 @@
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.2.7-10.pvops.qubes.x86_64 (user@qubes) (gcc version 4.4.5 20101112 (Red Hat 4.4.5-2) (GCC) ) #1 SMP Thu Aug 23 06:57:17 EDT 2012
+[    0.000000] Command line: root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH 3 
+[    0.000000] ACPI in unprivileged domain disabled
+[    0.000000] Released 0 pages of unused memory
+[    0.000000] Set 0 page(s) to 1-1 mapping
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  Xen: 0000000000000000 - 00000000000a0000 (usable)
+[    0.000000]  Xen: 00000000000a0000 - 0000000000100000 (reserved)
+[    0.000000]  Xen: 0000000000100000 - 00000000fe600000 (usable)
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] DMI not present or invalid.
+[    0.000000] No AGP bridge found
+[    0.000000] last_pfn = 0xfe600 max_arch_pfn = 0x400000000
+[    0.000000] init_memory_mapping: 0000000000000000-00000000fe600000
+[    0.000000] RAMDISK: 01b22000 - 02e42000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000010 -> 0x00001000
+[    0.000000]   DMA32    0x00001000 -> 0x00100000
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0: 0x00000010 -> 0x000000a0
+[    0.000000]     0: 0x00000100 -> 0x000fe600
+[    0.000000] SFI: Simple Firmware Interface v0.81 http://simplefirmware.org
+[    0.000000] SMP: Allowing 8 CPUs, 0 hotplug CPUs
+[    0.000000] No local APIC present
+[    0.000000] APIC: disable apic facility
+[    0.000000] APIC: switched to apic NOOP
+[    0.000000] Allocating PCI resources starting at fe600000 (gap: fe600000:1a00000)
+[    0.000000] Booting paravirtualized kernel on Xen
+[    0.000000] Xen version: 4.1.2 (preserve-AD)
+[    0.000000] setup_percpu: NR_CPUS:512 nr_cpumask_bits:512 nr_cpu_ids:8 nr_node_ids:1
+[    0.000000] PERCPU: Embedded 27 pages/cpu @ffff880018ef0000 s81344 r8192 d21056 u110592
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 1025548
+[    0.000000] Kernel command line: root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH 3 
+[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes)
+[    0.000000] Checking aperture...
+[    0.000000] No AGP bridge found
+[    0.000000] Memory: 305632k/4167680k available (4435k kernel code, 448k absent, 3861600k reserved, 4190k data, 548k init)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU dyntick-idle grace-period acceleration is enabled.
+[    0.000000] NR_IRQS:33024 nr_irqs:336 16
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] console [hvc0] enabled
+[    0.000000] allocated 33554432 bytes of page_cgroup
+[    0.000000] please try 'cgroup_disable=memory' option if you don't want memory cgroups
+[    0.000000] installing Xen timer for CPU 0
+[    0.000000] Detected 1729.054 MHz processor.
+[    0.004000] Calibrating delay loop (skipped), value calculated using timer frequency.. 3458.10 BogoMIPS (lpj=6916216)
+[    0.004000] pid_max: default: 32768 minimum: 301
+[    0.004000] Mount-cache hash table entries: 256
+[    0.004000] Initializing cgroup subsys cpuacct
+[    0.004000] Initializing cgroup subsys memory
+[    0.004000] Initializing cgroup subsys devices
+[    0.004000] Initializing cgroup subsys freezer
+[    0.004000] Initializing cgroup subsys net_cls
+[    0.004000] Initializing cgroup subsys blkio
+[    0.004000] CPU: Physical Processor ID: 0
+[    0.004000] CPU: Processor Core ID: 0
+[    0.004000] SMP alternatives: switching to UP code
+[    0.004159] Performance Events: unsupported p6 CPU model 30 no PMU driver, software events only.
+[    0.004443] installing Xen timer for CPU 1
+[    0.004478] SMP alternatives: switching to SMP code
+[    0.008598] installing Xen timer for CPU 2
+[    0.009258] installing Xen timer for CPU 3
+[    0.009964] installing Xen timer for CPU 4
+[    0.010468] installing Xen timer for CPU 5
+[    0.011048] installing Xen timer for CPU 6
+[    0.011721] installing Xen timer for CPU 7
+[    0.012000] Brought up 8 CPUs
+[    0.012386] devtmpfs: initialized
+[    0.022667] Grant table initialized
+[    0.022667] print_constraints: dummy: 
+[    0.043031] RTC time: 165:165:165, date: 165/165/65
+[    0.043315] NET: Registered protocol family 16
+[    0.045324] PCI: setting up Xen PCI frontend stub
+[    0.048581] bio: create slab <bio-0> at 0
+[    0.048857] ACPI: Interpreter disabled.
+[    0.048857] xen/balloon: Initialising balloon driver.
+[    0.072308] xen-balloon: Initialising balloon driver.
+[    0.072856] vgaarb: loaded
+[    0.072856] PCI: System does not support PCI
+[    0.072856] PCI: System does not support PCI
+[    0.072856] Switching to clocksource xen
+[    0.074630] pnp: PnP ACPI: disabled
+[    0.078937] NET: Registered protocol family 2
+[    0.079567] IP route cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.080542] TCP established hash table entries: 131072 (order: 9, 2097152 bytes)
+[    0.081358] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+[    0.082065] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.082089] TCP reno registered
+[    0.082109] UDP hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.082218] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.082489] NET: Registered protocol family 1
+[    0.082557] Unpacking initramfs...
+[    0.130596] Freeing initrd memory: 19584k freed
+[    0.139551] platform rtc_cmos: registered platform RTC device (no PNP device found)
+[    0.142890] audit: initializing netlink socket (disabled)
+[    0.142933] type=2000 audit(1352492112.615:1): initialized
+[    0.174355] VFS: Disk quotas dquot_6.5.2
+[    0.174528] Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.174957] msgmni has been set to 635
+[    0.175213] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.175225] io scheduler noop registered
+[    0.175230] io scheduler deadline registered
+[    0.175291] io scheduler cfq registered (default)
+[    0.178507] Event-channel device installed.
+[    0.179242] Non-volatile memory driver v1.3
+[    0.179264] ramoops: platform device not found, using module parameters
+[    0.179294] ramoops: The memory size and the record size must be non-zero
+[    0.179303] ramoops: probe of ramoops failed with error -22
+[    0.179876] pcifront pci-0: Installing PCI frontend
+[    0.180053] pcifront pci-0: Creating PCI Frontend Bus 0000:00
+[    0.180840] loop: module loaded
+[    0.180927] Fixed MDIO Bus: probed
+[    0.180987] i8042: PNP: No PS/2 controller found. Probing ports directly.
+[    0.181823] i8042: No controller found
+[    0.181994] mousedev: PS/2 mouse device common for all mice
+[    0.222054] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    0.222201] rtc_cmos: probe of rtc_cmos failed with error -38
+[    0.222481] device-mapper: uevent: version 1.0.3
+[    0.222619] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+[    0.222850] TCP cubic registered
+[    0.223012] NET: Registered protocol family 10
+[    0.223684] Registering the dns_resolver key type
+[    0.223897] registered taskstats version 1
+[    0.223935] XENBUS: Device with no driver: device/vbd/51712
+[    0.223941] XENBUS: Device with no driver: device/vbd/51728
+[    0.223946] XENBUS: Device with no driver: device/vbd/51744
+[    0.223954] XENBUS: Device with no driver: device/vbd/51760
+[    0.223963] XENBUS: Device with no driver: device/vif/0
+[    0.223979]   Magic number: 1:252:3141
+[    0.224009] /home/user/qubes-src/kernel/kernel-3.2.7/linux-3.2.7/drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    0.224456] Freeing unused kernel memory: 548k freed
+[    0.224586] Write protecting the kernel read-only data: 8192k
+[    0.229826] Freeing unused kernel memory: 1688k freed
+[    0.230434] Freeing unused kernel memory: 100k freed
+[    0.286789] dracut: dracut-005-5.fc13
+Qubes initramfs script here:
+[    0.377587] blkfront: xvda: flush diskcache: enabled
+[    0.382233]  xvda: unknown partition table
+[    0.390154] blkfront: xvdb: flush diskcache: enabled
+[    0.393242]  xvdb: unknown partition table
+[    0.398757] Setting capacity to 4194304
+[    0.398768] xvdb: detected capacity change from 0 to 2147483648
+[    0.399547] blkfront: xvdc: flush diskcache: enabled
+[    0.400570]  xvdc: xvdc1 xvdc2
+[    0.401115] Setting capacity to 23068672
+[    0.401129] xvdc: detected capacity change from 0 to 11811160064
+[    0.711248] blkfront: xvdd: barrier or flush: disabled
+[    0.713725]  xvdd: unknown partition table
+Waiting for /dev/xvda* devices...
+Qubes: Doing COW setup for AppVM...
+Qubes: done.
+[    0.829981] udev: starting version 153
+[    0.830220] udevd (97): /proc/97/oom_adj is deprecated, please use /proc/97/oom_score_adj instead.
+[    0.831237] dracut: rd_NO_MDIMSM: no MD RAID for imsm/isw raids
+[    3.991056] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+[    4.037700] dracut: Remounting /dev/mapper/dmroot with -o noatime,ro
+[    4.046170] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+[    4.051283] dracut: Mounted root filesystem /dev/mapper/dmroot
+Waiting for /dev/xvdd device...
+mount: block device /dev/xvdd is write-protected, mounting read-only
+[    4.085438] kjournald starting.  Commit interval 5 seconds
+[    4.085488] EXT3-fs (xvdd): mounted filesystem with ordered data mode
+[    4.097542] dracut: Loading SELinux policy
+[    4.140258] dracut: Mount failed for selinuxfs on /sys/fs/selinux: No such file or directory /sbin/load_policy: Can't load policy: No such file or directory
+[    4.412680] dracut: Switching root
+[    4.638092] systemd[1]: systemd 44 running in system mode. (+PAM +LIBWRAP +AUDIT +SELINUX +IMA +SYSVINIT +LIBCRYPTSETUP; fedora)
+
+Welcome to [0;34mFedora 17 (Beefy Miracle)[0m!
+
+[    4.659846] systemd[1]: Inserted module 'autofs4'
+[    4.662607] systemd[1]: No hostname configured.
+[    4.662638] systemd[1]: Set hostname to <localhost>.
+[    4.667595] systemd[1]: Initializing machine ID from random generator.
+[    4.667812] systemd[1]: Installed transient /etc/machine-id file.
+         Expecting device dev-hvc0.device...
+[[1;32m  OK  [0m] Listening on Syslog Socket.
+[[1;32m  OK  [0m] Reached target Remote File Systems.
+         Starting Collect Read-Ahead Data...
+[[1;32m  OK  [0m] Listening on Delayed Shutdown Socket.
+[[1;32m  OK  [0m] Listening on udev Control Socket.
+[[1;32m  OK  [0m] Listening on udev Kernel Socket.
+[[1;32m  OK  [0m] Listening on /dev/initctl Compatibility Named Pipe.
+[[1;32m  OK  [0m] Listening on Device-mapper event daemon FIFOs.
+[[1;32m  OK  [0m] Set up automount Arbitrary Executable File Formats F...utomount Point.
+[[1;32m  OK  [0m] Reached target Encrypted Volumes.
+         Expecting device dev-xvdc1.device...
+[[1;32m  OK  [0m] Listening on Journal Socket.
+[[1;32m  OK  [0m] Reached target Syslog.
+         Starting udev Coldplug all Devices...
+         Starting Configure read-only root support...
+         Mounting Media Directory...
+         Starting Journal Service...
+[[1;32m  OK  [0m] Started Journal Service.
+         Mounting POSIX Message Queue File System...
+[    5.499288] systemd-journald[220]: Fixed max_use=15.9M max_size=2.0M min_size=64.0K keep_free=8.0M
+[    5.500964] systemd-journald[220]: Vacuuming...
+         Mounting Debug File System...
+         Starting udev Kernel Device Manager...
+[[1;32m  OK  [0m] Started Collect Read-Ahead Data.
+[    5.919284] udevd[226]: starting version 182
+[    5.995162] udevd[226]: converting old udev database
+[[1;32m  OK  [0m] Started udev Kernel Device Manager.
+[    6.075912] Initialising Xen virtual ethernet driver.
+[    6.077792] input: PC Speaker as /devices/platform/pcspkr/input/input0
+[[1;32m  OK  [0m] Started Configure read-only root support.
+[[1;32m  OK  [0m] Mounted Media Directory.
+[[1;32m  OK  [0m] Mounted POSIX Message Queue File System.
+[[1;32m  OK  [0m] Mounted Debug File System.
+[[1;32m  OK  [0m] Started udev Coldplug all Devices.
+         Starting Load legacy module configuration...
+         Starting File System Check on Root Device...
+         Starting Setup Virtual Console...
+         Starting Apply Kernel Variables...
+systemd-fsck[305]: /dev/mapper/dmroot: clean, 123467/655360 files, 879101/2621440 blocks
+[[1;32m  OK  [0m] Started Load legacy module configuration.
+[[1;32m  OK  [0m] Started File System Check on Root Device.
+[[1;32m  OK  [0m] Started Setup Virtual Console.
+[[1;32m  OK  [0m] Started Apply Kernel Variables.
+         Starting Remount Root and Kernel File Systems...
+[[1;32m  OK  [0m] Found device /dev/hvc0.
+[    7.252708] EXT4-fs (dm-0): re-mounted. Opts: (null)
+[[1;32m  OK  [0m] Started Remount Root and Kernel File Systems.
+[[1;32m  OK  [0m] Reached target Local File Systems (Pre).
+         Mounting /proc/xen...
+         Starting Load Random Seed...
+[[1;32m  OK  [0m] Mounted /proc/xen.
+[[1;32m  OK  [0m] Reached target Local File Systems.
+         Starting Init Qubes Services settings...
+         Starting Recreate Volatile Files and Directories...
+[[1;32m  OK  [0m] Started Load Random Seed.
+[[1;32m  OK  [0m] Started Init Qubes Services settings.
+[[1;32m  OK  [0m] Started Recreate Volatile Files and Directories.
+[[1;32m  OK  [0m] Found device /dev/xvdc1.
+         Activating swap /dev/xvdc1...
+[    9.661260] Adding 1048572k swap on /dev/xvdc1.  Priority:0 extents:1 across:1048572k SS
+[[1;32m  OK  [0m] Activated swap /dev/xvdc1.
+[[1;32m  OK  [0m] Reached target Swap.
+[[1;32m  OK  [0m] Reached target System Initialization.
+[[1;32m  OK  [0m] Listening on RPCbind Server Activation Socket.
+[[1;32m  OK  [0m] Listening on PC/SC Smart Card Daemon Activation Socket.
+[[1;32m  OK  [0m] Listening on Avahi mDNS/DNS-SD Stack Activation Socket.
+[[1;32m  OK  [0m] Listening on CUPS Printing Service Sockets.
+[[1;32m  OK  [0m] Listening on D-Bus System Message Bus Socket.
+[[1;32m  OK  [0m] Reached target Sockets.
+[[1;32m  OK  [0m] Reached target Basic System.
+         Starting Self Monitoring and Reporting Technology (SMART) Daemon...
+[[1;32m  OK  [0m] Started Self Monitoring and Reporting Technology (SMART) Daemon.
+         Starting ABRT Automated Bug Reporting Tool...
+[[1;32m  OK  [0m] Started ABRT Automated Bug Reporting Tool.
+         Starting Install ABRT coredump hook...
+         Starting Qubes memory information reporter...
+         Starting ACPI Event Daemon...
+         Starting Harvest vmcores for ABRT...
+         Starting Qubes remote exec agent...
+[[1;32m  OK  [0m] Started Qubes remote exec agent.
+         Starting System Logging Service...
+[   10.520655] u2mfn_mmap: entering, private=          (null)
+[   10.520685] u2mfn_mmap: calling remap return 0
+[   10.520711] u2mfn_release, priv=          (null)
+[[1;32m  OK  [0m] Started System Logging Service.
+         Starting irqbalance daemon...
+         Starting Qubes misc post-boot actions...
+         Starting IPv4 firewall with iptables...
+         Starting Avahi mDNS/DNS-SD Stack...
+[   11.025276] EXT4-fs (xvdb): mounted filesystem with ordered data mode. Opts: (null)
+         Starting ABRT kernel log watcher...
+[[1;32m  OK  [0m] Started ABRT kernel log watcher.
+         Starting Login Service...
+[   11.089372] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   11.097536] nf_conntrack version 0.5.0 (2559 buckets, 10236 max)
+         Starting Permit User Sessions...
+         Starting D-Bus System Message Bus...
+[[1;32m  OK  [0m] Started Install ABRT coredump hook.
+[[1;32m  OK  [0m] Started Qubes memory information reporter.
+[[1;32m  OK  [0m] Started ACPI Event Daemon.
+[[1;32m  OK  [0m] Started Harvest vmcores for ABRT.
+[[1;32m  OK  [0m] Started irqbalance daemon.
+[[1;32m  OK  [0m] Started Qubes misc post-boot actions.
+[[1;32m  OK  [0m] Started IPv4 firewall with iptables.
+[[1;32m  OK  [0m] Started Permit User Sessions.
+         Starting Job spooling tools...
+[[1;32m  OK  [0m] Started Job spooling tools.
+         Starting Serial Getty on hvc0...
+[[1;32m  OK  [0m] Started Serial Getty on hvc0.
+[[1;32m  OK  [0m] Reached target Login Prompts.
+[[1;32m  OK  [0m] Reached target Network.
+         Starting RPC bind service...
+         Starting Qubes GUI Agent...
+[[1;32m  OK  [0m] Started D-Bus System Message Bus.
+[[1;32m  OK  [0m] Started RPC bind service.
+         Starting NFS file locking service....
+[   13.170814] RPC: Registered named UNIX socket transport module.
+[   13.170842] RPC: Registered udp transport module.
+[   13.170858] RPC: Registered tcp transport module.
+[   13.170875] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[[1;32m  OK  [0m] Started Qubes GUI Agent.
+[   13.422199] u2mfn_mmap: entering, private=          (null)
+[   13.422230] u2mfn_mmap: calling remap return 0
+[   13.422257] u2mfn_release, priv=          (null)
+[[1;32m  OK  [0m] Started NFS file locking service..
+[[1;32m  OK  [0m] Started Login Service.
+[[1;32m  OK  [0m] Started Avahi mDNS/DNS-SD Stack.
+[[1;32m  OK  [0m] Reached target Multi-User.
+[r[H[J
+Fedora release 17 (Beefy Miracle)
+Kernel 3.2.7-10.pvops.qubes.x86_64 on an x86_64 (hvc0)
+
+work login: [   14.341131] u2mfn_mmap: entering, private=          (null)
+[   14.341148] u2mfn_mmap: calling remap return 0
+[   14.341185] u2mfn_release, priv=          (null)
+[   14.848659] Bluetooth: Core ver 2.16
+[   14.848728] NET: Registered protocol family 31
+[   14.848747] Bluetooth: HCI device and connection manager initialized
+[   14.848766] Bluetooth: HCI socket layer initialized
+[   14.848782] Bluetooth: L2CAP socket layer initialized
+[   14.848808] Bluetooth: SCO socket layer initialized
+[   14.860893] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[   14.860913] Bluetooth: BNEP filters: protocol multicast
+[   18.890789] colord-sane[861]: segfault at 0 ip 00007f1f74c2b6b0 sp 00007fffd0a9ee58 error 4 in libc-2.15.so[7f1f74b75000+1ac000]
+[ 1624.573653] u2mfn_mmap: entering, private=          (null)
+[ 1624.573678] u2mfn_mmap: calling remap return 0
+[ 1624.573699] u2mfn_release, priv=          (null)
+[ 1624.612368] u2mfn_release, priv=ffff880010fd2000
+[ 1624.634112] u2mfn_release, priv=          (null)
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.4.18-1.pvops.qubes.x86_64 (user@qdvp) (gcc version 4.7.2 20120921 (Red Hat 4.7.2-2) (GCC) ) #1 SMP Sat Nov 10 10:36:17 CET 2012
+[    0.000000] Command line: root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH 3 
+[    0.000000] ACPI in unprivileged domain disabled
+[    0.000000] Released 0 pages of unused memory
+[    0.000000] Set 0 page(s) to 1-1 mapping
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  Xen: 0000000000000000 - 00000000000a0000 (usable)
+[    0.000000]  Xen: 00000000000a0000 - 0000000000100000 (reserved)
+[    0.000000]  Xen: 0000000000100000 - 00000000fe600000 (usable)
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] DMI not present or invalid.
+[    0.000000] No AGP bridge found
+[    0.000000] last_pfn = 0xfe600 max_arch_pfn = 0x400000000
+[    0.000000] init_memory_mapping: 0000000000000000-00000000fe600000
+[    0.000000] RAMDISK: 01e12000 - 0393d000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000010 -> 0x00001000
+[    0.000000]   DMA32    0x00001000 -> 0x00100000
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] Early memory PFN ranges
+[    0.000000]     0: 0x00000010 -> 0x000000a0
+[    0.000000]     0: 0x00000100 -> 0x000fe600
+[    0.000000] SFI: Simple Firmware Interface v0.81 http://simplefirmware.org
+[    0.000000] SMP: Allowing 8 CPUs, 0 hotplug CPUs
+[    0.000000] No local APIC present
+[    0.000000] APIC: disable apic facility
+[    0.000000] APIC: switched to apic NOOP
+[    0.000000] Allocating PCI resources starting at fe600000 (gap: fe600000:1a00000)
+[    0.000000] Booting paravirtualized kernel on Xen
+[    0.000000] Xen version: 4.1.2 (preserve-AD)
+[    0.000000] setup_percpu: NR_CPUS:512 nr_cpumask_bits:512 nr_cpu_ids:8 nr_node_ids:1
+[    0.000000] PERCPU: Embedded 28 pages/cpu @ffff880018c00000 s82176 r8192 d24320 u262144
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 1025554
+[    0.000000] Kernel command line: root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH 3 
+[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes)
+[    0.000000] Checking aperture...
+[    0.000000] No AGP bridge found
+[    0.000000] Memory: 297332k/4167680k available (4509k kernel code, 448k absent, 3869900k reserved, 4159k data, 548k init)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU dyntick-idle grace-period acceleration is enabled.
+[    0.000000] NR_IRQS:33024 nr_irqs:336 16
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] console [hvc0] enabled
+[    0.000000] installing Xen timer for CPU 0
+[    0.000000] Detected 1729.030 MHz processor.
+[    0.004000] Calibrating delay loop (skipped), value calculated using timer frequency.. 3458.06 BogoMIPS (lpj=6916120)
+[    0.004000] pid_max: default: 32768 minimum: 301
+[    0.004000] Mount-cache hash table entries: 256
+[    0.004000] Initializing cgroup subsys cpuacct
+[    0.004000] Initializing cgroup subsys devices
+[    0.004000] Initializing cgroup subsys freezer
+[    0.004000] Initializing cgroup subsys net_cls
+[    0.004000] Initializing cgroup subsys blkio
+[    0.004000] CPU: Physical Processor ID: 0
+[    0.004000] CPU: Processor Core ID: 0
+[    0.004000] SMP alternatives: switching to UP code
+[    0.029924] Performance Events: unsupported p6 CPU model 30 no PMU driver, software events only.
+[    0.030128] installing Xen timer for CPU 1
+[    0.030160] SMP alternatives: switching to SMP code
+[    0.059472] installing Xen timer for CPU 2
+[    0.059785] installing Xen timer for CPU 3
+[    0.060245] installing Xen timer for CPU 4
+[    0.060516] installing Xen timer for CPU 5
+[    0.060816] installing Xen timer for CPU 6
+[    0.061309] installing Xen timer for CPU 7
+[    0.061623] Brought up 8 CPUs
+[    0.061752] devtmpfs: initialized
+[    0.061752] Grant tables using version 2 layout.
+[    0.061752] Grant table initialized
+[    0.061752] dummy: 
+[    0.083606] RTC time: 165:165:165, date: 165/165/65
+[    0.083752] NET: Registered protocol family 16
+[    0.084706] PCI: setting up Xen PCI frontend stub
+[    0.086124] bio: create slab <bio-0> at 0
+[    0.089484] ACPI: Interpreter disabled.
+[    0.092050] xen/balloon: Initialising balloon driver.
+[    0.104060] xen-balloon: Initialising balloon driver.
+[    0.104089] vgaarb: loaded
+[    0.104150] PCI: System does not support PCI
+[    0.104150] PCI: System does not support PCI
+[    0.104213] Switching to clocksource xen
+[    0.110520] pnp: PnP ACPI: disabled
+[    0.115010] NET: Registered protocol family 2
+[    0.115119] IP route cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.115488] TCP established hash table entries: 131072 (order: 9, 2097152 bytes)
+[    0.116405] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+[    0.116820] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.116830] TCP: reno registered
+[    0.116839] UDP hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.116890] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.117156] NET: Registered protocol family 1
+[    0.117211] Unpacking initramfs...
+[    0.153151] Freeing initrd memory: 27820k freed
+[    0.160358] platform rtc_cmos: registered platform RTC device (no PNP device found)
+[    0.162106] audit: initializing netlink socket (disabled)
+[    0.162130] type=2000 audit(1352546064.700:1): initialized
+[    0.193768] VFS: Disk quotas dquot_6.5.2
+[    0.193838] Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.194188] msgmni has been set to 635
+[    0.194443] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.194454] io scheduler noop registered
+[    0.194458] io scheduler deadline registered
+[    0.194515] io scheduler cfq registered (default)
+[    0.198179] Non-volatile memory driver v1.3
+[    0.198201] ramoops: platform device not found, using module parameters
+[    0.198239] ramoops: The memory size and the record size must be non-zero
+[    0.198252] ramoops: probe of ramoops failed with error -22
+[    0.198562] pcifront pci-0: Installing PCI frontend
+[    0.198750] pcifront pci-0: Creating PCI Frontend Bus 0000:00
+[    0.198815] pcifront pci-0: PCI host bridge to bus 0000:00
+[    0.198828] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.198841] pci_bus 0000:00: root bus resource [mem 0x00000000-0xfffffffff]
+[    0.199440] loop: module loaded
+[    0.199481] Fixed MDIO Bus: probed
+[    0.199503] i8042: PNP: No PS/2 controller found. Probing ports directly.
+[    0.200372] i8042: No controller found
+[    0.200522] mousedev: PS/2 mouse device common for all mice
+[    0.260582] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    0.260705] rtc_cmos: probe of rtc_cmos failed with error -38
+[    0.260898] device-mapper: uevent: version 1.0.3
+[    0.261038] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+[    0.261184] TCP: cubic registered
+[    0.261343] NET: Registered protocol family 10
+[    0.261583] Registering the dns_resolver key type
+[    0.261756] registered taskstats version 1
+[    0.261789] XENBUS: Device with no driver: device/vbd/51712
+[    0.261794] XENBUS: Device with no driver: device/vbd/51728
+[    0.261799] XENBUS: Device with no driver: device/vbd/51744
+[    0.261804] XENBUS: Device with no driver: device/vbd/51760
+[    0.261808] XENBUS: Device with no driver: device/vif/0
+[    0.261890]   Magic number: 1:252:3141
+[    0.261936] /rw/home/user/qubes/qubes-builder/qubes-src/kernel/kernel-3.4.18/linux-3.4.18/drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    0.262362] Freeing unused kernel memory: 548k freed
+[    0.262497] Write protecting the kernel read-only data: 8192k
+[    0.267578] Freeing unused kernel memory: 1616k freed
+[    0.268075] Freeing unused kernel memory: 24k freed
+[    0.377768] dracut: dracut-018-105.git20120927.fc17
+Qubes initramfs script here:
+[    0.506616] blkfront: xvda: flush diskcache: enabled
+[    0.510266]  xvda: unknown partition table
+[    0.521844] blkfront: xvdb: flush diskcache: enabled
+[    0.524730]  xvdb: unknown partition table
+[    0.526770] blkfront: xvdc: flush diskcache: enabled
+[    0.528547]  xvdc: xvdc1 xvdc2
+[    0.683909] blkfront: xvdd: barrier or flush: disabled
+[    0.686854]  xvdd: unknown partition table
+Waiting for /dev/xvda* devices...
+Qubes: Doing COW setup for AppVM...
+Qubes: done.
+[    0.760240] udevd[121]: starting version 182
+[    0.797017] dracut: rd.md.ddf=0: no MD RAID for SNIA ddf raids
+[    0.805141] dracut: rd.md.imsm=0: no MD RAID for imsm/isw raids
+[    1.010108] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+[    1.102019] dracut: Checking ext4: /dev/mapper/dmroot
+[    1.102429] dracut: issuing e2fsck -a  /dev/mapper/dmroot
+[    1.132443] dracut: /dev/mapper/dmroot: clean, 125510/655360 files, 922152/2621440 blocks
+[    1.134349] dracut: Remounting /dev/mapper/dmroot with -o noatime,ro
+[    1.151430] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+[    1.161937] dracut: Mounted root filesystem /dev/mapper/dmroot
+Waiting for /dev/xvdd device...
+mount: /dev/xvdd is write-protected, mounting read-only
+[    1.174115] kjournald starting.  Commit interval 5 seconds
+[    1.174164] EXT3-fs (xvdd): mounted filesystem with ordered data mode
+[    1.310159] dracut: Switching root
+[    2.660736] systemd[1]: systemd 44 running in system mode. (+PAM +LIBWRAP +AUDIT +SELINUX +IMA +SYSVINIT +LIBCRYPTSETUP; fedora)
+
+Welcome to [0;34mFedora 17 (Beefy Miracle)[0m!
+
+[    2.671120] systemd[1]: Inserted module 'autofs4'
+[    2.671717] systemd[1]: No hostname configured.
+[    2.671748] systemd[1]: Set hostname to <localhost>.
+[    2.673098] systemd[1]: Initializing machine ID from D-Bus machine ID.
+[    2.673255] systemd[1]: Installed transient /etc/machine-id file.
+         Expecting device dev-hvc0.device...
+[[1;32m  OK  [0m] Listening on Syslog Socket.
+[[1;32m  OK  [0m] Reached target Remote File Systems.
+         Starting Collect Read-Ahead Data...
+         Starting Replay Read-Ahead Data...
+[[1;32m  OK  [0m] Listening on Delayed Shutdown Socket.
+[[1;32m  OK  [0m] Listening on udev Control Socket.
+[[1;32m  OK  [0m] Listening on udev Kernel Socket.
+[[1;32m  OK  [0m] Listening on /dev/initctl Compatibility Named Pipe.
+[[1;32m  OK  [0m] Listening on Device-mapper event daemon FIFOs.
+[[1;32m  OK  [0m] Set up automount Arbitrary Executable File Formats F...utomount Point.
+[[1;32m  OK  [0m] Reached target Encrypted Volumes.
+         Expecting device dev-xvdc1.device...
+[[1;32m  OK  [0m] Listening on Journal Socket.
+[[1;32m  OK  [0m] Reached target Syslog.
+         Starting udev Coldplug all Devices...
+         Starting Configure read-only root support...
+         Mounting Media Directory...
+         Starting Journal Service...
+[[1;32m  OK  [0m] Started Journal Service.
+         Mounting POSIX Message Queue File System...
+[    5.700607] systemd-journald[236]: Fixed max_use=15.9M max_size=2.0M min_size=64.0K keep_free=7.9M
+[    5.701511] systemd-journald[236]: Vacuuming...
+         Mounting Debug File System...
+         Starting udev Kernel Device Manager...
+[[1;32m  OK  [0m] Started Collect Read-Ahead Data.
+[[1;32m  OK  [0m] Started Replay Read-Ahead Data.
+[    5.772714] udevd[242]: starting version 182
+[[1;32m  OK  [0m] Started udev Kernel Device Manager.
+[    5.874033] microcode: CPU0 sig=0x106e5, pf=0x10, revision=0x3
+[    5.874262] input: PC Speaker as /devices/platform/pcspkr/input/input0
+[    5.882295] Initialising Xen virtual ethernet driver.
+[[1;32m  OK  [0m] Started Configure read-only root support.
+[[1;32m  OK  [0m] Mounted Media Directory.
+[[1;32m  OK  [0m] Mounted POSIX Message Queue File System.
+[[1;32m  OK  [0m] Mounted Debug File System.
+[    5.934039] microcode: CPU0 update to revision 0x5 failed
+[    5.934069] microcode: CPU1 sig=0x106e5, pf=0x10, revision=0x3
+[[1;32m  OK  [0m] Started udev Coldplug all Devices.
+[    5.937150] microcode: CPU1 update to revision 0x5 failed
+         Starting Load legacy module configuration...
+[    5.937178] microcode: CPU2 sig=0x106e5, pf=0x10, revision=0x3
+[    5.938375] microcode: CPU2 update to revision 0x5 failed
+[    5.938394] microcode: CPU3 sig=0x106e5, pf=0x10, revision=0x3
+[    5.939557] microcode: CPU3 update to revision 0x5 failed
+[    5.939585] microcode: CPU4 sig=0x106e5, pf=0x10, revision=0x3
+[    5.940709] microcode: CPU4 update to revision 0x5 failed
+[    5.940729] microcode: CPU5 sig=0x106e5, pf=0x10, revision=0x3
+[    5.941764] microcode: CPU5 update to revision 0x5 failed
+[    5.941794] microcode: CPU6 sig=0x106e5, pf=0x10, revision=0x3
+[    5.942725] microcode: CPU6 update to revision 0x5 failed
+[    5.942753] microcode: CPU7 sig=0x106e5, pf=0x10, revision=0x3
+[    5.943674] microcode: CPU7 update to revision 0x5 failed
+[    5.943777] microcode: Microcode Update Driver: v2.00 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+         Starting Remount Root and Kernel File Systems...
+         Starting Setup Virtual Console...
+[    5.974904] Event-channel device installed.
+[    5.981640] EXT4-fs (dm-0): re-mounted. Opts: (null)
+         Starting Apply Kernel Variables...
+[[1;32m  OK  [0m] Started Load legacy module configuration.
+[[1;32m  OK  [0m] Started Remount Root and Kernel File Systems.
+[[1;32m  OK  [0m] Started Setup Virtual Console.
+[[1;32m  OK  [0m] Started Apply Kernel Variables.
+[[1;32m  OK  [0m] Reached target Local File Systems (Pre).
+         Mounting /proc/xen...
+         Starting Load Random Seed...
+[[1;32m  OK  [0m] Found device /dev/hvc0.
+[[1;32m  OK  [0m] Mounted /proc/xen.
+[[1;32m  OK  [0m] Reached target Local File Systems.
+         Starting Init Qubes Services settings...
+         Starting Recreate Volatile Files and Directories...
+[[1;32m  OK  [0m] Started Load Random Seed.
+[[1;32m  OK  [0m] Started Recreate Volatile Files and Directories.
+[    6.368520] systemd[1]: qubes-sysinit.service: main process exited, code=exited, status=1
+[[1;31mFAILED[0m] Failed to start Init Qubes Services settings.
+         See 'systemctl status qubes-sysinit.service' for details.
+[    6.372615] systemd[1]: Unit qubes-sysinit.service entered failed state.
+[[1;32m  OK  [0m] Found device /dev/xvdc1.
+         Activating swap /dev/xvdc1...
+[    8.823430] Adding 1048572k swap on /dev/xvdc1.  Priority:0 extents:1 across:1048572k SS
+[[1;32m  OK  [0m] Activated swap /dev/xvdc1.
+[[1;32m  OK  [0m] Reached target Swap.
+[[1;32m  OK  [0m] Reached target System Initialization.
+[[1;32m  OK  [0m] Listening on RPCbind Server Activation Socket.
+[[1;32m  OK  [0m] Listening on PC/SC Smart Card Daemon Activation Socket.
+[[1;32m  OK  [0m] Listening on Avahi mDNS/DNS-SD Stack Activation Socket.
+[[1;32m  OK  [0m] Listening on CUPS Printing Service Sockets.
+[[1;32m  OK  [0m] Listening on D-Bus System Message Bus Socket.
+[[1;32m  OK  [0m] Reached target Sockets.
+[[1;32m  OK  [0m] Reached target Basic System.
+         Starting IPv6 firewall with ip6tables...
+         Starting Self Monitoring and Reporting Technology (SMART) Daemon...
+[[1;32m  OK  [0m] Started Self Monitoring and Reporting Technology (SMART) Daemon.
+         Starting ABRT Automated Bug Reporting Tool...
+[    8.915938] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[[1;32m  OK  [0m] Started ABRT Automated Bug Reporting Tool.
+         Starting Install ABRT coredump hook...
+         Starting Qubes memory information reporter...
+         Starting ACPI Event Daemon...
+         Starting Harvest vmcores for ABRT...
+         Starting Qubes remote exec agent...
+[[1;32m  OK  [0m] Started Qubes remote exec agent.
+         Starting System Logging Service...
+[   11.733130] u2mfn_mmap: entering, private=          (null)
+[   11.733165] u2mfn_mmap: calling remap return 0
+[   11.733199] u2mfn_release, priv=          (null)
+[[1;32m  OK  [0m] Started System Logging Service.
+         Starting irqbalance daemon...
+         Starting Qubes misc post-boot actions...
+         Starting ABRT Xorg log watcher...
+[[1;32m  OK  [0m] Started ABRT Xorg log watcher.
+         Starting IPv4 firewall with iptables...
+         Starting Avahi mDNS/DNS-SD Stack...
+         Starting ABRT kernel log watcher...
+[   13.263751] ip_tables: (C) 2000-2006 Netfilter Core Team
+[[1;32m  OK  [0m] Started ABRT kernel log watcher.
+         Starting Login Service...
+[   13.268729] nf_conntrack version 0.5.0 (2557 buckets, 10228 max)
+         Starting Permit User Sessions...
+         Starting D-Bus System Message Bus...
+[   13.306891] EXT4-fs (xvdb): recovery complete
+[   13.310269] EXT4-fs (xvdb): mounted filesystem with ordered data mode. Opts: (null)
+[[1;32m  OK  [0m] Started IPv6 firewall with ip6tables.
+[[1;32m  OK  [0m] Started Install ABRT coredump hook.
+[[1;32m  OK  [0m] Started Qubes memory information reporter.
+[[1;32m  OK  [0m] Started ACPI Event Daemon.
+[[1;32m  OK  [0m] Started Harvest vmcores for ABRT.
+[[1;32m  OK  [0m] Started irqbalance daemon.
+[[1;32m  OK  [0m] Started Qubes misc post-boot actions.
+[[1;32m  OK  [0m] Started IPv4 firewall with iptables.
+[[1;32m  OK  [0m] Started Permit User Sessions.
+         Starting Job spooling tools...
+[[1;32m  OK  [0m] Started Job spooling tools.
+         Starting Serial Getty on hvc0...
+[[1;32m  OK  [0m] Started Serial Getty on hvc0.
+[[1;32m  OK  [0m] Reached target Login Prompts.
+[[1;32m  OK  [0m] Reached target Network.
+         Starting RPC bind service...
+         Starting Qubes GUI Agent...
+[[1;32m  OK  [0m] Started D-Bus System Message Bus.
+[[1;32m  OK  [0m] Started RPC bind service.
+         Starting NFS file locking service....
+[   14.691839] RPC: Registered named UNIX socket transport module.
+[   14.691861] RPC: Registered udp transport module.
+[   14.691871] RPC: Registered tcp transport module.
+[   14.691880] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[[1;32m  OK  [0m] Started Qubes GUI Agent.
+[   16.667800] u2mfn_mmap: entering, private=          (null)
+[   16.667834] u2mfn_mmap: calling remap return 0
+[   16.667871] u2mfn_release, priv=          (null)
+
+[r[H[J
+Fedora release 17 (Beefy Miracle)
+Kernel 3.4.18-1.pvops.qubes.x86_64 on an x86_64 (hvc0)
+
+work login: [[1;32m  OK  [0m] Started NFS file locking service..
+[[1;32m  OK  [0m] Started Login Service.
+[[1;32m  OK  [0m] Started Avahi mDNS/DNS-SD Stack.
+[[1;32m  OK  [0m] Reached target Multi-User.
+[   20.377040] u2mfn_mmap: entering, private=          (null)
+[   20.377057] u2mfn_mmap: calling remap return 0
+[   20.377069] u2mfn_release, priv=          (null)
+[   20.716494] fuse init (API version 7.18)
+[   20.830846] Bluetooth: Core ver 2.16
+[   20.830905] NET: Registered protocol family 31
+[   20.830922] Bluetooth: HCI device and connection manager initialized
+[   20.830941] Bluetooth: HCI socket layer initialized
+[   20.830956] Bluetooth: L2CAP socket layer initialized
+[   20.830980] Bluetooth: SCO socket layer initialized
+[   20.840341] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[   20.840359] Bluetooth: BNEP filters: protocol multicast
+root
+[root@work ~]# 
+[root@work ~]# [   23.920461] colord-sane[890]: segfault at 0 ip 00007fd00c2226b0 sp 00007fff0df2aa48 error 4 in libc-2.15.so[7fd00c16c000+1ac000]
+uname -a[H[J[root@work ~]# uname -a
+Linux work 3.4.18-1.pvops.qubes.x86_64 #1 SMP Sat Nov 10 10:36:17 CET 2012 x86_64 x86_64 x86_64 GNU/Linux
+[root@work ~]# less /proc/con
+config.gz  consoles   
+[root@work ~]# less /proc/con[Kzcat /proc/config.gz |grep DEBUG
+CONFIG_ARCH_SUPPORTS_[01;31m[KDEBUG[m[K_PAGEALLOC=y
+# CONFIG_CGROUP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_[01;31m[KDEBUG[m[K_BLK_CGROUP is not set
+# CONFIG_[01;31m[KDEBUG[m[K_PERF_USE_VMALLOC is not set
+CONFIG_HAVE_DMA_API_[01;31m[KDEBUG[m[K=y
+# CONFIG_LDM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_XEN_[01;31m[KDEBUG[m[K_FS is not set
+# CONFIG_PARAVIRT_[01;31m[KDEBUG[m[K is not set
+CONFIG_X86_[01;31m[KDEBUG[m[KCTLMSR=y
+CONFIG_PM_[01;31m[KDEBUG[m[K=y
+CONFIG_PM_ADVANCED_[01;31m[KDEBUG[m[K=y
+# CONFIG_ACPI_EC_[01;31m[KDEBUG[m[KFS is not set
+CONFIG_ACPI_[01;31m[KDEBUG[m[K=y
+# CONFIG_ACPI_[01;31m[KDEBUG[m[K_FUNC_TRACE is not set
+# CONFIG_PCIEASPM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_PCI_[01;31m[KDEBUG[m[K is not set
+# CONFIG_NETFILTER_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IP_VS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IP_DCCP_CCID2_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IP_DCCP_CCID3_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IP_DCCP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_RDS_[01;31m[KDEBUG[m[K is not set
+CONFIG_BATMAN_ADV_[01;31m[KDEBUG[m[K=y
+# CONFIG_CAN_[01;31m[KDEBUG[m[K_DEVICES is not set
+# CONFIG_IRDA_[01;31m[KDEBUG[m[K is not set
+# CONFIG_AF_RXRPC_[01;31m[KDEBUG[m[K is not set
+# CONFIG_CFG80211_REG_[01;31m[KDEBUG[m[K is not set
+# CONFIG_CFG80211_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_LIB80211_[01;31m[KDEBUG[m[K is not set
+CONFIG_MAC80211_[01;31m[KDEBUG[m[KFS=y
+# CONFIG_MAC80211_[01;31m[KDEBUG[m[K_MENU is not set
+CONFIG_WIMAX_[01;31m[KDEBUG[m[K_LEVEL=8
+# CONFIG_NET_9P_[01;31m[KDEBUG[m[K is not set
+# CONFIG_CEPH_LIB_PRETTY[01;31m[KDEBUG[m[K is not set
+# CONFIG_[01;31m[KDEBUG[m[K_DRIVER is not set
+# CONFIG_[01;31m[KDEBUG[m[K_DEVRES is not set
+# CONFIG_MTD_PMC551_[01;31m[KDEBUG[m[K is not set
+# CONFIG_MTD_UBI_[01;31m[KDEBUG[m[K is not set
+# CONFIG_PNP_[01;31m[KDEBUG[m[K_MESSAGES is not set
+# CONFIG_CB710_[01;31m[KDEBUG[m[K is not set
+CONFIG_CB710_[01;31m[KDEBUG[m[K_ASSUMPTIONS=y
+# CONFIG_IWMC3200TOP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IWMC3200TOP_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_AIC7XXX_[01;31m[KDEBUG[m[K_ENABLE is not set
+CONFIG_AIC7XXX_[01;31m[KDEBUG[m[K_MASK=0
+# CONFIG_AIC79XX_[01;31m[KDEBUG[m[K_ENABLE is not set
+CONFIG_AIC79XX_[01;31m[KDEBUG[m[K_MASK=0
+# CONFIG_AIC94XX_[01;31m[KDEBUG[m[K is not set
+# CONFIG_SCSI_MVSAS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_SCSI_LPFC_[01;31m[KDEBUG[m[K_FS is not set
+CONFIG_SCSI_[01;31m[KDEBUG[m[K=m
+# CONFIG_SCSI_OSD_[01;31m[KDEBUG[m[K is not set
+# CONFIG_DM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_DM_[01;31m[KDEBUG[m[K_BLOCK_STACK_TRACING is not set
+# CONFIG_DM_[01;31m[KDEBUG[m[K_SPACE_MAPS is not set
+# CONFIG_ATM_ENI_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATM_ZATM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATM_IDT77252_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATM_AMBASSADOR_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATM_HORIZON_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATM_IA_[01;31m[KDEBUG[m[K is not set
+CONFIG_ATM_FORE200E_[01;31m[KDEBUG[m[K=0
+# CONFIG_VXGE_[01;31m[KDEBUG[m[K_TRACE_ALL is not set
+# CONFIG_SKGE_[01;31m[KDEBUG[m[K is not set
+# CONFIG_SKY2_[01;31m[KDEBUG[m[K is not set
+CONFIG_MLX4_[01;31m[KDEBUG[m[K=y
+# CONFIG_STMMAC_[01;31m[KDEBUG[m[K_FS is not set
+# CONFIG_LIBERTAS_THINFIRM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATH_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATH5K_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ATH9K_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_ATH9K_HTC_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_CARL9170_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_ATH6KL_[01;31m[KDEBUG[m[K is not set
+# CONFIG_B43_[01;31m[KDEBUG[m[K is not set
+# CONFIG_B43LEGACY_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IPW2100_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IPW2200_[01;31m[KDEBUG[m[K is not set
+# CONFIG_LIBIPW_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IWLWIFI_[01;31m[KDEBUG[m[K is not set
+CONFIG_IWLWIFI_[01;31m[KDEBUG[m[KFS=y
+# CONFIG_IWLEGACY_[01;31m[KDEBUG[m[K is not set
+# CONFIG_IWLEGACY_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_IWM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_LIBERTAS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_RT2X00_LIB_[01;31m[KDEBUG[m[KFS is not set
+# CONFIG_RT2X00_[01;31m[KDEBUG[m[K is not set
+# CONFIG_RTLWIFI_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ZD1211RW_[01;31m[KDEBUG[m[K is not set
+CONFIG_WIMAX_I2400M_[01;31m[KDEBUG[m[K_LEVEL=8
+# CONFIG_HISAX_[01;31m[KDEBUG[m[K is not set
+# CONFIG_GIGASET_[01;31m[KDEBUG[m[K is not set
+# CONFIG_I2C_[01;31m[KDEBUG[m[K_CORE is not set
+# CONFIG_I2C_[01;31m[KDEBUG[m[K_ALGO is not set
+# CONFIG_I2C_[01;31m[KDEBUG[m[K_BUS is not set
+# CONFIG_SPI_[01;31m[KDEBUG[m[K is not set
+# CONFIG_PPS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_[01;31m[KDEBUG[m[K_GPIO is not set
+# CONFIG_POWER_SUPPLY_[01;31m[KDEBUG[m[K is not set
+# CONFIG_HWMON_[01;31m[KDEBUG[m[K_CHIP is not set
+# CONFIG_SSB_[01;31m[KDEBUG[m[K is not set
+# CONFIG_REGULATOR_[01;31m[KDEBUG[m[K is not set
+# CONFIG_VIDEO_ADV_[01;31m[KDEBUG[m[K is not set
+# CONFIG_VIDEO_PVRUSB2_[01;31m[KDEBUG[m[KIFC is not set
+# CONFIG_USB_PWC_[01;31m[KDEBUG[m[K is not set
+# CONFIG_DVB_USB_[01;31m[KDEBUG[m[K is not set
+# CONFIG_DVB_B2C2_FLEXCOP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_DRM_NOUVEAU_[01;31m[KDEBUG[m[K is not set
+# CONFIG_FB_NVIDIA_[01;31m[KDEBUG[m[K is not set
+# CONFIG_FB_RIVA_[01;31m[KDEBUG[m[K is not set
+# CONFIG_FB_RADEON_[01;31m[KDEBUG[m[K is not set
+CONFIG_SND_[01;31m[KDEBUG[m[K=y
+# CONFIG_SND_[01;31m[KDEBUG[m[K_VERBOSE is not set
+CONFIG_SND_PCM_XRUN_[01;31m[KDEBUG[m[K=y
+# CONFIG_USB_[01;31m[KDEBUG[m[K is not set
+# CONFIG_USB_WUSB_CBAF_[01;31m[KDEBUG[m[K is not set
+# CONFIG_USB_XHCI_HCD_[01;31m[KDEBUG[m[KGING is not set
+# CONFIG_USB_STORAGE_[01;31m[KDEBUG[m[K is not set
+CONFIG_USB_SERIAL_[01;31m[KDEBUG[m[K=m
+# CONFIG_MMC_[01;31m[KDEBUG[m[K is not set
+# CONFIG_MEMSTICK_[01;31m[KDEBUG[m[K is not set
+CONFIG_INFINIBAND_MTHCA_[01;31m[KDEBUG[m[K=y
+# CONFIG_INFINIBAND_AMSO1100_[01;31m[KDEBUG[m[K is not set
+# CONFIG_INFINIBAND_CXGB3_[01;31m[KDEBUG[m[K is not set
+# CONFIG_INFINIBAND_NES_[01;31m[KDEBUG[m[K is not set
+CONFIG_INFINIBAND_IPOIB_[01;31m[KDEBUG[m[K=y
+# CONFIG_INFINIBAND_IPOIB_[01;31m[KDEBUG[m[K_DATA is not set
+# CONFIG_EDAC_[01;31m[KDEBUG[m[K is not set
+# CONFIG_RTC_[01;31m[KDEBUG[m[K is not set
+# CONFIG_DMADEVICES_[01;31m[KDEBUG[m[K is not set
+# CONFIG_USBIP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_RTS_PSTOR_[01;31m[KDEBUG[m[K is not set
+# CONFIG_RTS5139_[01;31m[KDEBUG[m[K is not set
+# CONFIG_LINE6_USB_[01;31m[KDEBUG[m[K is not set
+# CONFIG_ZRAM_[01;31m[KDEBUG[m[K is not set
+# CONFIG_EASYCAP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_FUJITSU_LAPTOP_[01;31m[KDEBUG[m[K is not set
+# CONFIG_THINKPAD_ACPI_[01;31m[KDEBUG[m[KFACILITIES is not set
+# CONFIG_THINKPAD_ACPI_[01;31m[KDEBUG[m[K is not set
+# CONFIG_EXT4_[01;31m[KDEBUG[m[K is not set
+# CONFIG_JBD_[01;31m[KDEBUG[m[K is not set
+# CONFIG_JBD2_[01;31m[KDEBUG[m[K is not set
+# CONFIG_JFS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_XFS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_OCFS2_[01;31m[KDEBUG[m[K_MASKLOG is not set
+# CONFIG_OCFS2_[01;31m[KDEBUG[m[K_FS is not set
+# CONFIG_QUOTA_[01;31m[KDEBUG[m[K is not set
+# CONFIG_FSCACHE_[01;31m[KDEBUG[m[K is not set
+# CONFIG_CACHEFILES_[01;31m[KDEBUG[m[K is not set
+# CONFIG_BEFS_[01;31m[KDEBUG[m[K is not set
+CONFIG_JFFS2_FS_[01;31m[KDEBUG[m[K=0
+# CONFIG_UBIFS_FS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_QNX6FS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_UFS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_EXOFS_[01;31m[KDEBUG[m[K is not set
+# CONFIG_SUNRPC_[01;31m[KDEBUG[m[K is not set
+# CONFIG_CIFS_[01;31m[KDEBUG[m[K2 is not set
+# CONFIG_AFS_[01;31m[KDEBUG[m[K is not set
+CONFIG_DLM_[01;31m[KDEBUG[m[K=y
+CONFIG_[01;31m[KDEBUG[m[K_FS=y
+# CONFIG_[01;31m[KDEBUG[m[K_SECTION_MISMATCH is not set
+CONFIG_[01;31m[KDEBUG[m[K_KERNEL=y
+# CONFIG_[01;31m[KDEBUG[m[K_SHIRQ is not set
+CONFIG_SCHED_[01;31m[KDEBUG[m[K=y
+# CONFIG_[01;31m[KDEBUG[m[K_OBJECTS is not set
+# CONFIG_[01;31m[KDEBUG[m[K_SLAB is not set
+# CONFIG_[01;31m[KDEBUG[m[K_KMEMLEAK is not set
+# CONFIG_[01;31m[KDEBUG[m[K_RT_MUTEXES is not set
+# CONFIG_[01;31m[KDEBUG[m[K_SPINLOCK is not set
+# CONFIG_[01;31m[KDEBUG[m[K_MUTEXES is not set
+# CONFIG_[01;31m[KDEBUG[m[K_LOCK_ALLOC is not set
+# CONFIG_[01;31m[KDEBUG[m[K_ATOMIC_SLEEP is not set
+# CONFIG_[01;31m[KDEBUG[m[K_LOCKING_API_SELFTESTS is not set
+# CONFIG_[01;31m[KDEBUG[m[K_STACK_USAGE is not set
+# CONFIG_[01;31m[KDEBUG[m[K_KOBJECT is not set
+CONFIG_[01;31m[KDEBUG[m[K_BUGVERBOSE=y
+# CONFIG_[01;31m[KDEBUG[m[K_INFO is not set
+# CONFIG_[01;31m[KDEBUG[m[K_VM is not set
+# CONFIG_[01;31m[KDEBUG[m[K_VIRTUAL is not set
+# CONFIG_[01;31m[KDEBUG[m[K_WRITECOUNT is not set
+CONFIG_[01;31m[KDEBUG[m[K_MEMORY_INIT=y
+# CONFIG_[01;31m[KDEBUG[m[K_LIST is not set
+# CONFIG_[01;31m[KDEBUG[m[K_SG is not set
+# CONFIG_[01;31m[KDEBUG[m[K_NOTIFIERS is not set
+# CONFIG_[01;31m[KDEBUG[m[K_CREDENTIALS is not set
+# CONFIG_[01;31m[KDEBUG[m[K_BLOCK_EXT_DEVT is not set
+CONFIG_[01;31m[KDEBUG[m[K_FORCE_WEAK_PER_CPU=y
+# CONFIG_[01;31m[KDEBUG[m[K_PER_CPU_MAPS is not set
+# CONFIG_[01;31m[KDEBUG[m[K_PAGEALLOC is not set
+CONFIG_DYNAMIC_[01;31m[KDEBUG[m[K=y
+# CONFIG_DMA_API_[01;31m[KDEBUG[m[K is not set
+# CONFIG_[01;31m[KDEBUG[m[K_STACKOVERFLOW is not set
+CONFIG_[01;31m[KDEBUG[m[K_RODATA=y
+# CONFIG_[01;31m[KDEBUG[m[K_RODATA_TEST is not set
+# CONFIG_[01;31m[KDEBUG[m[K_SET_MODULE_RONX is not set
+# CONFIG_[01;31m[KDEBUG[m[K_NX_TEST is not set
+# CONFIG_IOMMU_[01;31m[KDEBUG[m[K is not set
+# CONFIG_[01;31m[KDEBUG[m[K_BOOT_PARAMS is not set
+# CONFIG_CPA_[01;31m[KDEBUG[m[K is not set
+# CONFIG_[01;31m[KDEBUG[m[K_STRICT_USER_COPY_CHECKS is not set
+# CONFIG_[01;31m[KDEBUG[m[K_NMI_SELFTEST is not set
+# CONFIG_KEYS_[01;31m[KDEBUG[m[K_PROC_KEYS is not set
+[root@work ~]# zcat /proc/config.gz |grep DEBUG | less
+CONFIG_ARCH_SUPPORTS_DEBUG_PAGEALLOC=y
+# CONFIG_CGROUP_DEBUG is not set
+# CONFIG_DEBUG_BLK_CGROUP is not set
+# CONFIG_DEBUG_PERF_USE_VMALLOC is not set
+CONFIG_HAVE_DMA_API_DEBUG=y
+# CONFIG_LDM_DEBUG is not set
+# CONFIG_XEN_DEBUG_FS is not set
+# CONFIG_PARAVIRT_DEBUG is not set
+CONFIG_X86_DEBUGCTLMSR=y
+CONFIG_PM_DEBUG=y
+CONFIG_PM_ADVANCED_DEBUG=y
+# CONFIG_ACPI_EC_DEBUGFS is not set
+CONFIG_ACPI_DEBUG=y
+# CONFIG_ACPI_DEBUG_FUNC_TRACE is not set
+# CONFIG_PCIEASPM_DEBUG is not set
+# CONFIG_PCI_DEBUG is not set
+# CONFIG_NETFILTER_DEBUG is not set
+# CONFIG_IP_VS_DEBUG is not set
+# CONFIG_IP_DCCP_CCID2_DEBUG is not set
+# CONFIG_IP_DCCP_CCID3_DEBUG is not set
+# CONFIG_IP_DCCP_DEBUG is not set
+# CONFIG_RDS_DEBUG is not set
+CONFIG_BATMAN_ADV_DEBUG=y
+:[K[K/[KPP[KRR[KEE[KEE[KMM[KTT[K[1;1HCONFIG_ARCH_SUPPORTS_DEBUG_PAGEALLOC=y
+[2;1H# CONFIG_CGROUP_DEBUG is not set
+[3;1H# CONFIG_DEBUG_BLK_CGROUP is not set
+[4;1H# CONFIG_DEBUG_PERF_USE_VMALLOC is not set
+[5;1HCONFIG_HAVE_DMA_API_DEBUG=y
+[6;1H# CONFIG_LDM_DEBUG is not set
+[7;1H# CONFIG_XEN_DEBUG_FS is not set
+[8;1H# CONFIG_PARAVIRT_DEBUG is not set
+[9;1HCONFIG_X86_DEBUGCTLMSR=y
+[10;1HCONFIG_PM_DEBUG=y
+[11;1HCONFIG_PM_ADVANCED_DEBUG=y
+[12;1H# CONFIG_ACPI_EC_DEBUGFS is not set
+[13;1HCONFIG_ACPI_DEBUG=y
+[14;1H# CONFIG_ACPI_DEBUG_FUNC_TRACE is not set
+[15;1H# CONFIG_PCIEASPM_DEBUG is not set
+[16;1H# CONFIG_PCI_DEBUG is not set
+[17;1H# CONFIG_NETFILTER_DEBUG is not set
+[18;1H# CONFIG_IP_VS_DEBUG is not set
+[19;1H# CONFIG_IP_DCCP_CCID2_DEBUG is not set
+[20;1H# CONFIG_IP_DCCP_CCID3_DEBUG is not set
+[21;1H# CONFIG_IP_DCCP_DEBUG is not set
+[22;1H# CONFIG_RDS_DEBUG is not set
+[23;1HCONFIG_BATMAN_ADV_DEBUG=y
+[24;1H[1;1HCONFIG_ARCH_SUPPORTS_DEBUG_PAGEALLOC=y
+[2;1H# CONFIG_CGROUP_DEBUG is not set
+[3;1H# CONFIG_DEBUG_BLK_CGROUP is not set
+[4;1H# CONFIG_DEBUG_PERF_USE_VMALLOC is not set
+[5;1HCONFIG_HAVE_DMA_API_DEBUG=y
+[6;1H# CONFIG_LDM_DEBUG is not set
+[7;1H# CONFIG_XEN_DEBUG_FS is not set
+[8;1H# CONFIG_PARAVIRT_DEBUG is not set
+[9;1HCONFIG_X86_DEBUGCTLMSR=y
+[10;1HCONFIG_PM_DEBUG=y
+[11;1HCONFIG_PM_ADVANCED_DEBUG=y
+[12;1H# CONFIG_ACPI_EC_DEBUGFS is not set
+[13;1HCONFIG_ACPI_DEBUG=y
+[14;1H# CONFIG_ACPI_DEBUG_FUNC_TRACE is not set
+[15;1H# CONFIG_PCIEASPM_DEBUG is not set
+[16;1H# CONFIG_PCI_DEBUG is not set
+[17;1H# CONFIG_NETFILTER_DEBUG is not set
+[18;1H# CONFIG_IP_VS_DEBUG is not set
+[19;1H# CONFIG_IP_DCCP_CCID2_DEBUG is not set
+[20;1H# CONFIG_IP_DCCP_CCID3_DEBUG is not set
+[21;1H# CONFIG_IP_DCCP_DEBUG is not set
+[22;1H# CONFIG_RDS_DEBUG is not set
+[23;1HCONFIG_BATMAN_ADV_DEBUG=y
+[24;1H[K[7mPattern not found  (press RETURN)[27m[24;1H[K[K...skipping...
+CONFIG_ARCH_SUPPORTS_DEBUG_PAGEALLOC=y
+# CONFIG_CGROUP_DEBUG is not set
+# CONFIG_DEBUG_BLK_CGROUP is not set
+# CONFIG_DEBUG_PERF_USE_VMALLOC is not set
+CONFIG_HAVE_DMA_API_DEBUG=y
+# CONFIG_LDM_DEBUG is not set
+# CONFIG_XEN_DEBUG_FS is not set
+# CONFIG_PARAVIRT_DEBUG is not set
+CONFIG_X86_DEBUGCTLMSR=y
+CONFIG_PM_DEBUG=y
+CONFIG_PM_ADVANCED_DEBUG=y
+# CONFIG_ACPI_EC_DEBUGFS is not set
+CONFIG_ACPI_DEBUG=y
+# CONFIG_ACPI_DEBUG_FUNC_TRACE is not set
+# CONFIG_PCIEASPM_DEBUG is not set
+# CONFIG_PCI_DEBUG is not set
+# CONFIG_NETFILTER_DEBUG is not set
+# CONFIG_IP_VS_DEBUG is not set
+# CONFIG_IP_DCCP_CCID2_DEBUG is not set
+# CONFIG_IP_DCCP_CCID3_DEBUG is not set
+# CONFIG_IP_DCCP_DEBUG is not set
+# CONFIG_RDS_DEBUG is not set
+CONFIG_BATMAN_ADV_DEBUG=y
+:[K[K# CONFIG_CAN_DEBUG_DEVICES is not set
+# CONFIG_IRDA_DEBUG is not set
+# CONFIG_AF_RXRPC_DEBUG is not set
+# CONFIG_CFG80211_REG_DEBUG is not set
+# CONFIG_CFG80211_DEBUGFS is not set
+# CONFIG_LIB80211_DEBUG is not set
+CONFIG_MAC80211_DEBUGFS=y
+# CONFIG_MAC80211_DEBUG_MENU is not set
+CONFIG_WIMAX_DEBUG_LEVEL=8
+# CONFIG_NET_9P_DEBUG is not set
+# CONFIG_CEPH_LIB_PRETTYDEBUG is not set
+# CONFIG_DEBUG_DRIVER is not set
+# CONFIG_DEBUG_DEVRES is not set
+# CONFIG_MTD_PMC551_DEBUG is not set
+# CONFIG_MTD_UBI_DEBUG is not set
+# CONFIG_PNP_DEBUG_MESSAGES is not set
+# CONFIG_CB710_DEBUG is not set
+CONFIG_CB710_DEBUG_ASSUMPTIONS=y
+# CONFIG_IWMC3200TOP_DEBUG is not set
+# CONFIG_IWMC3200TOP_DEBUGFS is not set
+# CONFIG_AIC7XXX_DEBUG_ENABLE is not set
+CONFIG_AIC7XXX_DEBUG_MASK=0
+# CONFIG_AIC79XX_DEBUG_ENABLE is not set
+:[K[KCONFIG_AIC79XX_DEBUG_MASK=0
+# CONFIG_AIC94XX_DEBUG is not set
+# CONFIG_SCSI_MVSAS_DEBUG is not set
+# CONFIG_SCSI_LPFC_DEBUG_FS is not set
+CONFIG_SCSI_DEBUG=m
+# CONFIG_SCSI_OSD_DEBUG is not set
+# CONFIG_DM_DEBUG is not set
+# CONFIG_DM_DEBUG_BLOCK_STACK_TRACING is not set
+# CONFIG_DM_DEBUG_SPACE_MAPS is not set
+# CONFIG_ATM_ENI_DEBUG is not set
+# CONFIG_ATM_ZATM_DEBUG is not set
+# CONFIG_ATM_IDT77252_DEBUG is not set
+# CONFIG_ATM_AMBASSADOR_DEBUG is not set
+# CONFIG_ATM_HORIZON_DEBUG is not set
+# CONFIG_ATM_IA_DEBUG is not set
+CONFIG_ATM_FORE200E_DEBUG=0
+# CONFIG_VXGE_DEBUG_TRACE_ALL is not set
+# CONFIG_SKGE_DEBUG is not set
+# CONFIG_SKY2_DEBUG is not set
+CONFIG_MLX4_DEBUG=y
+# CONFIG_STMMAC_DEBUG_FS is not set
+# CONFIG_LIBERTAS_THINFIRM_DEBUG is not set
+# CONFIG_ATH_DEBUG is not set
+:[K[K# CONFIG_ATH5K_DEBUG is not set
+# CONFIG_ATH9K_DEBUGFS is not set
+# CONFIG_ATH9K_HTC_DEBUGFS is not set
+# CONFIG_CARL9170_DEBUGFS is not set
+# CONFIG_ATH6KL_DEBUG is not set
+# CONFIG_B43_DEBUG is not set
+# CONFIG_B43LEGACY_DEBUG is not set
+# CONFIG_IPW2100_DEBUG is not set
+# CONFIG_IPW2200_DEBUG is not set
+# CONFIG_LIBIPW_DEBUG is not set
+# CONFIG_IWLWIFI_DEBUG is not set
+CONFIG_IWLWIFI_DEBUGFS=y
+# CONFIG_IWLEGACY_DEBUG is not set
+# CONFIG_IWLEGACY_DEBUGFS is not set
+# CONFIG_IWM_DEBUG is not set
+# CONFIG_LIBERTAS_DEBUG is not set
+# CONFIG_RT2X00_LIB_DEBUGFS is not set
+# CONFIG_RT2X00_DEBUG is not set
+# CONFIG_RTLWIFI_DEBUG is not set
+# CONFIG_ZD1211RW_DEBUG is not set
+CONFIG_WIMAX_I2400M_DEBUG_LEVEL=8
+# CONFIG_HISAX_DEBUG is not set
+# CONFIG_GIGASET_DEBUG is not set
+:[K[K# CONFIG_I2C_DEBUG_CORE is not set
+# CONFIG_I2C_DEBUG_ALGO is not set
+# CONFIG_I2C_DEBUG_BUS is not set
+# CONFIG_SPI_DEBUG is not set
+# CONFIG_PPS_DEBUG is not set
+# CONFIG_DEBUG_GPIO is not set
+# CONFIG_POWER_SUPPLY_DEBUG is not set
+# CONFIG_HWMON_DEBUG_CHIP is not set
+# CONFIG_SSB_DEBUG is not set
+# CONFIG_REGULATOR_DEBUG is not set
+# CONFIG_VIDEO_ADV_DEBUG is not set
+# CONFIG_VIDEO_PVRUSB2_DEBUGIFC is not set
+# CONFIG_USB_PWC_DEBUG is not set
+# CONFIG_DVB_USB_DEBUG is not set
+# CONFIG_DVB_B2C2_FLEXCOP_DEBUG is not set
+# CONFIG_DRM_NOUVEAU_DEBUG is not set
+# CONFIG_FB_NVIDIA_DEBUG is not set
+# CONFIG_FB_RIVA_DEBUG is not set
+# CONFIG_FB_RADEON_DEBUG is not set
+CONFIG_SND_DEBUG=y
+# CONFIG_SND_DEBUG_VERBOSE is not set
+CONFIG_SND_PCM_XRUN_DEBUG=y
+# CONFIG_USB_DEBUG is not set
+:[K[K# CONFIG_USB_WUSB_CBAF_DEBUG is not set
+# CONFIG_USB_XHCI_HCD_DEBUGGING is not set
+# CONFIG_USB_STORAGE_DEBUG is not set
+CONFIG_USB_SERIAL_DEBUG=m
+# CONFIG_MMC_DEBUG is not set
+# CONFIG_MEMSTICK_DEBUG is not set
+CONFIG_INFINIBAND_MTHCA_DEBUG=y
+# CONFIG_INFINIBAND_AMSO1100_DEBUG is not set
+# CONFIG_INFINIBAND_CXGB3_DEBUG is not set
+# CONFIG_INFINIBAND_NES_DEBUG is not set
+CONFIG_INFINIBAND_IPOIB_DEBUG=y
+# CONFIG_INFINIBAND_IPOIB_DEBUG_DATA is not set
+# CONFIG_EDAC_DEBUG is not set
+# CONFIG_RTC_DEBUG is not set
+# CONFIG_DMADEVICES_DEBUG is not set
+# CONFIG_USBIP_DEBUG is not set
+# CONFIG_RTS_PSTOR_DEBUG is not set
+# CONFIG_RTS5139_DEBUG is not set
+# CONFIG_LINE6_USB_DEBUG is not set
+# CONFIG_ZRAM_DEBUG is not set
+# CONFIG_EASYCAP_DEBUG is not set
+# CONFIG_FUJITSU_LAPTOP_DEBUG is not set
+# CONFIG_THINKPAD_ACPI_DEBUGFACILITIES is not set
+:[K[K[root@work ~]# pwd
+/root
+[root@work ~]# logout
+[r[H[J
+Fedora release 17 (Beefy Miracle)
+Kernel 3.4.18-1.pvops.qubes.x86_64 on an x86_64 (hvc0)
+
+work login: 
+
+Fedora release 17 (Beefy Miracle)
+Kernel 3.4.18-1.pvops.qubes.x86_64 on an x86_64 (hvc0)
+
+work login:          Starting Show Plymouth Power Off Screen...
+         Unmounting /run/user/user/gvfs...
+         Unmounting /rw...
+         Deactivating swap /dev/xvdc1...
+         Deactivating swap /dev/xvdc1...
+         Unmounting /usr/lib/modules...
+         Stopping IPv6 firewall with ip6tables...
+         Stopping IPv4 firewall with iptables...
+         Stopping CUPS Printing Service...
+         Stopping Manage, Install and Generate Color Profiles...
+         Stopping Daemon for power management...
+         Stopping Bluetooth Manager...
+         Stopping RealtimeKit Scheduling Policy Service...
+[[1;32m  OK  [0m] Stopped target Multi-User.
+         Stopping Self Monitoring and Reporting Technology (SMART) Daemon...
+         Stopping Install ABRT coredump hook...
+         Stopping ACPI Event Daemon...
+         Stopping Harvest vmcores for ABRT...
+[[1;32m  OK  [0m] Stopped Harvest vmcores for ABRT.
+         Stopping Qubes remote exec agent...
+         Stopping System Logging Service...
+[  451.233629] u2mfn_release, priv=ffff8800032b6000
+         Stopping NFS file locking service....
+         Stopping ABRT Xorg log watcher...
+         Stopping Avahi mDNS/DNS-SD Stack...
+         Stopping ABRT kernel log watcher...
+         Stopping Qubes GUI Agent...
+         Stopping Job spooling tools...
+         Stopping Login Service...
+[  451.235663] u2mfn_release, priv=ffff880012ea3000
+[[1;32m  OK  [0m] Stopped target Login Prompts.
+         Stopping Serial Getty on hvc0...
+         Stopping D-Bus System Message Bus...
+         Starting Save Random Seed...
+[[1;32m  OK  [0m] Stopped Self Monitoring and Reporting Technology (SMART) Daemon.
+[[1;32m  OK  [0m] Stopped Qubes remote exec agent.
+[[1;32m  OK  [0m] Stopped System Logging Service.
+[  451.331413] u2mfn_release, priv=ffff880012d76000
+[[1;32m  OK  [0m] Stopped ACPI Event Daemon.
+[[1;32m  OK  [0m] Stopped ABRT Xorg log watcher.
+[[1;32m  OK  [0m] Stopped Avahi mDNS/DNS-SD Stack.
+[[1;32m  OK  [0m] Stopped ABRT kernel log watcher.
+[[1;32m  OK  [0m] Stopped Login Service.
+[[1;32m  OK  [0m] Stopped Job spooling tools.
+[[1;32m  OK  [0m] Stopped D-Bus System Message Bus.
+[[1;32m  OK  [0m] Stopped Qubes GUI Agent.
+[[1;32m  OK  [0m] Stopped RealtimeKit Scheduling Policy Service.
+[[1;32m  OK  [0m] Stopped Bluetooth Manager.
+[[1;32m  OK  [0m] Stopped Daemon for power management.
+[[1;32m  OK  [0m] Stopped CUPS Printing Service.
+[[1;32m  OK  [0m] Stopped Manage, Install and Generate Color Profiles.
+[[1;32m  OK  [0m] Stopped Serial Getty on hvc0.
+[[1;32m  OK  [0m] Unmounted /run/user/user/gvfs.
+[[1;32m  OK  [0m] Failed unmounting /rw.
+[[1;32m  OK  [0m] Deactivated swap /dev/xvdc1.
+[[1;32m  OK  [0m] Failed unmounting /usr/lib/modules.
+[[1;32m  OK  [0m] Stopped IPv6 firewall with ip6tables.
+[[1;32m  OK  [0m] Stopped IPv4 firewall with iptables.
+[[1;32m  OK  [0m] Stopped Install ABRT coredump hook.
+[[1;32m  OK  [0m] Started Save Random Seed.
+[[1;32m  OK  [0m] Stopped NFS file locking service..
+[[1;32m  OK  [0m] Started Show Plymouth Power Off Screen.
+         Stopping RPC bind service...
+         Stopping Qubes misc post-boot actions...
+         Stopping Qubes memory information reporter...
+         Stopping Permit User Sessions...
+         Stopping ABRT Automated Bug Reporting Tool...
+[[1;32m  OK  [0m] Deactivated swap /dev/disk/by-uuid/f138caf9-81ed-422...7-a20d90d62f38.
+[[1;32m  OK  [0m] Deactivated swap /dev/disk/by-path/xen-vbd-51744-part1.
+[[1;32m  OK  [0m] Stopped Qubes memory information reporter.
+[[1;32m  OK  [0m] Stopped RPC bind service.
+[[1;32m  OK  [0m] Stopped target Network.
+[[1;32m  OK  [0m] Stopped ABRT Automated Bug Reporting Tool.
+[[1;32m  OK  [0m] Stopped Qubes misc post-boot actions.
+[[1;32m  OK  [0m] Stopped Permit User Sessions.
+[[1;32m  OK  [0m] Stopped target Basic System.
+[[1;32m  OK  [0m] Stopped target Sockets.
+[[1;32m  OK  [0m] Closed Syslog Socket.
+[[1;32m  OK  [0m] Closed RPCbind Server Activation Socket.
+[[1;32m  OK  [0m] Closed PC/SC Smart Card Daemon Activation Socket.
+[[1;32m  OK  [0m] Closed Avahi mDNS/DNS-SD Stack Activation Socket.
+[[1;32m  OK  [0m] Closed CUPS Printing Service Sockets.
+[[1;32m  OK  [0m] Closed D-Bus System Message Bus Socket.
+[[1;32m  OK  [0m] Stopped target System Initialization.
+         Stopping Load legacy module configuration...
+[[1;32m  OK  [0m] Stopped Load legacy module configuration.
+[[1;32m  OK  [0m] Stopped target Encrypted Volumes.
+         Stopping Setup Virtual Console...
+[[1;32m  OK  [0m] Stopped Setup Virtual Console.
+         Stopping Apply Kernel Variables...
+[[1;32m  OK  [0m] Stopped Apply Kernel Variables.
+[[1;32m  OK  [0m] Stopped target Swap.
+[[1;32m  OK  [0m] Stopped target Remote File Systems.
+[[1;32m  OK  [0m] Stopped target Local File Systems.
+         Starting Update UTMP about System Shutdown...
+         Unmounting /proc/xen...
+         Stopping Configure read-only root support...
+[[1;32m  OK  [0m] Stopped Configure read-only root support.
+         Unmounting Media Directory...
+[[1;32m  OK  [0m] Unmounted /proc/xen.
+[[1;32m  OK  [0m] Started Update UTMP about System Shutdown.
+[[1;32m  OK  [0m] Stopped target Local File Systems (Pre).
+         Stopping Remount Root and Kernel File Systems...
+[[1;32m  OK  [0m] Stopped Remount Root and Kernel File Systems.
+         Stopping Replay Read-Ahead Data...
+[[1;32m  OK  [0m] Stopped Replay Read-Ahead Data.
+         Stopping Collect Read-Ahead Data...
+[[1;32m  OK  [0m] Stopped Collect Read-Ahead Data.
+[[1;32m  OK  [0m] Reached target Shutdown.
+Sending SIGTERM to remaining processes...
+Sending SIGKILL to remaining processes...
+Unmounting file systems.
+Unmounted /sys/fs/fuse/connections.
+Unmounted /rw.
+Unmounted /sys/kernel/debug.
+Unmounted /dev/mqueue.
+Unmounted /usr/lib/modules.
+[  472.295760] EXT4-fs (dm-0): re-mounted. Opts: (null)
+Disabling swaps.
+Detaching loop devices.
+Detaching DM devices.
+Not all DM devices detached, 1 left.
+Detaching DM devices.
+Not all DM devices detached, 1 left.
+Cannot finalize remaining file systems and devices, trying to kill remaining processes.
+Detaching DM devices.
+Not all DM devices detached, 1 left.
+Cannot finalize remaining file systems and devices, giving up.
+[  472.372982] System halted.
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.4.18-1.pvops.qubes.x86_64 (user@qdvp) (gcc version 4.7.2 20120921 (Red Hat 4.7.2-2) (GCC) ) #1 SMP Sat Nov 10 11:22:50 CET 2012
+[    0.000000] Command line: root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH 3 
+[    0.000000] ACPI in unprivileged domain disabled
+[    0.000000] Released 0 pages of unused memory
+[    0.000000] Set 0 page(s) to 1-1 mapping
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  Xen: 0000000000000000 - 00000000000a0000 (usable)
+[    0.000000]  Xen: 00000000000a0000 - 0000000000100000 (reserved)
+[    0.000000]  Xen: 0000000000100000 - 00000000fe600000 (usable)
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] DMI not present or invalid.
+[    0.000000] No AGP bridge found
+[    0.000000] last_pfn = 0xfe600 max_arch_pfn = 0x400000000
+[    0.000000] init_memory_mapping: 0000000000000000-00000000fe600000
+[    0.000000] RAMDISK: 01e24000 - 03951000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000010 -> 0x00001000
+[    0.000000]   DMA32    0x00001000 -> 0x00100000
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] Early memory PFN ranges
+[    0.000000]     0: 0x00000010 -> 0x000000a0
+[    0.000000]     0: 0x00000100 -> 0x000fe600
+[    0.000000] SFI: Simple Firmware Interface v0.81 http://simplefirmware.org
+[    0.000000] SMP: Allowing 8 CPUs, 0 hotplug CPUs
+[    0.000000] No local APIC present
+[    0.000000] APIC: disable apic facility
+[    0.000000] APIC: switched to apic NOOP
+[    0.000000] Allocating PCI resources starting at fe600000 (gap: fe600000:1a00000)
+[    0.000000] Booting paravirtualized kernel on Xen
+[    0.000000] Xen version: 4.1.2 (preserve-AD)
+[    0.000000] setup_percpu: NR_CPUS:512 nr_cpumask_bits:512 nr_cpu_ids:8 nr_node_ids:1
+[    0.000000] PERCPU: Embedded 28 pages/cpu @ffff880018c00000 s82304 r8192 d24192 u262144
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 1023519
+[    0.000000] Kernel command line: root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH 3 
+[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes)
+[    0.000000] Checking aperture...
+[    0.000000] No AGP bridge found
+[    0.000000] Memory: 289044k/4167680k available (4503k kernel code, 448k absent, 3878188k reserved, 4166k data, 620k init)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU dyntick-idle grace-period acceleration is enabled.
+[    0.000000] NR_IRQS:33024 nr_irqs:336 16
+[    0.000000] kmemleak: Kernel memory leak detector disabled
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] console [hvc0] enabled
+[    0.000000] kmemleak: Early log buffer exceeded (656), please increase DEBUG_KMEMLEAK_EARLY_LOG_SIZE
+[    0.000000] installing Xen timer for CPU 0
+[    0.000000] Detected 1729.030 MHz processor.
+[    0.004000] Calibrating delay loop (skipped), value calculated using timer frequency.. 3458.06 BogoMIPS (lpj=6916120)
+[    0.004000] pid_max: default: 32768 minimum: 301
+[    0.004000] Mount-cache hash table entries: 256
+[    0.004000] Initializing cgroup subsys cpuacct
+[    0.004000] Initializing cgroup subsys devices
+[    0.004000] Initializing cgroup subsys freezer
+[    0.004000] Initializing cgroup subsys net_cls
+[    0.004000] Initializing cgroup subsys blkio
+[    0.004000] CPU: Physical Processor ID: 0
+[    0.004000] CPU: Processor Core ID: 0
+[    0.004000] SMP alternatives: switching to UP code
+[    0.033203] Performance Events: unsupported p6 CPU model 30 no PMU driver, software events only.
+[    0.033830] NMI watchdog: disabled (cpu0): hardware events not enabled
+[    0.035052] installing Xen timer for CPU 1
+[    0.035115] SMP alternatives: switching to SMP code
+[    0.064132] NMI watchdog: disabled (cpu1): hardware events not enabled
+[    0.065408] installing Xen timer for CPU 2
+[    0.065652] NMI watchdog: disabled (cpu2): hardware events not enabled
+[    0.067645] installing Xen timer for CPU 3
+[    0.067958] NMI watchdog: disabled (cpu3): hardware events not enabled
+[    0.069510] installing Xen timer for CPU 4
+[    0.069789] NMI watchdog: disabled (cpu4): hardware events not enabled
+[    0.071183] installing Xen timer for CPU 5
+[    0.071408] NMI watchdog: disabled (cpu5): hardware events not enabled
+[    0.072602] installing Xen timer for CPU 6
+[    0.072881] NMI watchdog: disabled (cpu6): hardware events not enabled
+[    0.074120] installing Xen timer for CPU 7
+[    0.074343] NMI watchdog: disabled (cpu7): hardware events not enabled
+[    0.074409] Brought up 8 CPUs
+[    0.076013] devtmpfs: initialized
+[    0.086297] Grant tables using version 2 layout.
+[    0.086297] Grant table initialized
+[    0.086297] dummy: 
+[    0.106782] RTC time: 165:165:165, date: 165/165/65
+[    0.107459] NET: Registered protocol family 16
+[    0.108717] PCI: setting up Xen PCI frontend stub
+[    0.113537] bio: create slab <bio-0> at 0
+[    0.114029] ACPI: Interpreter disabled.
+[    0.116049] xen/balloon: Initialising balloon driver.
+[    0.132071] xen-balloon: Initialising balloon driver.
+[    0.132161] vgaarb: loaded
+[    0.132475] PCI: System does not support PCI
+[    0.132475] PCI: System does not support PCI
+[    0.132593] Switching to clocksource xen
+[    0.156396] pnp: PnP ACPI: disabled
+[    0.165243] NET: Registered protocol family 2
+[    0.165678] IP route cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.167630] TCP established hash table entries: 131072 (order: 9, 2097152 bytes)
+[    0.168605] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+[    0.168904] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.168909] TCP: reno registered
+[    0.168931] UDP hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.168978] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.169961] NET: Registered protocol family 1
+[    0.170347] Unpacking initramfs...
+[    0.275332] debug: unmapping init memory ffff880001e24000..ffff880003951000
+[    0.281465] platform rtc_cmos: registered platform RTC device (no PNP device found)
+[    0.287793] audit: initializing netlink socket (disabled)
+[    0.287871] type=2000 audit(1352546550.395:1): initialized
+[    0.306913] VFS: Disk quotas dquot_6.5.2
+[    0.307085] Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.308841] msgmni has been set to 564
+[    0.309607] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.309618] io scheduler noop registered
+[    0.309622] io scheduler deadline registered
+[    0.309841] io scheduler cfq registered (default)
+[    0.314385] pcifront pci-0: Installing PCI frontend
+[    0.314584] pcifront pci-0: Creating PCI Frontend Bus 0000:00
+[    0.314744] pcifront pci-0: PCI host bridge to bus 0000:00
+[    0.314758] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.314769] pci_bus 0000:00: root bus resource [mem 0x00000000-0xfffffffff]
+[    0.314922] Non-volatile memory driver v1.3
+[    0.314997] ramoops: platform device not found, using module parameters
+[    0.315096] ramoops: The memory size and the record size must be non-zero
+[    0.315111] ramoops: probe of ramoops failed with error -22
+[    0.318464] loop: module loaded
+[    0.318585] Fixed MDIO Bus: probed
+[    0.318682] i8042: PNP: No PS/2 controller found. Probing ports directly.
+[    0.319505] i8042: No controller found
+[    0.319728] mousedev: PS/2 mouse device common for all mice
+[    0.379983] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    0.380384] rtc_cmos: probe of rtc_cmos failed with error -38
+[    0.381297] device-mapper: uevent: version 1.0.3
+[    0.381945] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+[    0.382313] TCP: cubic registered
+[    0.382977] NET: Registered protocol family 10
+[    0.384529] Registering the dns_resolver key type
+[    0.385242] registered taskstats version 1
+[    0.385284] XENBUS: Device with no driver: device/vbd/51712
+[    0.385290] XENBUS: Device with no driver: device/vbd/51728
+[    0.385295] XENBUS: Device with no driver: device/vbd/51744
+[    0.385299] XENBUS: Device with no driver: device/vbd/51760
+[    0.385304] XENBUS: Device with no driver: device/vif/0
+[    0.385550]   Magic number: 1:252:3141
+[    0.385611] /rw/home/user/qubes/qubes-builder/qubes-src/kernel/kernel-3.4.18/linux-3.4.18/drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    0.386358] debug: unmapping init memory ffffffff81879000..ffffffff81914000
+[    0.386637] Write protecting the kernel read-only data: 8192k
+[    0.389824] debug: unmapping init memory ffff88000146a000..ffff880001600000
+[    0.390441] debug: unmapping init memory ffff8800017fd000..ffff880001800000
+[    0.402456] BUG: unable to handle kernel paging request at ffff88000f593000
+[    0.402479] IP: [<ffffffff8110af14>] __tlb_remove_page+0x84/0xb0
+[    0.402500] PGD 180c067 PUD 1810067 PMD 860067 PTE 801000000f593064
+[    0.402518] Oops: 0002 [#1] SMP DEBUG_PAGEALLOC
+[    0.402531] CPU 4 
+[    0.402536] Modules linked in:
+[    0.402546] 
+[    0.402554] Pid: 60, comm: init Not tainted 3.4.18-1.pvops.qubes.x86_64 #1  
+[    0.402569] RIP: e030:[<ffffffff8110af14>]  [<ffffffff8110af14>] __tlb_remove_page+0x84/0xb0
+[    0.402589] RSP: e02b:ffff88000f5e9a78  EFLAGS: 00010286
+[    0.402599] RAX: ffff88000f593000 RBX: ffff88000f5e9c30 RCX: 0000000000000000
+[    0.402617] RDX: ffff88000f593000 RSI: 0000000000000010 RDI: 0000000000000200
+[    0.402636] RBP: ffff88000f5e9a88 R08: 0000000000000000 R09: ffff880000000000
+[    0.402655] R10: 0000000000000001 R11: 000000003a6460df R12: ffff88000f5e2c68
+[    0.402668] R13: 0000000070f0a125 R14: ffff88000f44a150 R15: 000000000042a000
+[    0.402691] FS:  00007fed112a6740(0000) GS:ffff880018d00000(0000) knlGS:0000000000000000
+[    0.402714] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[    0.402728] CR2: ffff88000f593000 CR3: 000000000f58c000 CR4: 0000000000002660
+[    0.402746] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[    0.402767] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[    0.402783] Process init (pid: 60, threadinfo ffff88000f5e8000, task ffff88000f5e67c0)
+[    0.402804] Stack:
+[    0.402811]  ffffea00003d1280 ffffea000048b700 ffff88000f5e9b78 ffffffff8110c488
+[    0.402837]  000000002e99dd40 0000000000000100 0000000000000000 00000000000001ff
+[    0.402862]  00000000004d9fff 00000000004da000 00000000004d9fff ffff88000f5e3000
+[    0.402894] Call Trace:
+[    0.402906]  [<ffffffff8110c488>] unmap_page_range+0x4a8/0x730
+[    0.402928]  [<ffffffff8110c773>] unmap_single_vma+0x63/0xb0
+[    0.402947]  [<ffffffff810f6550>] ? put_pages_list+0x30/0x30
+[    0.402967]  [<ffffffff8110cf8e>] unmap_vmas+0x5e/0xb0
+[    0.402985]  [<ffffffff81114477>] exit_mmap+0x97/0x140
+[    0.403005]  [<ffffffff810455a3>] mmput+0x73/0xf0
+[    0.403025]  [<ffffffff8113a96d>] flush_old_exec+0x3ed/0x720
+[    0.403048]  [<ffffffff81180b9e>] load_elf_binary+0x31e/0x1840
+[    0.403069]  [<ffffffff81180880>] ? load_elf_library+0x200/0x200
+[    0.403093]  [<ffffffff8113a087>] search_binary_handler+0xe7/0x2f0
+[    0.403110]  [<ffffffff8113b553>] do_execve_common.isra.32+0x3e3/0x4b0
+[    0.403131]  [<ffffffff8113b636>] do_execve+0x16/0x20
+[    0.403146]  [<ffffffff8101bd52>] sys_execve+0x42/0x70
+[    0.403168]  [<ffffffff814624fc>] stub_execve+0x6c/0xc0
+[    0.403180] Code: 8b 47 10 48 8b 10 48 85 d2 74 0c 48 89 53 10 8b 42 0c 8b 52 08 eb bd 31 f6 bf 00 02 00 00 e8 c4 87 fe ff 48 85 c0 48 89 c2 74 1e <48> c7 00 00 00 00 00 c7 40 08 00 00 00 00 c7 40 0c fe 01 00 00 
+[    0.403339] RIP  [<ffffffff8110af14>] __tlb_remove_page+0x84/0xb0
+[    0.403360]  RSP <ffff88000f5e9a78>
+[    0.403368] CR2: ffff88000f593000
+[    0.403381] ---[ end trace 5a1fee2baecc9c0d ]---
+[    0.403496] ------------[ cut here ]------------
+[    0.403511] kernel BUG at /rw/home/user/qubes/qubes-builder/qubes-src/kernel/kernel-3.4.18/linux-3.4.18/arch/x86/kernel/paravirt.c:244!
+[    0.403530] invalid opcode: 0000 [#2] SMP DEBUG_PAGEALLOC
+[    0.403544] CPU 4 
+[    0.403548] Modules linked in:
+[    0.403562] 
+[    0.403572] Pid: 60, comm: init Tainted: G      D      3.4.18-1.pvops.qubes.x86_64 #1  
+[    0.403595] RIP: e030:[<ffffffff81450cb3>]  [<ffffffff81450cb3>] enter_lazy.part.4+0x4/0x6
+[    0.403626] RSP: e02b:ffff88000f5e9488  EFLAGS: 00010202
+[    0.403638] RAX: 0000000000000001 RBX: ffff88000f58bc68 RCX: 00003ffffffff000
+[    0.403662] RDX: 0000000000000006 RSI: ffffea00003d6440 RDI: ffffea00003d6470
+[    0.403676] RBP: ffff88000f5e9488 R08: 0000000000000000 R09: 0000000000000000
+[    0.403700] R10: ffffffff81871d40 R11: 0000000000000001 R12: ffff88000f590ff8
+[    0.403714] R13: ffff88000f58bc68 R14: ffff88000f591fe8 R15: 00007fffffffd000
+[    0.403744] FS:  00007fed112a6740(0000) GS:ffff880018d00000(0000) knlGS:0000000000000000
+[    0.403765] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[    0.403781] CR2: ffff88000f593000 CR3: 000000000180b000 CR4: 0000000000002660
+[    0.403795] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[    0.403807] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[    0.403821] Process init (pid: 60, threadinfo ffff88000f5e8000, task ffff88000f5e67c0)
+[    0.403834] Stack:
+[    0.403839]  ffff88000f5e9498 ffffffff8103abf2 ffff88000f5e9588 ffffffff8110c2b2
+[    0.403859]  0000000000000011 0000000000000100 0000000000000000 00000000000001ff
+[    0.403878]  00007fffffffefff 00007ffffffff000 00007fffffffefff ffff88000f58c7f8
+[    0.403898] Call Trace:
+[    0.403909]  [<ffffffff8103abf2>] paravirt_enter_lazy_mmu+0x22/0x30
+[    0.403922]  [<ffffffff8110c2b2>] unmap_page_range+0x2d2/0x730
+[    0.403937]  [<ffffffff810f6338>] ? release_pages+0x148/0x1c0
+[    0.403950]  [<ffffffff8110c773>] unmap_single_vma+0x63/0xb0
+[    0.403964]  [<ffffffff810f6550>] ? put_pages_list+0x30/0x30
+[    0.403977]  [<ffffffff8110cf8e>] unmap_vmas+0x5e/0xb0
+[    0.403989]  [<ffffffff81114477>] exit_mmap+0x97/0x140
+[    0.404003]  [<ffffffff810455a3>] mmput+0x73/0xf0
+[    0.404016]  [<ffffffff8104aadd>] exit_mm+0xfd/0x120
+[    0.404030]  [<ffffffff8145a84b>] ? _raw_spin_lock_irq+0xb/0x30
+[    0.404043]  [<ffffffff8104c224>] do_exit+0x164/0x8a0
+[    0.404059]  [<ffffffff8145a542>] ? _raw_spin_unlock_irqrestore+0x12/0x20
+[    0.404073]  [<ffffffff8104a0da>] ? kmsg_dump+0x5a/0x100
+[    0.404086]  [<ffffffff8145b7b9>] oops_end+0x99/0xe0
+[    0.404098]  [<ffffffff81451595>] no_context+0x24e/0x279
+[    0.404112]  [<ffffffff81006ed9>] ? xen_pmd_val+0x9/0x10
+[    0.404125]  [<ffffffff8145177a>] __bad_area_nosemaphore+0x1ba/0x1d9
+[    0.404140]  [<ffffffff8145aa69>] ? restore_args+0x30/0x30
+[    0.404153]  [<ffffffff814517a7>] bad_area_nosemaphore+0xe/0x10
+[    0.404166]  [<ffffffff8145df8b>] do_page_fault+0x32b/0x4f0
+[    0.404179]  [<ffffffff81006e2a>] ? pte_mfn_to_pfn+0x6a/0x100
+[    0.405930]  [<ffffffff81006f1b>] ? xen_pte_val+0x2b/0x80
+[    0.405930]  [<ffffffff810f2f93>] ? __alloc_pages_nodemask+0x193/0x850
+[    0.405930]  [<ffffffff8114ac5a>] ? __d_lookup+0x7a/0x160
+[    0.405930]  [<ffffffff8145aca5>] page_fault+0x25/0x30
+[    0.405930]  [<ffffffff8110af14>] ? __tlb_remove_page+0x84/0xb0
+[    0.405930]  [<ffffffff8110af0c>] ? __tlb_remove_page+0x7c/0xb0
+[    0.405930]  [<ffffffff8110c488>] unmap_page_range+0x4a8/0x730
+[    0.405930]  [<ffffffff8110c773>] unmap_single_vma+0x63/0xb0
+[    0.405930]  [<ffffffff810f6550>] ? put_pages_list+0x30/0x30
+[    0.405930]  [<ffffffff8110cf8e>] unmap_vmas+0x5e/0xb0
+[    0.405930]  [<ffffffff81114477>] exit_mmap+0x97/0x140
+[    0.405930]  [<ffffffff810455a3>] mmput+0x73/0xf0
+[    0.405930]  [<ffffffff8113a96d>] flush_old_exec+0x3ed/0x720
+[    0.405930]  [<ffffffff81180b9e>] load_elf_binary+0x31e/0x1840
+[    0.405930]  [<ffffffff81180880>] ? load_elf_library+0x200/0x200
+[    0.405930]  [<ffffffff8113a087>] search_binary_handler+0xe7/0x2f0
+[    0.405930]  [<ffffffff8113b553>] do_execve_common.isra.32+0x3e3/0x4b0
+[    0.405930]  [<ffffffff8113b636>] do_execve+0x16/0x20
+[    0.405930]  [<ffffffff8101bd52>] sys_execve+0x42/0x70
+[    0.405930]  [<ffffffff814624fc>] stub_execve+0x6c/0xc0
+[    0.405930] Code: fa 44 89 e6 48 c7 c7 e0 e5 75 81 31 c0 e8 05 0f 00 00 48 83 c4 18 5b 41 5c 41 5d 41 5e 41 5f 5d c3 55 48 89 e5 0f 0b 55 48 89 e5 <0f> 0b 55 48 89 e5 0f 0b 55 48 89 e5 41 55 41 54 53 31 db 48 85 
+[    0.405930] RIP  [<ffffffff81450cb3>] enter_lazy.part.4+0x4/0x6
+[    0.405930]  RSP <ffff88000f5e9488>
+[    0.596597] ---[ end trace 5a1fee2baecc9c0e ]---
+[    0.596614] Fixing recursive fault but reboot is needed!
