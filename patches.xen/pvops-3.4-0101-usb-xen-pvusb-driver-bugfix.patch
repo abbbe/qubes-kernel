@@ -102,7 +102,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	cond_resched();
  
-+	printk("usbbk_start_submit_urb(usbif=%p) end, more_to_do=%d", usbif, more_to_do);
++	printk("usbbk_start_submit_urb(usbif=%p) end, more_to_do=%d\n", usbif, more_to_do);
  	return more_to_do;
  }
  
@@ -113,9 +113,9 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	RING_PUSH_REQUESTS_AND_CHECK_NOTIFY(&info->urb_ring, notify);
 -	if (notify)
-+	printk("xenhcd_do_request(info=%p): pushed requests", info);
++	printk("xenhcd_do_request(info=%p): pushed requests\n", info);
 +	if (notify) {
-+		printk("xenhcd_do_request(info=%p): notify remote via IRQ", info);
++		printk("xenhcd_do_request(info=%p): notify remote via IRQ\n", info);
  		notify_remote_via_irq(info->irq);
 +	}
  
@@ -125,7 +125,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	for (i = info->urb_ring.rsp_cons; i != rp; i++) {
  		res = RING_GET_RESPONSE(&info->urb_ring, i);
-+		printk("xenhcd_urb_request_done(info=%p): got response=%p", info, res);
++		printk("xenhcd_urb_request_done(info=%p): got response=%p\n", info, res);
  		id = res->id;
  
  		if (likely(usbif_pipesubmit(info->shadow[id].req.pipe))) {
@@ -133,7 +133,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	cond_resched();
  
-+	printk("xenhcd_urb_request_done(info=%p) end, more_to_do=%d", info, more_to_do);
++	printk("xenhcd_urb_request_done(info=%p) end, more_to_do=%d\n", info, more_to_do);
  	return more_to_do;
  }
  
@@ -141,7 +141,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	while (rc != rp) {
  		res = RING_GET_RESPONSE(&info->conn_ring, rc);
-+		printk("xenhcd_conn_notify(info=%p): got response res=%p", info, res);
++		printk("xenhcd_conn_notify(info=%p): got response res=%p\n", info, res);
  		id = res->id;
  		portnum = res->portnum;
  		speed = res->speed;
@@ -149,7 +149,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  		req = RING_GET_REQUEST(&info->conn_ring,
  					info->conn_ring.req_prod_pvt);
  		req->id = id;
-+		printk("xenhcd_conn_notify(info=%p): prepared request=%p", info, req);
++		printk("xenhcd_conn_notify(info=%p): prepared request=%p\n", info, req);
  		info->conn_ring.req_prod_pvt++;
  	}
  
@@ -158,9 +158,9 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	RING_PUSH_REQUESTS_AND_CHECK_NOTIFY(&info->conn_ring, notify);
 -	if (notify)
-+	printk("xenhcd_conn_notify(info=%p): pushed request", info);
++	printk("xenhcd_conn_notify(info=%p): pushed request\n", info);
 +	if (notify) {
-+		printk("xenhcd_conn_notify(info=%p): notify remote via IRQ", info);
++		printk("xenhcd_conn_notify(info=%p): notify remote via IRQ\n", info);
  		notify_remote_via_irq(info->irq);
 +	}
  
@@ -170,7 +170,7 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  
  	cond_resched();
  
-+	printk("xenhcd_conn_notify(info=%p): end, more_to_do=%d", info, more_to_do);
++	printk("xenhcd_conn_notify(info=%p): end, more_to_do=%d\n", info, more_to_do);
  	return more_to_do;
  }
  
@@ -178,11 +178,11 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  	struct usbfront_info *info = (struct usbfront_info *) arg;
  
  	while (!kthread_should_stop()) {
-+		printk("xenhcd_schedule(info=%p): waiting for info->wq %p", info, &info->wq);
++		printk("xenhcd_schedule(info=%p): waiting for info->wq %p\n", info, &info->wq);
  		wait_event_interruptible(info->wq,
  				info->waiting_resp || kthread_should_stop());
  		info->waiting_resp = 0;
-+		printk("xenhcd_schedule(info=%p): woken up on info->wq %p", info, &info->wq);
++		printk("xenhcd_schedule(info=%p): woken up on info->wq %p\n", info, &info->wq);
  		smp_mb();
  
  		if (xenhcd_urb_request_done(info))
@@ -190,13 +190,13 @@ Index: linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
  static void xenhcd_notify_work(struct usbfront_info *info)
  {
  	info->waiting_resp = 1;
-+	printk("xenhcd_notify_work(info=%p): wake up info->wq=%p", info, &info->wq);
++	printk("xenhcd_notify_work(info=%p): wake up info->wq=%p\n", info, &info->wq);
  	wake_up(&info->wq);
  }
  
  irqreturn_t xenhcd_int(int irq, void *dev_id)
  {
-+	printk("xenhcd_int() called with dev_id=%p", dev_id);
++	printk("xenhcd_int() called with dev_id=%p\n", dev_id);
  	xenhcd_notify_work((struct usbfront_info *) dev_id);
  	return IRQ_HANDLED;
  }
