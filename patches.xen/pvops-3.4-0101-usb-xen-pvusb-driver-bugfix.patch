@@ -1,6 +1,6 @@
 diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 07:08:22.032000090 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 17:31:29.204000025 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
  	list_add(&req->free_list, &usbbk->pending_free);
@@ -49,7 +49,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  {
  	struct pending_req *pending_req = (struct pending_req *)urb->context;
  
-+	printk("USBCORE: usbbk_urb_complete(urb=%p)\n", urb);
++	printk("URB: usbbk_urb_complete(urb=%p)\n", urb);
 +
  	if (usb_pipein(urb->pipe) && urb->status == 0 && urb->actual_length > 0)
  		copy_buff_to_pages(pending_req->buffer, pending_req, 0,
@@ -58,7 +58,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  	barrier();
  
  	ret = usb_submit_urb(pending_req->urb, GFP_KERNEL);
-+	printk("USBCORE: usb_submit_urb(urb=%p) = %d\n", pending_req->urb, ret);
++	printk("URB: usb_submit_urb(urb=%p) = %d\n", pending_req->urb, ret);
  	if (ret) {
  		pr_alert(DRV_PFX "failed submitting urb, error %d\n", ret);
  		ret = -ESHUTDOWN;
@@ -107,7 +107,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
 +	// XXX is it possible there are no requests yet in the ring?
 +
  	req = RING_GET_REQUEST(ring, ring->req_cons);
-+	printk("RINGS: xen_usbif_hotplug_notify() got request from usbif->conn_ring(%p), req_cons=%p\n",
++	printk("RINGS: xen_usbif_hotplug_notify() got request from usbif->conn_ring(%p), req_cons=%d\n",
 +		&usbif->conn_ring, ring->req_cons);
  	id = req->id;
 +	printk("RINGS: xen_usbif_hotplug_notify() sets usbif->conn_ring(%p).req_cons=%d\n",
@@ -124,7 +124,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  	res->portnum = portnum;
  	res->speed = speed;
  	ring->rsp_prod_pvt++;
-+	printk("RINGS: xen_usbif_hotplug_notify() pushes response into usbif->conn_ring(%p), rsp_prod_pvt=%p\n",
++	printk("RINGS: xen_usbif_hotplug_notify() pushes response into usbif->conn_ring(%p), rsp_prod_pvt=%d\n",
 +		&usbif->conn_ring, ring->rsp_prod_pvt);
  	RING_PUSH_RESPONSES_AND_CHECK_NOTIFY(ring, notify);
  
@@ -153,7 +153,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
 Only in linux-3.4.18.orig/drivers/usb/host/xen-usbback: usbback.c.orig
 diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 15:33:11.412002468 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 17:28:13.736000061 +0100
 @@ -876,6 +876,8 @@
  		COUNT(info->stats.complete);
  	}
@@ -291,7 +291,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  
  irqreturn_t xenhcd_int(int irq, void *dev_id)
  {
-+	printk("xenhcd_int() called with dev_id=%p\n", dev_id);
++	printk("xenhcd_int() called with irq=%d, dev_id=%p\n", irq, dev_id);
  	xenhcd_notify_work((struct usbfront_info *) dev_id);
  	return IRQ_HANDLED;
  }
