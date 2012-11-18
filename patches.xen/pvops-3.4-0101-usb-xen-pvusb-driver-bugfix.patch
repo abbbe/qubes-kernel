@@ -153,7 +153,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
 Only in linux-3.4.18.orig/drivers/usb/host/xen-usbback: usbback.c.orig
 diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 06:54:41.271999907 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 15:33:11.412002468 +0100
 @@ -876,6 +876,8 @@
  		COUNT(info->stats.complete);
  	}
@@ -204,7 +204,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
 +			&info->urb_ring, more_to_do);
 +	} else {
 +		printk("RINGS: xenhcd_urb_request_done() info->urb_ring(%p).sring->rsp_event := %d\n",
-+			&info->urb_ring(%p), i + 1);
++			&info->urb_ring, i + 1);
  		info->urb_ring.sring->rsp_event = i + 1;
 +	}
  
