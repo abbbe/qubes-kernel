@@ -1,0 +1,38 @@
+
+patch="patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch"
+
+*1* prepare and stash the sources
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cd qubes-src/kernel
+make prep
+mv kernel-3.4.18 kernel-3.4.18.stash
+cd kernel-3.4.18.stash
+
+*2* create .orig dir copy and rollback the patch there
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cp -rl linux-3.4.18 linux-3.4.18.orig
+cd linux-3.4.18.orig
+patch -p1 -R < ../../$patch
+cd ../linux-3.4.18
+
+*3* edit something
+~~~~~~~~~~~~~~~~~~
+
+## update the patch
+cd ..
+diff -ur linux-3.4.18.orig linux-3.4.18 > ../$patch
+
+*4* commit
+~~~~~~~~~~
+
+cd ..
+git add $patch
+git commit -a
+
+*5* build
+~~~~~~~~~
+
+make rpms
+
