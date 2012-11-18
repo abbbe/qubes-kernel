@@ -1,12 +1,13 @@
+diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 02:22:22.112000000 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 07:08:22.032000090 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
  	list_add(&req->free_list, &usbbk->pending_free);
  	spin_unlock_irqrestore(&usbbk->pending_free_lock, flags);
 -	if (was_empty)
 +	if (was_empty) {
-+		printk("wake up usbbk->pending_free_wq=%p\n", &usbbk->pending_free_wq);
++		printk("WAIT: wake up usbbk->pending_free_wq=%p\n", &usbbk->pending_free_wq);
  		wake_up(&usbbk->pending_free_wq);
 +	}
  }
@@ -16,32 +17,52 @@
  
  static void usbif_notify_work(struct xen_usbif *usbif)
  {
-+	printk("wake up usbif->wq=%p\n", &usbif->wq);
++	printk("WAIT: wake up usbif->wq=%p\n", &usbif->wq);
  	usbif->waiting_reqs = 1;
  	wake_up(&usbif->wq);
  }
  
  irqreturn_t xen_usbif_be_int(int irq, void *dev_id)
  {
-+	printk("xen_usbif_be_int() called with dev_id=%p\n", dev_id);
++	printk("IRQ: xen_usbif_be_int() called with irq=%d, dev_id=%p\n", irq, dev_id);
  	usbif_notify_work(dev_id);
  	return IRQ_HANDLED;
  }
-@@ -460,8 +464,12 @@
+@@ -457,17 +461,24 @@
+ 	res->start_frame = start_frame;
+ 	usbif->urb_ring.rsp_prod_pvt++;
+ 	barrier();
++	printk("RINGS: usbbk_do_response() pushes response into usbif->urb_ring(%p), rsp_prod_pvt=%d\n",
++		&usbif->urb_ring, usbif->urb_ring.rsp_prod_pvt);
  	RING_PUSH_RESPONSES_AND_CHECK_NOTIFY(&usbif->urb_ring, notify);
  	spin_unlock_irqrestore(&usbif->urb_ring_lock, flags);
  
 -	if (notify)
-+	printk("usbbk_do_response(): pushed response=%p\n", res);
-+
 +	if (notify) {
-+		printk("usbbk_do_response(): notify remote via IRQ\n");
++		printk("IRQ: usbbk_do_response(usbif=%p) calls notify_remote_via_irq(irq=%d)\n",
++			usbif, usbif->irq);
  		notify_remote_via_irq(usbif->irq);
 +	}
  }
  
  static void usbbk_urb_complete(struct urb *urb)
-@@ -1027,19 +1035,24 @@
+ {
+ 	struct pending_req *pending_req = (struct pending_req *)urb->context;
+ 
++	printk("USBCORE: usbbk_urb_complete(urb=%p)\n", urb);
++
+ 	if (usb_pipein(urb->pipe) && urb->status == 0 && urb->actual_length > 0)
+ 		copy_buff_to_pages(pending_req->buffer, pending_req, 0,
+ 					pending_req->nr_buffer_segs);
+@@ -996,6 +1007,7 @@
+ 	barrier();
+ 
+ 	ret = usb_submit_urb(pending_req->urb, GFP_KERNEL);
++	printk("USBCORE: usb_submit_urb(urb=%p) = %d\n", pending_req->urb, ret);
+ 	if (ret) {
+ 		pr_alert(DRV_PFX "failed submitting urb, error %d\n", ret);
+ 		ret = -ESHUTDOWN;
+@@ -1027,25 +1039,37 @@
  	rp = urb_ring->sring->req_prod;
  	rmb();
  
@@ -49,7 +70,8 @@
 +
  	while (rc != rp) {
  		if (RING_REQUEST_CONS_OVERFLOW(urb_ring, rc)) {
-+			printk("usbbk_start_submit_urb(%p): RING_REQUEST_CONS_OVERFLOW\n", usbif);
++			printk("RINGS: usbbk_start_submit_urb(): RING_REQUEST_CONS_OVERFLOW(usbif->urb_ring=%p)\n",
++				urb_ring);
  			pr_warn(DRV_PFX "RING_REQUEST_CONS_OVERFLOW\n");
  			break;
  		}
@@ -62,33 +84,62 @@
  		}
  
  		req = RING_GET_REQUEST(urb_ring, rc);
-+		printk("usbbk_start_submit_urb(%p): got request=%p\n", usbif, req);
++		printk("RINGS: usbbk_start_submit_urb() got request in usbif->urb_ring(%p), rc=%d\n",
++			urb_ring, rc);
++		// XXX isn't it too early to advance req_cons counter?
++        	printk("RINGS: usbbk_start_submit_urb() sets usbif->urb_ring(%p).req_cons := %d\n",
++			&usbif->urb_ring, (rc+1));
  		urb_ring->req_cons = ++rc;
  
  		dispatch_request_to_pending_reqs(usbif, req, pending_req);
-@@ -1049,6 +1062,7 @@
+ 	}
+ 
+ 	RING_FINAL_CHECK_FOR_REQUESTS(&usbif->urb_ring, more_to_do);
++	printk("RINGS: usbbk_start_submit_urb() checked usbif->urb_ring(%d) for requests, more_to_do=%d\n",
++		&usbif->urb_ring, more_to_do);
  
  	cond_resched();
  
-+	printk("usbbk_start_submit_urb(usbif=%p) end, more_to_do=%d\n", usbif, more_to_do);
- 	return more_to_do;
- }
+@@ -1063,22 +1087,37 @@
  
-@@ -1077,8 +1091,12 @@
+ 	spin_lock_irqsave(&usbif->conn_ring_lock, flags);
+ 
++	// XXX is it possible there are no requests yet in the ring?
++
+ 	req = RING_GET_REQUEST(ring, ring->req_cons);
++	printk("RINGS: xen_usbif_hotplug_notify() got request from usbif->conn_ring(%p), req_cons=%p\n",
++		&usbif->conn_ring, ring->req_cons);
+ 	id = req->id;
++	printk("RINGS: xen_usbif_hotplug_notify() sets usbif->conn_ring(%p).req_cons=%d\n",
++		&usbif->conn_ring, (ring->req_cons + 1));
+ 	ring->req_cons++;
++	printk("RINGS: xen_usbif_hotplug_notify() sets usbif->conn_ring(%p).req_event=%d\n",
++		&usbif->conn_ring, (ring->req_cons + 1));
+ 	ring->sring->req_event = ring->req_cons + 1;
+ 
+ 	res = RING_GET_RESPONSE(ring, ring->rsp_prod_pvt);
++	printk("RINGS: xen_usbif_hotplug_notify() got response from usbif->conn_ring(%p), rc=%d\n",
++		ring, ring->rsp_prod_pvt);
+ 	res->id = id;
+ 	res->portnum = portnum;
+ 	res->speed = speed;
+ 	ring->rsp_prod_pvt++;
++	printk("RINGS: xen_usbif_hotplug_notify() pushes response into usbif->conn_ring(%p), rsp_prod_pvt=%p\n",
++		&usbif->conn_ring, ring->rsp_prod_pvt);
+ 	RING_PUSH_RESPONSES_AND_CHECK_NOTIFY(ring, notify);
  
  	spin_unlock_irqrestore(&usbif->conn_ring_lock, flags);
  
 -	if (notify)
-+	printk("xen_usbif_hotplug_notify(usbif=%p): pushed response=%p\n", usbif, res);
-+
 +	if (notify) {
-+		printk("xen_usbif_hotplug_notify(usbif=%p): notify remote via IRQ\n", usbif);
++		printk("IRQ: xen_usbif_hotplug_notify(usbif=%p) calls notify_remote_via_irq(irq=%d)\n",
++			usbif, usbif->irq);
  		notify_remote_via_irq(usbif->irq);
 +	}
  }
  
  int xen_usbif_schedule(void *arg)
-@@ -1088,8 +1106,11 @@
+@@ -1088,8 +1127,10 @@
  	usbif_get(usbif);
  
  	while (!kthread_should_stop()) {
@@ -96,34 +147,68 @@
  		wait_event_interruptible(usbif->wq,
  				usbif->waiting_reqs || kthread_should_stop());
 +		printk("xen_usbif_schedule(%p): waiting for pending_free_wq %p\n", arg, &usbbk->pending_free_wq);
-+		// XXX wierd
  		wait_event_interruptible(usbbk->pending_free_wq,
  		    !list_empty(&usbbk->pending_free) || kthread_should_stop());
  		usbif->waiting_reqs = 0;
+Only in linux-3.4.18.orig/drivers/usb/host/xen-usbback: usbback.c.orig
+diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 02:22:22.112000000 +0100
-@@ -913,8 +913,11 @@
++++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 06:54:41.271999907 +0100
+@@ -876,6 +876,8 @@
+ 		COUNT(info->stats.complete);
+ 	}
+ 	spin_unlock(&info->lock);
++	printk("URB: usb_hcd_giveback_urb(hdc=%p, urb=%p, status=%d)\n",
++		info_to_hcd(info), urb, (urbp->status <= 0 ? urbp->status : urb->status));
+ 	usb_hcd_giveback_urb(info_to_hcd(info), urb,
+ 				urbp->status <= 0 ? urbp->status : urb->status);
+ 	spin_lock(&info->lock);
+@@ -912,9 +914,14 @@
+ 	info->shadow[id].urb = urb;
  	info->shadow[id].req = *req;
  
++	printk("RINGS: xenhcd_do_request() pushes request into info->urb_ring(%p), req_prod_pvt=%d\n",
++		&info->urb_ring, info->urb_ring.req_prod_pvt);
  	RING_PUSH_REQUESTS_AND_CHECK_NOTIFY(&info->urb_ring, notify);
 -	if (notify)
-+	printk("xenhcd_do_request(info=%p): pushed requests\n", info);
 +	if (notify) {
-+		printk("xenhcd_do_request(info=%p): notify remote via IRQ\n", info);
++		printk("IRQ: xenhcd_do_request(info=%p) calls notify_remote_via_irq(irq=%d)\n",
++			info, info->irq);
  		notify_remote_via_irq(info->irq);
 +	}
  
  	return ret;
  }
-@@ -1067,6 +1070,7 @@
+@@ -1067,6 +1074,8 @@
  
  	for (i = info->urb_ring.rsp_cons; i != rp; i++) {
  		res = RING_GET_RESPONSE(&info->urb_ring, i);
-+		printk("xenhcd_urb_request_done(info=%p): got response=%p\n", info, res);
++		printk("RINGS: got response in info->urb_ring(%p), rc=%d\n",
++			&info->urb_ring, i);
  		id = res->id;
  
  		if (likely(usbif_pipesubmit(info->shadow[id].req.pipe))) {
-@@ -1095,6 +1099,7 @@
+@@ -1084,17 +1093,25 @@
+ 
+ 		add_id_to_freelist(info, id);
+ 	}
++	printk("RINGS: xenhcd_urb_request_done() sets info->urb_ring(%p).rsp_cons := %d\n",
++		&info->urb_ring, i);
+ 	info->urb_ring.rsp_cons = i;
+ 
+-	if (i != info->urb_ring.req_prod_pvt)
++	if (i != info->urb_ring.req_prod_pvt) {
+ 		RING_FINAL_CHECK_FOR_RESPONSES(&info->urb_ring, more_to_do);
+-	else
++		printk("RINGS: xenhcd_urb_request_done() checked info->urb_ring(%p) for responses, more_to_do=%d\n",
++			&info->urb_ring, more_to_do);
++	} else {
++		printk("RINGS: xenhcd_urb_request_done() info->urb_ring(%p).sring->rsp_event := %d\n",
++			&info->urb_ring(%p), i + 1);
+ 		info->urb_ring.sring->rsp_event = i + 1;
++	}
+ 
+ 	spin_unlock_irqrestore(&info->lock, flags);
  
  	cond_resched();
  
@@ -131,36 +216,52 @@
  	return more_to_do;
  }
  
-@@ -1118,6 +1123,7 @@
+@@ -1118,9 +1135,11 @@
  
  	while (rc != rp) {
  		res = RING_GET_RESPONSE(&info->conn_ring, rc);
-+		printk("xenhcd_conn_notify(info=%p): got response res=%p\n", info, res);
++		printk("RINGS: xenhcd_conn_notify() got response in info->conn_ring(%p), rc=%d\n", &info->conn_ring, rc);
  		id = res->id;
  		portnum = res->portnum;
  		speed = res->speed;
-@@ -1132,6 +1138,7 @@
- 		req = RING_GET_REQUEST(&info->conn_ring,
++		printk("RINGS: xenhcd_conn_notify() sets info->conn_ring(%p).rsp_cons := %d\n", &info->conn_ring, (rc+1));
+ 		info->conn_ring.rsp_cons = ++rc;
+ 
+ 		rhport_connect(info, portnum, speed);
+@@ -1133,16 +1152,29 @@
  					info->conn_ring.req_prod_pvt);
  		req->id = id;
-+		printk("xenhcd_conn_notify(info=%p): prepared request=%p\n", info, req);
  		info->conn_ring.req_prod_pvt++;
++		printk("RINGS: xenhcd_conn_notify() prepared request in info->conn_ring(%p), req_prod_pvt=%d\n",
++			&info->conn_ring, info->conn_ring.req_prod_pvt);
  	}
  
-@@ -1141,8 +1148,11 @@
+-	if (rc != info->conn_ring.req_prod_pvt)
++	if (rc != info->conn_ring.req_prod_pvt) {
+ 		RING_FINAL_CHECK_FOR_RESPONSES(&info->conn_ring, more_to_do);
+-	else
++		printk("RINGS: xenhcd_conn_notify() checked for responses in info->conn_ring(%p), more_to_do=%d\n",
++			&info->conn_ring, more_to_do);
++	} else {
++		printk("RINGS: xenhcd_conn_notify() info->conn_ring(%p).sring->rsp_event := %d\n",
++			&info->conn_ring, (rc + 1));
  		info->conn_ring.sring->rsp_event = rc + 1;
++	}
  
++	printk("RINGS: xenhcd_conn_notify() pushes request into info->conn_ring(%p), req_prod_pvt=%d\n",
++		&info->conn_ring, info->conn_ring.req_prod_pvt);
  	RING_PUSH_REQUESTS_AND_CHECK_NOTIFY(&info->conn_ring, notify);
 -	if (notify)
-+	printk("xenhcd_conn_notify(info=%p): pushed request\n", info);
++
 +	if (notify) {
-+		printk("xenhcd_conn_notify(info=%p): notify remote via IRQ\n", info);
++		printk("IRQ: xenhcd_conn_notify(info=%p) calls notify_remote_via_irq(irq=%d)\n",
++			info, info->irq);
  		notify_remote_via_irq(info->irq);
 +	}
  
  	spin_unlock_irqrestore(&info->lock, flags);
  
-@@ -1151,6 +1161,7 @@
+@@ -1151,6 +1183,7 @@
  
  	cond_resched();
  
@@ -168,11 +269,11 @@
  	return more_to_do;
  }
  
-@@ -1159,9 +1170,11 @@
+@@ -1159,9 +1192,11 @@
  	struct usbfront_info *info = (struct usbfront_info *) arg;
  
  	while (!kthread_should_stop()) {
-+		printk("xenhcd_schedule(info=%p): waiting for info->wq %p\n", info, &info->wq);
++		printk("WAIT: xenhcd_schedule(info=%p): waiting for info->wq %p\n", info, &info->wq);
  		wait_event_interruptible(info->wq,
  				info->waiting_resp || kthread_should_stop());
  		info->waiting_resp = 0;
@@ -180,7 +281,7 @@
  		smp_mb();
  
  		if (xenhcd_urb_request_done(info))
-@@ -1177,11 +1190,13 @@
+@@ -1177,11 +1212,13 @@
  static void xenhcd_notify_work(struct usbfront_info *info)
  {
  	info->waiting_resp = 1;
@@ -194,3 +295,21 @@
  	xenhcd_notify_work((struct usbfront_info *) dev_id);
  	return IRQ_HANDLED;
  }
+@@ -1258,6 +1295,8 @@
+ 	unsigned long flags;
+ 	int ret = 0;
+ 
++	printk("URB: xenhcd_urb_enqueue(hcd=%p, urb=%p)\n", hcd, urb);
++
+ 	spin_lock_irqsave(&info->lock, flags);
+ 
+ 	urbp = alloc_urb_priv(urb);
+@@ -1542,6 +1581,8 @@
+ 	}
+ 	info->conn_ring.req_prod_pvt = idx;
+ 
++	printk("RINGS: connect() pushes request into info->conn_ring(%p), req_prod_pvt=%d\n",
++		&info->conn_ring, info->conn_ring.req_prod_pvt);
+ 	RING_PUSH_REQUESTS_AND_CHECK_NOTIFY(&info->conn_ring, notify);
+ 	if (notify)
+ 		notify_remote_via_irq(info->irq);

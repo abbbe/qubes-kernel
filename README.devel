@@ -17,10 +17,12 @@ cd linux-3.4.18.orig
 patch -p1 -R < ../../$patch
 cd ../linux-3.4.18
 
-*3* edit something
+
+*3* edit and update the patch
 ~~~~~~~~~~~~~~~~~~
 
-## update the patch
+**** edit something ***
+
 cd ..
 diff -ur linux-3.4.18.orig linux-3.4.18 > ../$patch
 
@@ -35,4 +37,13 @@ git commit -a
 ~~~~~~~~~
 
 make rpms
+
+*6*
+~~~
+
+cd kernel-3.4.18.stash/linux-3.4.18
+
+edit something
+
+GOTO 3
 
