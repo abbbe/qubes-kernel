@@ -108,7 +108,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  	}
  
  	RING_FINAL_CHECK_FOR_REQUESTS(&usbif->urb_ring, more_to_do);
-+	printk("RINGS: usbbk_start_submit_urb() checked usbif->urb_ring(%d) for requests, more_to_do=%d\n",
++	printk("RINGS: usbbk_start_submit_urb() checked usbif->urb_ring(%p) for requests, more_to_do=%d\n",
 +		&usbif->urb_ring, more_to_do);
  
  	cond_resched();
