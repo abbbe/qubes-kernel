@@ -1,19 +1,6 @@
-diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/common.h linux-3.4.18/drivers/usb/host/xen-usbback/common.h
---- linux-3.4.18.orig/drivers/usb/host/xen-usbback/common.h	2012-11-19 20:54:07.498666857 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/common.h	2012-11-19 20:55:36.254666783 +0100
-@@ -74,6 +74,9 @@
- 
- #define XEN_USB_DEV_ADDR_SIZE 128
- 
-+#define CONN_RING_SIZE (PAGE_SIZE)
-+#define URB_RING_SIZE (128 * PAGE_SIZE)
-+
- struct xen_usbif {
- 	domid_t				domid;
- 	unsigned int			handle;
 diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 21:50:31.380000062 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-19 21:29:58.746667251 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
  	list_add(&req->free_list, &usbbk->pending_free);
@@ -165,8 +152,16 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  		usbif->waiting_reqs = 0;
 diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-19 20:49:50.214666808 +0100
-@@ -876,6 +876,8 @@
++++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-19 21:24:55.882666735 +0100
+@@ -56,6 +56,7 @@
+ #include <xen/grant_table.h>
+ #include <xen/interface/xen.h>
+ #include <xen/interface/io/usbif.h>
++#include "xen-usb.h"
+ 
+ static inline struct usbfront_info *hcd_to_info(struct usb_hcd *hcd)
+ {
+@@ -876,6 +877,8 @@
  		COUNT(info->stats.complete);
  	}
  	spin_unlock(&info->lock);
@@ -175,7 +170,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  	usb_hcd_giveback_urb(info_to_hcd(info), urb,
  				urbp->status <= 0 ? urbp->status : urb->status);
  	spin_lock(&info->lock);
-@@ -912,9 +914,14 @@
+@@ -912,9 +915,14 @@
  	info->shadow[id].urb = urb;
  	info->shadow[id].req = *req;
  
@@ -191,7 +186,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  
  	return ret;
  }
-@@ -991,6 +998,7 @@
+@@ -991,6 +999,7 @@
  	int ret = 0;
  
  	if (RING_FULL(&info->urb_ring)) {
@@ -199,7 +194,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  		list_add_tail(&urbp->list, &info->pending_submit_list);
  		COUNT(info->stats.ring_full);
  		timer_action(info, TIMER_RING_WATCHDOG);
-@@ -998,6 +1006,7 @@
+@@ -998,6 +1007,7 @@
  	}
  
  	if (!list_empty(&info->pending_submit_list)) {
@@ -207,7 +202,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  		list_add_tail(&urbp->list, &info->pending_submit_list);
  		timer_action(info, TIMER_SCAN_PENDING_URBS);
  		goto done;
-@@ -1067,6 +1076,8 @@
+@@ -1067,6 +1077,8 @@
  
  	for (i = info->urb_ring.rsp_cons; i != rp; i++) {
  		res = RING_GET_RESPONSE(&info->urb_ring, i);
@@ -216,7 +211,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  		id = res->id;
  
  		if (likely(usbif_pipesubmit(info->shadow[id].req.pipe))) {
-@@ -1084,17 +1095,25 @@
+@@ -1084,17 +1096,25 @@
  
  		add_id_to_freelist(info, id);
  	}
@@ -244,7 +239,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  	return more_to_do;
  }
  
-@@ -1118,9 +1137,12 @@
+@@ -1118,9 +1138,12 @@
  
  	while (rc != rp) {
  		res = RING_GET_RESPONSE(&info->conn_ring, rc);
@@ -257,7 +252,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  		info->conn_ring.rsp_cons = ++rc;
  
  		rhport_connect(info, portnum, speed);
-@@ -1133,16 +1155,29 @@
+@@ -1133,16 +1156,29 @@
  					info->conn_ring.req_prod_pvt);
  		req->id = id;
  		info->conn_ring.req_prod_pvt++;
@@ -290,7 +285,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  
  	spin_unlock_irqrestore(&info->lock, flags);
  
-@@ -1151,6 +1186,7 @@
+@@ -1151,6 +1187,7 @@
  
  	cond_resched();
  
@@ -298,7 +293,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  	return more_to_do;
  }
  
-@@ -1159,9 +1195,11 @@
+@@ -1159,9 +1196,11 @@
  	struct usbfront_info *info = (struct usbfront_info *) arg;
  
  	while (!kthread_should_stop()) {
@@ -310,7 +305,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  		smp_mb();
  
  		if (xenhcd_urb_request_done(info))
-@@ -1177,11 +1215,13 @@
+@@ -1177,11 +1216,13 @@
  static void xenhcd_notify_work(struct usbfront_info *info)
  {
  	info->waiting_resp = 1;
@@ -324,7 +319,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  	xenhcd_notify_work((struct usbfront_info *) dev_id);
  	return IRQ_HANDLED;
  }
-@@ -1258,10 +1298,13 @@
+@@ -1258,10 +1299,13 @@
  	unsigned long flags;
  	int ret = 0;
  
@@ -338,7 +333,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  		ret = -ENOMEM;
  		goto done;
  	}
-@@ -1405,7 +1448,7 @@
+@@ -1405,7 +1449,7 @@
  		return -ENOMEM;
  	}
  	SHARED_RING_INIT(urb_sring);
@@ -347,7 +342,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  
  	err = xenbus_grant_ring(dev, virt_to_mfn(info->urb_ring.sring));
  	if (err < 0) {
-@@ -1422,7 +1465,7 @@
+@@ -1422,7 +1466,7 @@
  		return -ENOMEM;
  	}
  	SHARED_RING_INIT(conn_sring);
@@ -356,7 +351,7 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/
  
  	err = xenbus_grant_ring(dev, virt_to_mfn(info->conn_ring.sring));
  	if (err < 0) {
-@@ -1542,6 +1585,8 @@
+@@ -1542,6 +1586,8 @@
  	}
  	info->conn_ring.req_prod_pvt = idx;
  
