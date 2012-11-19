@@ -1,6 +1,6 @@
 diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:03:57.562663987 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:01:57.162666751 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:11:37.406667909 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
  	list_add(&req->free_list, &usbbk->pending_free);
@@ -13,7 +13,23 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  }
  
  static inline void add_req_to_submitting_list(struct xen_usbdev *dev,
-@@ -294,12 +296,14 @@
+@@ -213,6 +215,7 @@
+ 		ret = -ENOMEM;
+ 		goto fail;
+ 	}
++	printk("URB: usb_alloc_urb() returned %p\n", pending_req->urb);
+ 
+ 	if (req->buffer_length) {
+ 		pending_req->buffer =
+@@ -267,6 +270,7 @@
+ 		usb_free_coherent(urb->dev, urb->transfer_buffer_length,
+ 				urb->transfer_buffer, urb->transfer_dma);
+ 	barrier();
++	printk("URB: calling usb_free_urb(%p)\n", urb);
+ 	usb_free_urb(urb);
+ }
+ 
+@@ -294,12 +298,14 @@
  
  static void usbif_notify_work(struct xen_usbif *usbif)
  {
@@ -28,7 +44,7 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  	usbif_notify_work(dev_id);
  	return IRQ_HANDLED;
  }
-@@ -457,17 +461,24 @@
+@@ -457,17 +463,24 @@
  	res->start_frame = start_frame;
  	usbif->urb_ring.rsp_prod_pvt++;
  	barrier();
@@ -54,7 +70,7 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  	if (usb_pipein(urb->pipe) && urb->status == 0 && urb->actual_length > 0)
  		copy_buff_to_pages(pending_req->buffer, pending_req, 0,
  					pending_req->nr_buffer_segs);
-@@ -996,6 +1007,7 @@
+@@ -996,6 +1009,7 @@
  	barrier();
  
  	ret = usb_submit_urb(pending_req->urb, GFP_KERNEL);
@@ -62,7 +78,7 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  	if (ret) {
  		pr_alert(DRV_PFX "failed submitting urb, error %d\n", ret);
  		ret = -ESHUTDOWN;
-@@ -1027,25 +1039,37 @@
+@@ -1027,25 +1041,37 @@
  	rp = urb_ring->sring->req_prod;
  	rmb();
  
@@ -100,7 +116,7 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  
  	cond_resched();
  
-@@ -1063,22 +1087,37 @@
+@@ -1063,22 +1089,37 @@
  
  	spin_lock_irqsave(&usbif->conn_ring_lock, flags);
  
@@ -139,7 +155,7 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  }
  
  int xen_usbif_schedule(void *arg)
-@@ -1088,8 +1127,10 @@
+@@ -1088,8 +1129,10 @@
  	usbif_get(usbif);
  
  	while (!kthread_should_stop()) {
@@ -152,7 +168,7 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  		usbif->waiting_reqs = 0;
 diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-20 00:03:57.562663987 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-20 00:01:57.166666751 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-20 00:09:44.050666751 +0100
 @@ -876,6 +876,8 @@
  		COUNT(info->stats.complete);
  	}
