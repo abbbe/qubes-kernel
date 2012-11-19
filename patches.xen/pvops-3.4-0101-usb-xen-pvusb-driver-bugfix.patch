@@ -1,5 +1,59 @@
-diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
---- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 02:28:55.711999558 +0100
+diff -N -ur linux-3.4.18.orig/drivers/usb/host/xen-usb.h linux-3.4.18/drivers/usb/host/xen-usb.h
+--- linux-3.4.18.orig/drivers/usb/host/xen-usb.h	1970-01-01 01:00:00.000000000 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usb.h	2012-11-19 21:24:06.990665582 +0100
+@@ -0,0 +1,50 @@
++/*
++ * This file is part of Xen USB backend driver.
++ *
++ * Copyright (C) 2009, FUJITSU LABORATORIES LTD.
++ * Author: Noboru Iwamatsu <n_iwamatsu@jp.fujitsu.com>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, see <http://www.gnu.org/licenses/>.
++ *
++ * or, by your choice,
++ *
++ * When distributed separately from the Linux kernel or incorporated into
++ * other software packages, subject to the following license:
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to
++ * deal in the Software without restriction, including without limitation the
++ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
++ * sell copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in
++ * all copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
++ * DEALINGS IN THE SOFTWARE.
++ */
++
++#ifndef __XEN_USB_H__
++#define __XEN_USB_H__
++
++#define CONN_RING_SIZE (PAGE_SIZE)
++#define URB_RING_SIZE (128 * PAGE_SIZE)
++
++#endif /* __XEN_USB_H__ */
+diff -N -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
+--- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-19 21:52:20.998666751 +0100
 +++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-19 21:29:58.746667251 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
@@ -150,8 +204,31 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  		wait_event_interruptible(usbbk->pending_free_wq,
  		    !list_empty(&usbbk->pending_free) || kthread_should_stop());
  		usbif->waiting_reqs = 0;
-diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
---- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-18 02:28:55.711999558 +0100
+diff -N -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/xenbus.c linux-3.4.18/drivers/usb/host/xen-usbback/xenbus.c
+--- linux-3.4.18.orig/drivers/usb/host/xen-usbback/xenbus.c	2012-11-19 21:52:20.998666751 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/xenbus.c	2012-11-19 21:26:11.150666770 +0100
+@@ -43,6 +43,7 @@
+ 
+ #include <linux/delay.h>
+ #include "common.h"
++#include "../xen-usb.h"
+ 
+ static LIST_HEAD(usbif_list);
+ static DEFINE_SPINLOCK(usbif_list_lock);
+@@ -124,9 +125,9 @@
+ 	usbif->irq = err;
+ 
+ 	BACK_RING_INIT(&usbif->urb_ring,
+-	    (struct usbif_urb_sring *)usbif->urb_sring, PAGE_SIZE);
++	    (struct usbif_urb_sring *)usbif->urb_sring, URB_RING_SIZE);
+ 	BACK_RING_INIT(&usbif->conn_ring,
+-	    (struct usbif_conn_sring *)usbif->conn_sring, PAGE_SIZE);
++	    (struct usbif_conn_sring *)usbif->conn_sring, CONN_RING_SIZE);
+ 
+ 	return 0;
+ 
+diff -N -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
+--- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-19 21:52:20.998666751 +0100
 +++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-19 21:24:55.882666735 +0100
 @@ -56,6 +56,7 @@
  #include <xen/grant_table.h>
