@@ -1,6 +1,6 @@
-diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
---- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-18 21:50:31.380000062 +0100
+diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
+--- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:03:57.562663987 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:01:57.162666751 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
  	list_add(&req->free_list, &usbbk->pending_free);
@@ -150,10 +150,9 @@ diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/d
  		wait_event_interruptible(usbbk->pending_free_wq,
  		    !list_empty(&usbbk->pending_free) || kthread_should_stop());
  		usbif->waiting_reqs = 0;
-Only in linux-3.4.18.orig/drivers/usb/host/xen-usbback: usbback.c.orig
-diff -ur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
---- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-18 02:28:55.711999558 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-18 21:47:44.480000644 +0100
+diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c linux-3.4.18/drivers/usb/host/xen-usbfront.c
+--- linux-3.4.18.orig/drivers/usb/host/xen-usbfront.c	2012-11-20 00:03:57.562663987 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbfront.c	2012-11-20 00:01:57.166666751 +0100
 @@ -876,6 +876,8 @@
  		COUNT(info->stats.complete);
  	}
