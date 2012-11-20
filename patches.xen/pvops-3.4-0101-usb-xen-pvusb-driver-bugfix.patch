@@ -1,6 +1,6 @@
 diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c
 --- linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:03:57.562663987 +0100
-+++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 00:11:37.406667909 +0100
++++ linux-3.4.18/drivers/usb/host/xen-usbback/usbback.c	2012-11-20 01:57:34.976000057 +0100
 @@ -134,8 +134,10 @@
  	was_empty = list_empty(&usbbk->pending_free);
  	list_add(&req->free_list, &usbbk->pending_free);
@@ -21,14 +21,16 @@ diff -pur linux-3.4.18.orig/drivers/usb/host/xen-usbback/usbback.c linux-3.4.18/
  
  	if (req->buffer_length) {
  		pending_req->buffer =
-@@ -267,6 +270,7 @@
+@@ -267,7 +270,8 @@
  		usb_free_coherent(urb->dev, urb->transfer_buffer_length,
  				urb->transfer_buffer, urb->transfer_dma);
  	barrier();
-+	printk("URB: calling usb_free_urb(%p)\n", urb);
- 	usb_free_urb(urb);
+-	usb_free_urb(urb);
++	printk("URB: NOT calling usb_free_urb(%p)\n", urb);
++	// usb_free_urb(urb);
  }
  
+ static void usbbk_free_urbs(void)
 @@ -294,12 +298,14 @@
  
  static void usbif_notify_work(struct xen_usbif *usbif)
