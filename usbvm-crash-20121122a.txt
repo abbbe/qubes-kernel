@@ -1,0 +1,173 @@
+[  821.885114] usbip-host 1-4:1.0: stub up
+[  822.619425] usb 1-4: usb_set_configuration 1 to 1-4... skip!
+[  822.636732] usb 1-4: endpoint 0 is stalled
+[  822.646201] usb 1-4: usb_set_interface done: inf 0 alt 0
+[  960.000054] INFO: rcu_sched self-detected stall on CPU { 0}  (t=15000 jiffies)
+[  960.000054] Pid: 4, comm: kworker/0:0 Tainted: G         C O 3.4.18-1debug20121122a.pvops.qubes.x86_64 #1
+[  960.000054] Call Trace:
+[  960.000054]  <IRQ>  [<ffffffff810c1782>] __rcu_pending+0x192/0x4d0
+[  960.000054]  [<ffffffff810c1ae7>] rcu_pending+0x27/0x60
+[  960.000054]  [<ffffffff810c2271>] rcu_check_callbacks+0xa1/0x130
+[  960.000054]  [<ffffffff81057b03>] update_process_times+0x43/0x80
+[  960.000054]  [<ffffffff81092871>] tick_sched_timer+0x61/0xb0
+[  960.000054]  [<ffffffff8106c8f1>] __run_hrtimer+0x81/0x1d0
+[  960.000054]  [<ffffffff81092810>] ? tick_nohz_handler+0xf0/0xf0
+[  960.000054]  [<ffffffff8106d1ef>] hrtimer_interrupt+0xef/0x220
+[  960.000054]  [<ffffffff810bfd40>] ? rcu_idle_gp_timer_func+0x10/0x10
+[  960.000054]  [<ffffffff810099f1>] xen_timer_interrupt+0x31/0x1b0
+[  960.000054]  [<ffffffff812d80ac>] ? add_interrupt_randomness+0x3c/0x1e0
+[  960.000054]  [<ffffffff8145c08b>] ? _raw_spin_lock_irq+0xb/0x30
+[  960.000054]  [<ffffffff81056e38>] ? run_timer_softirq+0x1c8/0x360
+[  960.000054]  [<ffffffff810ba54d>] handle_irq_event_percpu+0x5d/0x200
+[  960.000054]  [<ffffffff810bd998>] handle_percpu_irq+0x48/0x70
+[  960.000054]  [<ffffffff812a6866>] __xen_evtchn_do_upcall+0x1b6/0x270
+[  960.000054]  [<ffffffff812a890a>] xen_evtchn_do_upcall+0x2a/0x40
+[  960.000054]  [<ffffffff81464d6e>] xen_do_hypervisor_callback+0x1e/0x30
+[  960.000054]  <EOI>  [<ffffffff8100122a>] ? hypercall_page+0x22a/0x1000
+[  960.000054]  [<ffffffff8100122a>] ? hypercall_page+0x22a/0x1000
+[  960.000054]  [<ffffffff810098ad>] ? xen_force_evtchn_callback+0xd/0x10
+[  960.000054]  [<ffffffff8100a062>] ? check_events+0x12/0x20
+[  960.000054]  [<ffffffff8100a04f>] ? xen_restore_fl_direct_reloc+0x4/0x4
+[  960.000054]  [<ffffffff81127b17>] ? kfree+0xb7/0x120
+[  960.000054]  [<ffffffff81342a66>] ? kcopyd_put_pages+0x56/0x70
+[  960.000054]  [<ffffffffa000a8b0>] ? pending_complete+0x270/0x270 [dm_snapshot]
+[  960.000054]  [<ffffffff81342b79>] ? run_complete_job+0x59/0xd0
+[  960.000054]  [<ffffffff813435bd>] ? process_jobs+0x8d/0x120
+[  960.000054]  [<ffffffff81342b20>] ? wake+0x20/0x20
+[  960.000054]  [<ffffffff8134367e>] ? do_work+0x2e/0x70
+[  960.000054]  [<ffffffff81061ee2>] ? process_one_work+0x132/0x400
+[  960.000054]  [<ffffffff81343650>] ? process_jobs+0x120/0x120
+[  960.000054]  [<ffffffff81063eee>] ? worker_thread+0x12e/0x2e0
+[  960.000054]  [<ffffffff81063dc0>] ? manage_workers.isra.26+0x1f0/0x1f0
+[  960.000054]  [<ffffffff8106872e>] ? kthread+0x8e/0xa0
+[  960.000054]  [<ffffffff81464c24>] ? kernel_thread_helper+0x4/0x10
+[  960.000054]  [<ffffffff8145c278>] ? retint_restore_args+0x5/0x6
+[  960.000054]  [<ffffffff81464c20>] ? gs_change+0x13/0x13
+[ 1020.937487] BUG: Bad page state in process netback/0  pfn:0500a
+[ 1020.937549] page:ffffea0000118230 count:-597 mapcount:0 mapping:          (null) index:0x7f2bfa22d
+[ 1020.937559] page flags: 0x4000000000000000()
+[ 1020.937564] Modules linked in: usbip_host(C) usbip_core(C) iptable_raw af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput uhci_hcd coretemp hwmon ehci_hcd usbcore microcode usb_common pcspkr autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[ 1020.937615] Pid: 542, comm: netback/0 Tainted: G         C O 3.4.18-1debug20121122a.pvops.qubes.x86_64 #1
+[ 1020.937620] Call Trace:
+[ 1020.937626]  [<ffffffff81454866>] bad_page+0xef/0x104
+[ 1020.937644]  [<ffffffff810f3756>] get_page_from_freelist+0x576/0x620
+[ 1020.937651]  [<ffffffff8107ee96>] ? update_group_power+0xc6/0x180
+[ 1020.937655]  [<ffffffff810f3993>] __alloc_pages_nodemask+0x193/0x850
+[ 1020.937662]  [<ffffffffa014a1c2>] xen_netbk_alloc_page.isra.25+0x22/0x60 [xen_netback]
+[ 1020.937667]  [<ffffffffa014b7e3>] xen_netbk_tx_build_gops+0x533/0xc30 [xen_netback]
+[ 1020.937673]  [<ffffffffa014ac48>] ? xen_netbk_rx_action+0x6d8/0x870 [xen_netback]
+[ 1020.937680]  [<ffffffff81012595>] ? __switch_to+0x135/0x420
+[ 1020.937685]  [<ffffffffa014bf92>] xen_netbk_kthread+0xb2/0xa30 [xen_netback]
+[ 1020.937691]  [<ffffffff81068ff0>] ? finish_wait+0x80/0x80
+[ 1020.937695]  [<ffffffffa014bee0>] ? xen_netbk_tx_build_gops+0xc30/0xc30 [xen_netback]
+[ 1020.937701]  [<ffffffff8106872e>] kthread+0x8e/0xa0
+[ 1020.937705]  [<ffffffff81464c24>] kernel_thread_helper+0x4/0x10
+[ 1020.937711]  [<ffffffff8145c278>] ? retint_restore_args+0x5/0x6
+[ 1020.937715]  [<ffffffff81464c20>] ? gs_change+0x13/0x13
+[ 1020.937822] ------------[ cut here ]------------
+[ 1020.937832] kernel BUG at /rw/home/user/qubes/qubes-builder/qubes-src/kernel/kernel-3.4.18/linux-3.4.18/mm/slab.c:516!
+[ 1020.937841] invalid opcode: 0000 [#1] SMP 
+[ 1020.937844] CPU 0 
+[ 1020.937846] Modules linked in: usbip_host(C) usbip_core(C) iptable_raw af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput uhci_hcd coretemp hwmon ehci_hcd usbcore microcode usb_common pcspkr autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[ 1020.937900] 
+[ 1020.937904] Pid: 4, comm: kworker/0:0 Tainted: G    B    C O 3.4.18-1debug20121122a.pvops.qubes.x86_64 #1  
+[ 1020.937915] RIP: e030:[<ffffffff81127a51>]  [<ffffffff81127a51>] free_block+0x171/0x180
+[ 1020.937922] RSP: e02b:ffff88000c095c60  EFLAGS: 00010046
+[ 1020.937925] RAX: 4000000000000000 RBX: ffffea0000000000 RCX: ffff88000c4162e0
+[ 1020.937930] RDX: ffffea00000af348 RSI: 0000000000019078 RDI: ffff88000320f460
+[ 1020.937934] RBP: ffff88000c095ca0 R08: 0000000000000000 R09: 0000000000042000
+[ 1020.937938] R10: 0000000000000024 R11: fffffffffffffff0 R12: ffff88000320f460
+[ 1020.937943] R13: 0000000000000000 R14: ffff88000c01d940 R15: ffff88000c000080
+[ 1020.937951] FS:  00007ff254094740(0000) GS:ffff88000c400000(0000) knlGS:0000000000000000
+[ 1020.937955] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[ 1020.937958] CR2: 00007fd750426000 CR3: 0000000003a39000 CR4: 0000000000002660
+[ 1020.937963] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[ 1020.937967] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[ 1020.937972] Process kworker/0:0 (pid: 4, threadinfo ffff88000c094000, task ffff88000c0922c0)
+[ 1020.937976] Stack:
+[ 1020.937978]  ffff88000320f460 ffff88000c01d9f8 ffff88000320f460 ffff88000c01d800
+[ 1020.937985]  000000000000003c ffff88000c004440 ffff88000c000080 0000000000000000
+[ 1020.937990]  ffff88000c095cd0 ffffffff81455648 ffff88000c01d800 ffff88000320f460
+[ 1020.937997] Call Trace:
+[ 1020.938002]  [<ffffffff81455648>] cache_flusharray+0x69/0x94
+[ 1020.938006]  [<ffffffff81127b5d>] kfree+0xfd/0x120
+[ 1020.938011]  [<ffffffff81342a66>] kcopyd_put_pages+0x56/0x70
+[ 1020.938019]  [<ffffffffa000a8b0>] ? pending_complete+0x270/0x270 [dm_snapshot]
+[ 1020.938025]  [<ffffffff81342b79>] run_complete_job+0x59/0xd0
+[ 1020.938029]  [<ffffffff813435bd>] process_jobs+0x8d/0x120
+[ 1020.938033]  [<ffffffff81342b20>] ? wake+0x20/0x20
+[ 1020.938037]  [<ffffffff8134367e>] do_work+0x2e/0x70
+[ 1020.938042]  [<ffffffff81061ee2>] process_one_work+0x132/0x400
+[ 1020.938047]  [<ffffffff81343650>] ? process_jobs+0x120/0x120
+[ 1020.938051]  [<ffffffff81063eee>] worker_thread+0x12e/0x2e0
+[ 1020.938056]  [<ffffffff81063dc0>] ? manage_workers.isra.26+0x1f0/0x1f0
+[ 1020.938060]  [<ffffffff8106872e>] kthread+0x8e/0xa0
+[ 1020.938064]  [<ffffffff81464c24>] kernel_thread_helper+0x4/0x10
+[ 1020.938069]  [<ffffffff8145c278>] ? retint_restore_args+0x5/0x6
+[ 1020.938073]  [<ffffffff81464c20>] ? gs_change+0x13/0x13
+[ 1020.938077] Code: 5f 5d f3 c3 66 0f 1f 44 00 00 41 8b 4f 18 4c 89 ff 48 29 c8 48 89 42 30 e8 1d fe ff ff e9 fb fe ff ff 48 8b 52 30 e9 30 ff ff ff <0f> 0b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 55 48 89 e5 41 55 
+[ 1020.938113] RIP  [<ffffffff81127a51>] free_block+0x171/0x180
+[ 1020.938117]  RSP <ffff88000c095c60>
+[ 1020.938121] ---[ end trace 1ab332fd798bcb32 ]---
+[ 1020.938154] BUG: unable to handle kernel paging request at fffffffffffffff8
+[ 1020.938159] IP: [<ffffffff81068ccb>] kthread_data+0xb/0x20
+[ 1020.938163] PGD 180d067 PUD 180e067 PMD 0 
+[ 1020.938167] Oops: 0000 [#2] SMP 
+[ 1020.938170] CPU 0 
+[ 1020.938171] Modules linked in: usbip_host(C) usbip_core(C) iptable_raw af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput uhci_hcd coretemp hwmon ehci_hcd usbcore microcode usb_common pcspkr autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[ 1020.938211] 
+[ 1020.938213] Pid: 4, comm: kworker/0:0 Tainted: G    B D  C O 3.4.18-1debug20121122a.pvops.qubes.x86_64 #1  
+[ 1020.938218] RIP: e030:[<ffffffff81068ccb>]  [<ffffffff81068ccb>] kthread_data+0xb/0x20
+[ 1020.938223] RSP: e02b:ffff88000c095918  EFLAGS: 00010096
+[ 1020.938226] RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+[ 1020.938230] RDX: ffffffff81981900 RSI: 0000000000000000 RDI: ffff88000c0922c0
+[ 1020.938234] RBP: ffff88000c095918 R08: 0000000000989680 R09: 0000000000000000
+[ 1020.938237] R10: 0000000000000001 R11: 0000000000000000 R12: ffff88000c0926a0
+[ 1020.938241] R13: 0000000000000000 R14: ffff88000c0922b0 R15: ffff88000c0922c0
+[ 1020.938246] FS:  00007ff254094740(0000) GS:ffff88000c400000(0000) knlGS:0000000000000000
+[ 1020.938250] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[ 1020.938254] CR2: fffffffffffffff8 CR3: 0000000003a39000 CR4: 0000000000002660
+[ 1020.938257] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[ 1020.938261] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[ 1020.940052] Process kworker/0:0 (pid: 4, threadinfo ffff88000c094000, task ffff88000c0922c0)
+[ 1020.940052] Stack:
+[ 1020.940052]  ffff88000c095938 ffffffff810647a0 ffff88000c095938 ffff88000c413440
+[ 1020.940052]  ffff88000c0959a8 ffffffff8145aa18 ffff88000c0922c0 ffff88000c095fd8
+[ 1020.940052]  ffff88000c095fd8 ffff88000c095fd8 ffff88000c095988 ffff88000c0922c0
+[ 1020.940052] Call Trace:
+[ 1020.940052]  [<ffffffff810647a0>] wq_worker_sleeping+0x10/0xa0
+[ 1020.940052]  [<ffffffff8145aa18>] __schedule+0x548/0x780
+[ 1020.940052]  [<ffffffff8145af34>] schedule+0x24/0x70
+[ 1020.940052]  [<ffffffff8104ca07>] do_exit+0x597/0x8c0
+[ 1020.940052]  [<ffffffff8145bd82>] ? _raw_spin_unlock_irqrestore+0x12/0x20
+[ 1020.940052]  [<ffffffff8145cff9>] oops_end+0x99/0xe0
+[ 1020.940052]  [<ffffffff81016553>] die+0x53/0x80
+[ 1020.940052]  [<ffffffff8145c948>] do_trap+0xb8/0x160
+[ 1020.940052]  [<ffffffff8145f9bd>] ? __atomic_notifier_call_chain+0xd/0x10
+[ 1020.940052]  [<ffffffff81013de3>] do_invalid_op+0xa3/0xb0
+[ 1020.940052]  [<ffffffff81127a51>] ? free_block+0x171/0x180
+[ 1020.940052]  [<ffffffff810f2f36>] ? free_hot_cold_page+0x106/0x1a0
+[ 1020.940052]  [<ffffffff81464a9b>] invalid_op+0x1b/0x20
+[ 1020.940052]  [<ffffffff81127a51>] ? free_block+0x171/0x180
+[ 1020.940052]  [<ffffffff81455648>] cache_flusharray+0x69/0x94
+[ 1020.940052]  [<ffffffff81127b5d>] kfree+0xfd/0x120
+[ 1020.940052]  [<ffffffff81342a66>] kcopyd_put_pages+0x56/0x70
+[ 1020.940052]  [<ffffffffa000a8b0>] ? pending_complete+0x270/0x270 [dm_snapshot]
+[ 1020.940052]  [<ffffffff81342b79>] run_complete_job+0x59/0xd0
+[ 1020.940052]  [<ffffffff813435bd>] process_jobs+0x8d/0x120
+[ 1020.940052]  [<ffffffff81342b20>] ? wake+0x20/0x20
+[ 1020.940052]  [<ffffffff8134367e>] do_work+0x2e/0x70
+[ 1020.940052]  [<ffffffff81061ee2>] process_one_work+0x132/0x400
+[ 1020.940052]  [<ffffffff81343650>] ? process_jobs+0x120/0x120
+[ 1020.940052]  [<ffffffff81063eee>] worker_thread+0x12e/0x2e0
+[ 1020.940052]  [<ffffffff81063dc0>] ? manage_workers.isra.26+0x1f0/0x1f0
+[ 1020.940052]  [<ffffffff8106872e>] kthread+0x8e/0xa0
+[ 1020.940052]  [<ffffffff81464c24>] kernel_thread_helper+0x4/0x10
+[ 1020.940052]  [<ffffffff8145c278>] ? retint_restore_args+0x5/0x6
+[ 1020.940052]  [<ffffffff81464c20>] ? gs_change+0x13/0x13
+[ 1020.940052] Code: 4c 39 63 20 ba 01 00 00 00 75 b9 48 8b 43 08 eb 8c 66 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8b 87 88 03 00 00 55 48 89 e5 <48> 8b 40 f8 5d c3 66 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 
+[ 1020.940052] RIP  [<ffffffff81068ccb>] kthread_data+0xb/0x20
+[ 1020.940052]  RSP <ffff88000c095918>
+[ 1020.940052] CR2: fffffffffffffff8
+[ 1020.940052] ---[ end trace 1ab332fd798bcb33 ]---
+[ 1020.940052] Fixing recursive fault but reboot is needed!
