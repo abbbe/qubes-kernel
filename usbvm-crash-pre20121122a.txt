@@ -1,0 +1,1694 @@
+[15789.145125] asix 4-4:1.0: eth0: unregister 'asix' usb-0000:00:00.7-4, ASIX AX88772 USB 2.0 Ethernet
+[15789.181446] usbip-host 4-4:1.0: usbip-host: register new device (bus 4 dev 2 ifn 0)
+[15884.981185] usbip-host 4-4:1.0: stub up
+[15884.983653] usbip-host 4-4:1.0: recv a header, 0
+[15885.096134] usb 4-4: reset high-speed USB device number 2 using ehci_hcd
+[15885.235479] usb 4-4: device reset
+[15928.691559] usbip-host 4-4:1.0: stub up
+[15929.459957] usb 4-4: usb_set_configuration 1 to 4-4... skip!
+[15929.483274] usb 4-4: endpoint 0 is stalled
+[15929.499214] usb 4-4: usb_set_interface done: inf 0 alt 0
+[15975.127745] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.127764] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.127776] Call Trace:
+[15975.127788]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.127799]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.127821]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.127832]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.127844]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.127862]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.127880]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.127892]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.127905]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.127919]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.127931]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.127944]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.127954]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.127965]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.127975]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.127987]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.127997]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.128005] ffff8800019a2d10: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15975.255760] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.255777] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.255790] Call Trace:
+[15975.255799]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.255809]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.255831]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.255841]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.255851]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.255869]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.255887]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.255899]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.255912]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.255925]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.255937]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.255948]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.255958]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.255969]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.255979]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.255990]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.256000]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.256008] ffff880008ab22c8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15975.383771] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.383788] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.383800] Call Trace:
+[15975.383808]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.383819]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.383840]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.383850]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.383860]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.383878]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.383895]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.383907]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.383920]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.383933]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.383945]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.383957]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.383967]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.383978]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.383987]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.383998]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.384009]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.384017] ffff880008602cd8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15975.511772] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.511788] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.511800] Call Trace:
+[15975.511808]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.511818]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.511838]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.511850]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.511859]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.511878]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.511896]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.511907]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.511920]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.511933]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.511945]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.511957]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.511967]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.511978]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.511987]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.511998]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.512008]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.512017] ffff880004381fb0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15975.639773] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.639789] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.639801] Call Trace:
+[15975.639810]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.639820]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.639840]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.639851]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.639860]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.639879]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.639897]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.639908]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.639921]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.639935]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.639947]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.639958]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.639969]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.639980]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.639989]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.640000]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.640010]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.640018] ffff8800086022c8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15975.767771] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.767787] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.767799] Call Trace:
+[15975.767808]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.767818]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.767840]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.767850]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.767860]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.767878]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.767895]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.767907]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.767920]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.767933]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.767945]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.767957]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.767967]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.767978]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.767987]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.767998]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.768008]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.768016] ffff880008602f78: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15975.895775] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15975.895791] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15975.895803] Call Trace:
+[15975.895812]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15975.895822]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15975.895843]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15975.895853]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15975.895863]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15975.895881]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15975.895899]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15975.895910]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15975.895923]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15975.895936]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15975.895948]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15975.895960]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15975.895970]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15975.895981]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15975.895990]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15975.896001]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15975.896011]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15975.896019] ffff880008ab25a0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.023783] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.023799] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.023811] Call Trace:
+[15976.023820]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.023830]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.023850]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.023861]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.023870]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.023889]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.023906]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.023918]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.023931]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.023944]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.023956]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.023967]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.023978]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.023989]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.023998]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.024009]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.024019]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.024027] ffff880008ab26f0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.151788] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.151804] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.151815] Call Trace:
+[15976.151824]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.151835]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.151856]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.151866]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.151875]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.151893]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.151911]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.151923]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.151936]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.151949]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.151961]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.151972]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.151982]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.151993]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.152003]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.152013]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.152023]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.152031] ffff880004381db8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.279777] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.279793] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.279805] Call Trace:
+[15976.279814]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.279824]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.279844]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.279856]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.279865]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.279883]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.279901]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.279912]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.279925]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.279938]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.279950]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.279962]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.279972]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.279983]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.279992]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.280003]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.280013]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.280021] ffff8800088d35d8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.407783] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.407799] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.407811] Call Trace:
+[15976.407820]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.407831]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.407852]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.407862]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.407872]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.407890]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.407908]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.407920]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.407933]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.407946]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.407958]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.407970]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.407980]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.407991]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.408000]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.408011]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.408021]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.408029] ffff8800088d34c0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.535780] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.535796] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.535808] Call Trace:
+[15976.535818]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.535828]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.535849]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.535859]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.535869]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.535887]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.535904]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.535917]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.535930]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.535943]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.535955]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.535966]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.535976]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.535987]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.535997]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.536007]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.536017]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.536025] ffff880008ab26b8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.663780] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.663796] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.663808] Call Trace:
+[15976.663817]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.663827]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.663847]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.663858]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.663868]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.663886]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.663904]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.663915]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.663929]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.663942]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.663954]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.663965]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.663975]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.663986]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.663996]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.664006]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.664016]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.664024] ffff88000aa0dbc0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.791827] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.791843] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.791855] Call Trace:
+[15976.791864]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.791874]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.791895]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.791905]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.791915]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.791933]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.791950]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.791962]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.791975]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.791988]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.792000]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.792011]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.792022]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.792033]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.792042]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.792055]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.792065]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.792073] ffff880008ab2488: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.792799] Slab corruption (Tainted: G         C O): size-32 start=ffff880008ab25a8, len=32
+[15976.792820] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.792832] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15976.792859] 000: 40 10 98 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  @.......ZZZZZZZZ
+[15976.792880] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.792901] Prev obj: start=ffff880008ab2570, len=32
+[15976.792913] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.792928] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15976.792953] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15976.792972] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.792991] Next obj: start=ffff880008ab25e0, len=32
+[15976.793001] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.793014] Last user: [<ffffffff812fae9e>](tty_ldisc_get.part.4+0x3e/0xb0)
+[15976.793036] 000: e0 2a a5 81 ff ff ff ff 01 00 00 00 5a 5a 5a 5a  .*..........ZZZZ
+[15976.793057] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.795994] Slab corruption (Tainted: G         C O): size-32 start=ffff8800086022d0, len=32
+[15976.796015] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.796029] Last user: [<ffffffffa021c457>](stub_recv_cmd_submit+0x127/0x8a0 [usbip_host])
+[15976.796113] 000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15976.796135] 010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15976.796157] Prev obj: start=ffff880008602298, len=32
+[15976.796169] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15976.796182] Last user: [<ffffffffa021d3c5>](stub_send_ret_submit+0x265/0x4b0 [usbip_host])
+[15976.796208] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15976.796228] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15976.796250] Next obj: start=ffff880008602308, len=32
+[15976.796262] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.796274] Last user: [<ffffffffa001c0a5>](xt_replace_table+0xf5/0x220 [x_tables])
+[15976.796302] 000: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a  ZZZZZZZZZZZZZZZZ
+[15976.796322] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.796343] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15976.796367] Pid: 3729, comm: stub_rx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.796387] Call Trace:
+[15976.796402]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.796420]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15976.796441]  [<ffffffffa021c47e>] ? stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15976.796455]  [<ffffffff81152a19>] __kmalloc_track_caller+0x129/0x250
+[15976.796468]  [<ffffffff8112b85d>] kmemdup+0x2d/0x60
+[15976.796484]  [<ffffffffa021c47e>] stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15976.796499]  [<ffffffffa021cdac>] stub_rx_loop+0x1dc/0x290 [usbip_host]
+[15976.796512]  [<ffffffffa021cbd0>] ? stub_recv_cmd_submit+0x8a0/0x8a0 [usbip_host]
+[15976.796526]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.796540]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.796553]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.796564]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.796574] ffff8800086022c8: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15976.796938] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.796963] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.796984] Call Trace:
+[15976.796997]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.797015]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.797035]  [<ffffffffa021ce93>] ? stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15976.797055]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.797072]  [<ffffffffa021ce93>] stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15976.797093]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.797114]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.797134]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.797153]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.797170]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.797188]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.797204]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.800822]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.800822]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.800822] ffff8800086022c8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.992984] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.992993] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.992999] Call Trace:
+[15976.993003]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.993009]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.993032]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15976.993043]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.993053]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15976.993071]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15976.993089]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15976.993101]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15976.993115]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.993135]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.993154]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.993172]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.993188]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.993203]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.993213]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.993224]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.993233]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.993242] ffff880008ab23a8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15976.993408] Slab corruption (Tainted: G         C O): size-32 start=ffff880004381fb8, len=32
+[15976.993430] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.993442] Last user: [<ffffffffa021ce89>](stub_free_priv_and_urb+0x29/0x60 [usbip_host])
+[15976.993467] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15976.993487] Prev obj: start=ffff880004381f80, len=32
+[15976.993498] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.993511] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15976.993535] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15976.993554] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.994525] Slab corruption (Tainted: G         C O): size-32 start=ffff880004381fb8, len=32
+[15976.994541] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.994548] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15976.994565] 000: 40 06 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  @.......ZZZZZZZZ
+[15976.994578] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.994596] Prev obj: start=ffff880004381f80, len=32
+[15976.994604] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15976.994611] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15976.994630] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15976.994642] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15976.994658] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15976.994677] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.994693] Call Trace:
+[15976.994702]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.994716]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15976.994730]  [<ffffffffa021d267>] ? stub_send_ret_submit+0x107/0x4b0 [usbip_host]
+[15976.994745]  [<ffffffff8115167c>] kmem_cache_alloc_trace+0xdc/0x1e0
+[15976.994757]  [<ffffffffa021d267>] stub_send_ret_submit+0x107/0x4b0 [usbip_host]
+[15976.994770]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.994782]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.994793]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.994803]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.994814]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.994823]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.994835]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.994844]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.994852] ffff880004381fb0: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15976.994908] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15976.994921] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15976.994932] Call Trace:
+[15976.994940]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15976.994950]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15976.994961]  [<ffffffffa021ce89>] ? stub_free_priv_and_urb+0x29/0x60 [usbip_host]
+[15976.994973]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15976.994982]  [<ffffffffa021ce89>] stub_free_priv_and_urb+0x29/0x60 [usbip_host]
+[15976.994995]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15976.995007]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15976.995019]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15976.995030]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15976.995040]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15976.995051]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15976.995060]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15976.995071]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15976.995081]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15976.995088] ffff880004381fb0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.193239] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.193255] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.193272] Call Trace:
+[15977.193287]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.193305]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.193333]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15977.193350]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.193366]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15977.193394]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15977.193423]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15977.193441]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15977.193456]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.193469]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.193481]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.193493]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.193503]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.193514]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.193524]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.193536]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.193551]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.193565] ffff880008ab25a0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.194496] Slab corruption (Tainted: G         C O): size-32 start=ffff88000aa0dbc8, len=32
+[15977.194516] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.194528] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15977.194552] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15977.194572] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.194592] Prev obj: start=ffff88000aa0db90, len=32
+[15977.194604] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.194616] Last user: [<ffffffff811cc99e>](sysfs_new_dirent+0x2e/0x130)
+[15977.194637] 000: 6c 6f 63 6b 64 00 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a  lockd.ZZZZZZZZZZ
+[15977.194657] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.194677] Next obj: start=ffff88000aa0dc00, len=32
+[15977.194688] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15977.194700] Last user: [<ffffffffa021ce89>](stub_free_priv_and_urb+0x29/0x60 [usbip_host])
+[15977.194724] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15977.194742] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15977.194763] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15977.194788] Pid: 3729, comm: stub_rx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.194806] Call Trace:
+[15977.194818]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.194835]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15977.194857]  [<ffffffffa021c47e>] ? stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15977.194873]  [<ffffffff81152a19>] __kmalloc_track_caller+0x129/0x250
+[15977.194884]  [<ffffffff8112b85d>] kmemdup+0x2d/0x60
+[15977.194894]  [<ffffffffa021c47e>] stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15977.194906]  [<ffffffffa021cdac>] stub_rx_loop+0x1dc/0x290 [usbip_host]
+[15977.194918]  [<ffffffffa021cbd0>] ? stub_recv_cmd_submit+0x8a0/0x8a0 [usbip_host]
+[15977.194930]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.194940]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.194951]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.194961]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.194969] ffff88000aa0dbc0: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15977.197282] Slab corruption (Tainted: G         C O): size-32 start=ffff880008ab26c0, len=32
+[15977.197297] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.197305] Last user: [<ffffffffa021c457>](stub_recv_cmd_submit+0x127/0x8a0 [usbip_host])
+[15977.197321] 000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15977.197334] 010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15977.197346] Prev obj: start=ffff880008ab2688, len=32
+[15977.197354] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15977.197362] Last user: [<ffffffffa021d3c5>](stub_send_ret_submit+0x265/0x4b0 [usbip_host])
+[15977.197379] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15977.197393] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15977.197407] Next obj: start=ffff880008ab26f8, len=32
+[15977.197416] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15977.197424] Last user: [<ffffffffa021ce89>](stub_free_priv_and_urb+0x29/0x60 [usbip_host])
+[15977.197441] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15977.303742] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.303744] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.303745] Call Trace:
+[15977.303748]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.303750]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.303753]  [<ffffffffa021ce89>] ? stub_free_priv_and_urb+0x29/0x60 [usbip_host]
+[15977.303755]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.303758]  [<ffffffffa021ce89>] stub_free_priv_and_urb+0x29/0x60 [usbip_host]
+[15977.303760]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.303763]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.303765]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.303768]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.303770]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.303772]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.303774]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.303776]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.303778]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.303780] ffff88000aa0dbc0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.303782] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.303783] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.303785] Call Trace:
+[15977.303786]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.303788]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.303795]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15977.303797]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.303799]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15977.303804]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15977.303810]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15977.303812]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15977.303814]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.303816]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.303819]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.303821]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.303823]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.303825]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.303827]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.303829]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.303831]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.303833] ffff880008602cd8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.394316] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15977.394324] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15977.394333] Pid: 3729, comm: stub_rx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.394339] Call Trace:
+[15977.394345]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.394351]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15977.394359]  [<ffffffffa021c47e>] ? stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15977.394366]  [<ffffffff81152a19>] __kmalloc_track_caller+0x129/0x250
+[15977.394372]  [<ffffffff8112b85d>] kmemdup+0x2d/0x60
+[15977.394378]  [<ffffffffa021c47e>] stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15977.394386]  [<ffffffffa021cdac>] stub_rx_loop+0x1dc/0x290 [usbip_host]
+[15977.394392]  [<ffffffffa021cbd0>] ? stub_recv_cmd_submit+0x8a0/0x8a0 [usbip_host]
+[15977.394400]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.394405]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.394412]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.394418]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.394422] ffff880008ab26b8: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15977.394684] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.394702] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.394716] Call Trace:
+[15977.394726]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.394738]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.394753]  [<ffffffffa021ce93>] ? stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15977.394767]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.394778]  [<ffffffffa021ce93>] stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15977.394792]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.394807]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.394821]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.394834]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.394845]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.394858]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.394869]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.394881]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.394892]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.394902] ffff880008ab26b8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.395528] Slab corruption (Tainted: G         C O): size-32 start=ffff8800088d34c8, len=32
+[15977.395542] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.395550] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15977.395565] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15977.395578] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.395591] Prev obj: start=ffff8800088d3490, len=32
+[15977.395598] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.395607] Last user: [<ffffffff8125bc67>](kvasprintf+0x57/0x90)
+[15977.395627] 000: 61 73 69 78 00 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a  asix.ZZZZZZZZZZZ
+[15977.395645] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.395665] Next obj: start=ffff8800088d3500, len=32
+[15977.395676] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.395688] Last user: [<ffffffff811cc99e>](sysfs_new_dirent+0x2e/0x130)
+[15977.395710] 000: 65 74 68 30 00 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a  eth0.ZZZZZZZZZZZ
+[15977.395716] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.395722] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15977.395730] Pid: 3729, comm: stub_rx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.395735] Call Trace:
+[15977.395740]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.395745]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15977.395752]  [<ffffffffa021c47e>] ? stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15977.395758]  [<ffffffff81152a19>] __kmalloc_track_caller+0x129/0x250
+[15977.395764]  [<ffffffff8112b85d>] kmemdup+0x2d/0x60
+[15977.395770]  [<ffffffffa021c47e>] stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15977.395777]  [<ffffffffa021cdac>] stub_rx_loop+0x1dc/0x290 [usbip_host]
+[15977.431745] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.431747] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.431749] Call Trace:
+[15977.431751]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.431753]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.431760]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15977.431761]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.431763]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15977.431768]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15977.431773]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15977.431775]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15977.431777]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.431780]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.431782]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.431784]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.431786]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.431788]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.431790]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.431792]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.431794]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.431795] ffff880008ab2fb0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.594481]  [<ffffffffa021cbd0>] ? stub_recv_cmd_submit+0x8a0/0x8a0 [usbip_host]
+[15977.594492]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.594498]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.594506]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.594512]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.594517] ffff8800088d34c0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b
+[15977.595783] Slab corruption (Tainted: G         C O): size-32 start=ffff8800088d35e0, len=32
+[15977.595791] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.595796] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15977.595805] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15977.595812] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.595819] Prev obj: start=ffff8800088d35a8, len=32
+[15977.595822] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.595826] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15977.595834] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15977.595840] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.595847] Next obj: start=ffff8800088d3618, len=32
+[15977.595850] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15977.595854] Last user: [<ffffffff811cc99e>](sysfs_new_dirent+0x2e/0x130)
+[15977.595862] 000: 61 73 69 78 00 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a  asix.ZZZZZZZZZZZ
+[15977.595869] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15977.595875] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15977.595884] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.595890] Call Trace:
+[15977.595896]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.595902]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15977.595908]  [<ffffffffa021d267>] ? stub_send_ret_submit+0x107/0x4b0 [usbip_host]
+[15977.595915]  [<ffffffff8115167c>] kmem_cache_alloc_trace+0xdc/0x1e0
+[15977.595920]  [<ffffffffa021d267>] stub_send_ret_submit+0x107/0x4b0 [usbip_host]
+[15977.595928]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.595934]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.595940]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.595946]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.595951]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.595956]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.595962]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.595967]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.595971] ffff8800088d35d8: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15977.687874] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.687897] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.687915] Call Trace:
+[15977.687931]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.687947]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.687965]  [<ffffffffa021ce89>] ? stub_free_priv_and_urb+0x29/0x60 [usbip_host]
+[15977.687983]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.687999]  [<ffffffffa021ce89>] stub_free_priv_and_urb+0x29/0x60 [usbip_host]
+[15977.688019]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.688041]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.688064]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.688083]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.688100]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.688117]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.688133]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.688150]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.688166]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.688178] ffff8800088d35d8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.688207] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.688225] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.688243] Call Trace:
+[15977.688251]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.688262]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.688287]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15977.688297]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.688307]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15977.688325]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15977.688342]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15977.688354]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15977.688366]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.688379]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.688391]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.688402]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.688412]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.688423]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.688432]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.688443]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.688452]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.688460] ffff88000aa0dbf8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.815823] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.815844] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.815863] Call Trace:
+[15977.815877]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.815893]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.815922]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15977.815939]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.815954]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15977.815980]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15977.816006]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15977.816025]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15977.816045]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.816069]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.816087]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.816105]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.816122]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.816139]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.816154]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.816170]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.816186]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.816200] ffff8800019a2f40: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15977.943848] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15977.943865] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15977.943877] Call Trace:
+[15977.943886]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15977.943896]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15977.943919]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15977.943929]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15977.943939]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15977.943957]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15977.943975]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15977.943987]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15977.944000]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15977.944013]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15977.944025]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15977.944037]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15977.944047]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15977.944060]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15977.944070]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15977.944080]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15977.944090]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15977.944098] ffff8800035423e0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.071855] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.071871] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.071883] Call Trace:
+[15978.071892]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.071902]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.071923]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.071933]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.071943]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.071961]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.071978]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.071990]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.072003]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.072016]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.072028]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.072039]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.072050]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.072063]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.072072]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.072083]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.072093]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.072101] ffff8800035422c8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.199872] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.199894] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.199913] Call Trace:
+[15978.199927]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.199942]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.199972]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.199988]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.200004]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.200031]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.200060]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.200078]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.200098]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.200120]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.200138]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.200157]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.200174]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.200191]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.200207]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.200225]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.200241]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.200254] ffff880003542290: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.327889] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.327905] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.327917] Call Trace:
+[15978.327927]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.327938]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.327959]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.327970]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.327979]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.327997]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.328015]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.328027]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.328040]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.328055]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.328067]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.328079]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.328089]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.328100]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.328110]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.328120]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.328130]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.328139] ffff880008ab22c8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.328772] Slab corruption (Tainted: G         C O): size-32 start=ffff8800019a2d18, len=32
+[15978.328788] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15978.328797] Last user: [<ffffffffa021c457>](stub_recv_cmd_submit+0x127/0x8a0 [usbip_host])
+[15978.328815] 000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15978.328828] 010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15978.328849] Prev obj: start=ffff8800019a2ce0, len=32
+[15978.328861] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15978.328874] Last user: [<ffffffffa021d3c5>](stub_send_ret_submit+0x265/0x4b0 [usbip_host])
+[15978.328900] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15978.328922] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15978.328944] Next obj: start=ffff8800019a2d50, len=32
+[15978.328958] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15978.328971] Last user: [<ffffffffa021ce89>](stub_free_priv_and_urb+0x29/0x60 [usbip_host])
+[15978.328993] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15978.329007] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15978.329023] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15978.329048] Pid: 3729, comm: stub_rx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.329069] Call Trace:
+[15978.329084]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.329103]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15978.329121]  [<ffffffffa021c47e>] ? stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15978.329135]  [<ffffffff81152a19>] __kmalloc_track_caller+0x129/0x250
+[15978.329148]  [<ffffffff8112b85d>] kmemdup+0x2d/0x60
+[15978.329162]  [<ffffffffa021c47e>] stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15978.329185]  [<ffffffffa021cdac>] stub_rx_loop+0x1dc/0x290 [usbip_host]
+[15978.329206]  [<ffffffffa021cbd0>] ? stub_recv_cmd_submit+0x8a0/0x8a0 [usbip_host]
+[15978.329227]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.329243]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.329262]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.329281]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.329295] ffff8800019a2d10: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15978.455862] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.455878] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.455891] Call Trace:
+[15978.455900]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.455910]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.455923]  [<ffffffffa021ce93>] ? stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15978.455935]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.455945]  [<ffffffffa021ce93>] stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15978.455958]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.455971]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.455983]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.455994]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.456004]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.456015]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.456025]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.456035]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.456045]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.456056] ffff8800019a2d10: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.456068] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.456079] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.456091] Call Trace:
+[15978.456098]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.456108]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.456128]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.456138]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.456148]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.456166]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.456183]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.459741]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.459741]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.459741]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.459741]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.459741]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.459741]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.459741]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.459741]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.459741]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.459741]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.459741] ffff8800019a2d10: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.583910] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.583932] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.583950] Call Trace:
+[15978.583963]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.583980]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.584009]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.584026]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.584041]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.584071]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.584098]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.584116]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.584137]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.584158]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.584177]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.584194]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.584210]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.584227]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.584242]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.584260]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.584275]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.584289] ffff880003542418: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.711891] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.711908] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.711920] Call Trace:
+[15978.711929]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.711939]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.711960]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.711971]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.711980]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.711998]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.712016]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.712028]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.712041]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.712057]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.712068]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.712080]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.712090]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.712101]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.712111]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.712121]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.712131]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.712139] ffff880008286d48: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.839899] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.839916] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.839928] Call Trace:
+[15978.839938]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.839948]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.839968]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.839980]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.839989]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.840007]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.840025]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.840037]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.840049]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.840065]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.840077]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.840089]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.840099]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.840110]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.840119]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.840130]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.840140]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.840148] ffff880008286bf8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.967886] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15978.967902] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.967914] Call Trace:
+[15978.967923]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.967934]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15978.967954]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15978.967965]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15978.967974]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15978.967992]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15978.968010]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15978.968021]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15978.968034]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15978.968047]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15978.968061]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15978.968073]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15978.968083]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15978.968094]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.968104]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.968114]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.968124]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.968132] ffff8800088d3a00: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15978.968751] Slab corruption (Tainted: G         C O): size-32 start=ffff880008ab2fb8, len=32
+[15978.968770] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15978.968782] Last user: [<ffffffffa021c457>](stub_recv_cmd_submit+0x127/0x8a0 [usbip_host])
+[15978.968806] 000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15978.968822] 010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+[15978.968835] Prev obj: start=ffff880008ab2f80, len=32
+[15978.968843] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15978.968850] Last user: [<ffffffffa021ce89>](stub_free_priv_and_urb+0x29/0x60 [usbip_host])
+[15978.968866] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15978.968878] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15978.968891] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15978.968906] Pid: 3729, comm: stub_rx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15978.968918] Call Trace:
+[15978.968927]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15978.968938]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15978.968951]  [<ffffffffa021c47e>] ? stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15978.968963]  [<ffffffff81152a19>] __kmalloc_track_caller+0x129/0x250
+[15978.968974]  [<ffffffff8112b85d>] kmemdup+0x2d/0x60
+[15978.968984]  [<ffffffffa021c47e>] stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host]
+[15978.968996]  [<ffffffffa021cdac>] stub_rx_loop+0x1dc/0x290 [usbip_host]
+[15978.969008]  [<ffffffffa021cbd0>] ? stub_recv_cmd_submit+0x8a0/0x8a0 [usbip_host]
+[15978.969021]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15978.969030]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15978.969041]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15978.969051]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15978.969059] ffff880008ab2fb0: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15979.095883] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.095900] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.095912] Call Trace:
+[15979.095921]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.095932]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.095944]  [<ffffffffa021ce93>] ? stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15979.095957]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.095967]  [<ffffffffa021ce93>] stub_free_priv_and_urb+0x33/0x60 [usbip_host]
+[15979.095980]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.095993]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.096005]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.096016]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.096026]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.096037]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.096047]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.096060]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.096069]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.096078] ffff880008ab2fb0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.096090] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.096101] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.096113] Call Trace:
+[15979.096120]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.096130]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.096149]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.096160]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.096169]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.096187]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.096205]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.096216]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.096229]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.096241]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.096254]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.096265]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.096275]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.096285]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.096295]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.096305]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.096315]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.096323] ffff880008ab2fb0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.223936] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.223954] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.223967] Call Trace:
+[15979.223979]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.223989]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.224013]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.224025]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.224035]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.224070]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.224089]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.224101]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.224114]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.224128]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.224140]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.224153]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.224163]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.224174]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.224184]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.224195]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.224205]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.224213] ffff880003faebf8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.351876] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.351893] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.351905] Call Trace:
+[15979.351915]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.351925]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.351947]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.351957]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.351967]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.351985]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.352003]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.352015]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.352027]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.352041]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.352054]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.352066]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.352077]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.352088]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.352098]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.352108]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.352118]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.352126] ffff880009a54bc0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.479879] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.479895] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.479908] Call Trace:
+[15979.479917]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.479927]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.479948]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.479959]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.479968]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.479986]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.480004]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.480016]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.480028]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.480042]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.480056]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.480067]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.480077]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.480088]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.480098]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.480108]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.480118]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.480127] ffff8800088d34c0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.607908] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.607924] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.607936] Call Trace:
+[15979.607945]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.607955]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.607975]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.607985]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.607995]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.608013]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.608031]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.608042]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.608057]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.608070]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.608082]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.608093]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.608103]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.608114]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.608124]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.608135]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.608145]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.608153] ffff880008ab26b8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.735893] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.735909] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.735921] Call Trace:
+[15979.735930]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.735940]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.735961]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.735971]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.735981]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.735999]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.736016]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.736028]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.736041]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.736055]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.736067]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.736079]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.736089]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.736100]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.736109]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.736120]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.736130]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.736138] ffff880008602cd8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.863896] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.863912] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.863924] Call Trace:
+[15979.863933]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.863943]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.863963]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.863974]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.863983]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.864001]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.864019]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.864031]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.864043]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.864058]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.864070]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.864082]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.864092]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.864103]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.864112]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.864123]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.864133]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.864141] ffff88000aa0dc68: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15979.991899] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15979.991915] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15979.991927] Call Trace:
+[15979.991935]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15979.991946]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15979.991966]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15979.991977]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15979.991987]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15979.992004]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15979.992022]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15979.992034]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15979.992047]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15979.992062]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15979.992074]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15979.992085]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15979.992096]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15979.992107]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15979.992116]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15979.992127]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15979.992137]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15979.992145] ffff8800065a8488: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15980.119899] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15980.119915] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15980.119927] Call Trace:
+[15980.119936]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15980.119946]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15980.119966]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15980.119976]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15980.119985]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15980.120004]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15980.120022]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15980.120033]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15980.120046]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15980.120061]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15980.120073]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15980.120085]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15980.120095]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15980.120106]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.120115]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.120126]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.120136]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.120144] ffff88000aa0dfb0: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15980.247885] slab error in verify_redzone_free(): cache `size-32': double free detected
+[15980.247901] Pid: 3730, comm: stub_tx Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15980.247913] Call Trace:
+[15980.247921]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15980.247932]  [<ffffffff81150618>] cache_free_debugcheck+0x248/0x280
+[15980.247952]  [<ffffffffa01cabf0>] ? urb_destroy+0x20/0x30 [usbcore]
+[15980.247962]  [<ffffffff81151368>] kfree+0xe8/0x1c0
+[15980.247972]  [<ffffffff8109d297>] ? trace_hardirqs_off_caller+0x67/0xb0
+[15980.247990]  [<ffffffffa01cabf0>] urb_destroy+0x20/0x30 [usbcore]
+[15980.248008]  [<ffffffffa01caed5>] usb_free_urb+0x25/0x30 [usbcore]
+[15980.248020]  [<ffffffffa021ceb3>] stub_free_priv_and_urb+0x53/0x60 [usbip_host]
+[15980.248032]  [<ffffffffa021d51d>] stub_send_ret_submit+0x3bd/0x4b0 [usbip_host]
+[15980.248045]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15980.248059]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15980.248071]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15980.248081]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15980.248092]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.248102]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.248113]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.248123]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.248131] ffff880008ab22c8: redzone 1:0x9f911029d74e35b, redzone 2:0x9f911029d74e35b.
+[15980.248940] Slab corruption (Tainted: G         C O): size-32 start=ffff880008ab22d0, len=32
+[15980.248955] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15980.248963] Last user: [<ffffffff81381879>](alloc_pl+0x29/0x70)
+[15980.248977] 000: 00 00 00 00 00 00 00 00 18 67 0d 00 00 ea ff ff  .........g......
+[15980.248997] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15980.249048] Prev obj: start=ffff880008ab2298, len=32
+[15980.249057] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15980.249069] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15980.249088] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15980.249104] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15980.249117] Next obj: start=ffff880008ab2308, len=32
+[15980.249128] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15980.249135] Last user: [<ffffffffa021ce89>](stub_free_priv_and_urb+0x29/0x60 [usbip_host])
+[15980.249153] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15980.249168] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15980.249182] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15980.249201] Pid: 450, comm: kworker/0:2 Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15980.249213] Call Trace:
+[15980.249221]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15980.249232]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15980.249244]  [<ffffffff81381879>] ? alloc_pl+0x29/0x70
+[15980.249257]  [<ffffffff8115167c>] kmem_cache_alloc_trace+0xdc/0x1e0
+[15980.249268]  [<ffffffff81381879>] alloc_pl+0x29/0x70
+[15980.249280]  [<ffffffff81381c22>] run_pages_job+0x42/0xb0
+[15980.249293]  [<ffffffff8138219d>] process_jobs+0x5d/0x110
+[15980.249303]  [<ffffffff81381be0>] ? push+0x70/0x70
+[15980.249315]  [<ffffffff81382299>] do_work+0x49/0x80
+[15980.249326]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15980.249340]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15980.249354]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15980.249364]  [<ffffffff81382250>] ? process_jobs+0x110/0x110
+[15980.249377]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15980.249388]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15980.249401]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.249414]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.249426]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.249439]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.249447] ffff880008ab22c8: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15980.249952] general protection fault: 0000 [#1] SMP 
+[15980.249964] CPU 0 
+[15980.249968] Modules linked in: usbip_host(C) usbip_core(C) af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT iptable_raw xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput ehci_hcd coretemp hwmon uhci_hcd usbcore usb_common pcspkr microcode autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[15980.250079] 
+[15980.250084] Pid: 3724, comm: kworker/0:1 Tainted: G         C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1  
+[15980.250099] RIP: e030:[<ffffffff81119809>]  [<ffffffff81119809>] __free_pages+0x9/0x40
+[15980.250114] RSP: e02b:ffff88000912dc90  EFLAGS: 00010246
+[15980.250122] RAX: 0000000000000010 RBX: ffff880008ab22d0 RCX: 0000000000000006
+[15980.250132] RDX: 0000000000000006 RSI: 0000000000000000 RDI: 6b6b6b6b6b6b6b6b
+[15980.250141] RBP: ffff88000912dc90 R08: 0000000000000000 R09: 0000000000000000
+[15980.250150] R10: 0000000000000001 R11: 0000000000000000 R12: ffff88000987fd28
+[15980.250159] R13: 6b6b6b6b6b6b6b6b R14: 0000000000000000 R15: 0000000000000000
+[15980.250174] FS:  00007fe5f4126740(0000) GS:ffff88000c400000(0000) knlGS:0000000000000000
+[15980.250185] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[15980.250193] CR2: 00007fabf2dc29d0 CR3: 0000000000e08000 CR4: 0000000000002660
+[15980.250203] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[15980.250212] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[15980.250222] Process kworker/0:1 (pid: 3724, threadinfo ffff88000912c000, task ffff880002eea040)
+[15980.288105] Stack:
+[15980.288105]  ffff88000912dcc0 ffffffff813815c3 ffffffff814aef2f ffff88000332ec80
+[15980.288105]  ffff88000987fd28 ffffffffa000ba90 ffff88000912dd10 ffffffff813816de
+[15980.288105]  ffff880009120298 ffff880004196f30 ffff88000912dcf0 ffff88000332ec88
+[15980.288105] Call Trace:
+[15980.288105]  [<ffffffff813815c3>] kcopyd_put_pages+0x53/0x70
+[15980.288105]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15980.288105]  [<ffffffffa000ba90>] ? pending_complete+0x2c0/0x2c0 [dm_snapshot]
+[15980.288105]  [<ffffffff813816de>] run_complete_job+0x5e/0xd0
+[15980.288105]  [<ffffffff8138219d>] process_jobs+0x5d/0x110
+[15980.288105]  [<ffffffff81381680>] ? wake+0x20/0x20
+[15980.288105]  [<ffffffff81382283>] do_work+0x33/0x80
+[15980.288105]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15980.288105]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15980.288105]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15980.288105]  [<ffffffff81382250>] ? process_jobs+0x110/0x110
+[15980.288105]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15980.288105]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15980.288105]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.288105]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.288105]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.288105]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.288105] Code: 00 31 d2 48 89 de 4c 89 ff e8 f4 f1 ff ff e9 5d ff ff ff 66 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 55 48 89 e5 66 66 66 66 90 <8b> 47 1c f0 ff 4f 1c 0f 94 c0 84 c0 74 09 85 f6 74 0d e8 f0 fc 
+[15980.288105] RIP  [<ffffffff81119809>] __free_pages+0x9/0x40
+[15980.288105]  RSP <ffff88000912dc90>
+[15980.288114] usb 4-4: unlink qh128-0001/ffff88000aa605a0 start 2 [1/0 us]
+[15980.448969] ---[ end trace 529b628c4b489c9b ]---
+[15980.448979] Slab corruption (Tainted: G      D  C O): size-32 start=ffff880004381dc0, len=32
+[15980.448991] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15980.448999] Last user: [<ffffffffa021c47e>](stub_recv_cmd_submit+0x14e/0x8a0 [usbip_host])
+[15980.449014] 000: 00 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15980.449022] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15980.449030] Prev obj: start=ffff880004381d88, len=32
+[15980.449032] BUG: unable to handle kernel paging request at fffffffffffffff8
+[15980.449035] IP: [<ffffffff8106ed81>] kthread_data+0x11/0x20
+[15980.449040] PGD 1a0d067 PUD 1a0e067 PMD 0 
+[15980.449043] Oops: 0000 [#2] SMP 
+[15980.449046] CPU 0 
+[15980.449047] Modules linked in: usbip_host(C) usbip_core(C) af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT iptable_raw xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput ehci_hcd coretemp hwmon uhci_hcd usbcore usb_common pcspkr microcode autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[15980.449083] 
+[15980.449085] Pid: 3724, comm: kworker/0:1 Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1  
+[15980.449088] RIP: e030:[<ffffffff8106ed81>]  [<ffffffff8106ed81>] kthread_data+0x11/0x20
+[15980.449091] RSP: e02b:ffff88000912da20  EFLAGS: 00010096
+[15980.449092] RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+[15980.449094] RDX: ffffffff81bcbd00 RSI: 0000000000000000 RDI: ffff880002eea040
+[15980.449095] RBP: ffff88000912da38 R08: ffff880002eea0b0 R09: ffffffff81bcbd00
+[15980.449097] R10: 0000000000000000 R11: 0000000000000000 R12: ffff880002eea410
+[15980.449098] R13: 0000000000000000 R14: 0000000000000000 R15: ffff880002eea040
+[15980.449102] FS:  00007fe5f4126740(0000) GS:ffff88000c400000(0000) knlGS:0000000000000000
+[15980.449103] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[15980.449105] CR2: fffffffffffffff8 CR3: 0000000000e08000 CR4: 0000000000002660
+[15980.449106] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[15980.449108] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[15980.449110] Process kworker/0:1 (pid: 3724, threadinfo ffff88000912c000, task ffff880002eea040)
+[15980.449111] Stack:
+[15980.449112]  ffffffff8106a155 ffff88000912da38 ffff88000c413b40 ffff88000912daa8
+[15980.449115]  ffffffff814ad368 ffff880002eea040 ffff88000912dfd8 ffff88000912dfd8
+[15980.449118]  ffff88000912dfd8 ffff88000912da88 ffff880002eea040 ffff880008607638
+[15980.449121] Call Trace:
+[15980.449123]  [<ffffffff8106a155>] ? wq_worker_sleeping+0x15/0xa0
+[15980.449126]  [<ffffffff814ad368>] __schedule+0x568/0x7d0
+[15980.449128]  [<ffffffff814ad8f9>] schedule+0x29/0x70
+[15980.449131]  [<ffffffff8105073f>] do_exit+0x56f/0x8a0
+[15980.449135]  [<ffffffff8104e0cf>] ? kmsg_dump+0xff/0x140
+[15980.449138]  [<ffffffff8100a652>] ? check_events+0x12/0x20
+[15980.449141]  [<ffffffff814b023e>] oops_end+0x9e/0xe0
+[15980.449144]  [<ffffffff81016878>] die+0x58/0x90
+[15980.449146]  [<ffffffff814afd42>] do_general_protection+0x162/0x170
+[15980.449149]  [<ffffffff814af3e0>] ? restore_args+0x30/0x30
+[15980.449151]  [<ffffffff814af605>] general_protection+0x25/0x30
+[15980.449153]  [<ffffffff81119809>] ? __free_pages+0x9/0x40
+[15980.449155]  [<ffffffff813815c3>] kcopyd_put_pages+0x53/0x70
+[15980.449157]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15980.449161]  [<ffffffffa000ba90>] ? pending_complete+0x2c0/0x2c0 [dm_snapshot]
+[15980.449163]  [<ffffffff813816de>] run_complete_job+0x5e/0xd0
+[15980.449166]  [<ffffffff8138219d>] process_jobs+0x5d/0x110
+[15980.449167]  [<ffffffff81381680>] ? wake+0x20/0x20
+[15980.449169]  [<ffffffff81382283>] do_work+0x33/0x80
+[15980.449172]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15980.449174]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15980.449177]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15980.449179]  [<ffffffff81382250>] ? process_jobs+0x110/0x110
+[15980.449181]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15980.449183]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15980.449185]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.449187]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.449190]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.449192]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.449193] Code: ff ff 48 81 c4 d8 00 00 00 5b 5d c3 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 55 48 89 e5 66 66 66 66 90 48 8b 87 78 03 00 00 5d <48> 8b 40 f8 c3 66 2e 0f 1f 84 00 00 00 00 00 55 48 89 e5 66 66 
+[15980.449223] RIP  [<ffffffff8106ed81>] kthread_data+0x11/0x20
+[15980.449225]  RSP <ffff88000912da20>
+[15980.449226] CR2: fffffffffffffff8
+[15980.449228] ---[ end trace 529b628c4b489c9c ]---
+[15980.449229] Fixing recursive fault but reboot is needed!
+[15980.449251] Redzone: 0xd84156c5635688c0/0xd84156c5635688c0.
+[15980.449255] Last user: [<ffffffff8112b7eb>](krealloc+0x1b/0x60)
+[15980.449264] 000: 02 00 00 00 00 00 00 00 5a 5a 5a 5a 5a 5a 5a 5a  ........ZZZZZZZZ
+[15980.449271] 010: 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a 5a a5  ZZZZZZZZZZZZZZZ.
+[15980.449278] Next obj: start=ffff880004381df8, len=32
+[15980.449282] Redzone: 0x9f911029d74e35b/0x9f911029d74e35b.
+[15980.449286] Last user: [<ffffffffa021d3c5>](stub_send_ret_submit+0x265/0x4b0 [usbip_host])
+[15980.449295] 000: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b  kkkkkkkkkkkkkkkk
+[15980.449302] 010: 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b 6b a5  kkkkkkkkkkkkkkk.
+[15980.449309] slab error in cache_alloc_debugcheck_after(): cache `size-32': double free, or memory outside object was overwritten
+[15980.449318] Pid: 3730, comm: stub_tx Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15980.449324] Call Trace:
+[15980.449330]  [<ffffffff8114fac5>] __slab_error.isra.44+0x25/0x30
+[15980.449336]  [<ffffffff8115038d>] cache_alloc_debugcheck_after.isra.49+0x20d/0x250
+[15980.449343]  [<ffffffffa021d267>] ? stub_send_ret_submit+0x107/0x4b0 [usbip_host]
+[15980.449350]  [<ffffffff8115167c>] kmem_cache_alloc_trace+0xdc/0x1e0
+[15980.449357]  [<ffffffffa021d267>] stub_send_ret_submit+0x107/0x4b0 [usbip_host]
+[15980.449364]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15980.449371]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15980.449377]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15980.648605]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.648612]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.648618]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.648624]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.648629] ffff880004381db8: redzone 1:0xd84156c5635688c0, redzone 2:0xd84156c5635688c0
+[15985.144161] slab: double free detected in cache 'size-32', objp ffff880008ab25a0
+[15985.144234] ------------[ cut here ]------------
+[15985.144248] kernel BUG at /rw/home/user/qubes/qubes-builder/qubes-src/kernel/kernel-3.4.18/linux-3.4.18/mm/slab.c:2895!
+[15985.144272] invalid opcode: 0000 [#3] SMP 
+[15985.144284] CPU 2 
+[15985.144288] Modules linked in: usbip_host(C) usbip_core(C) af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT iptable_raw xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput ehci_hcd coretemp hwmon uhci_hcd usbcore usb_common pcspkr microcode autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[15985.144402] 
+[15985.144408] Pid: 1047, comm: kworker/2:0 Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1  
+[15985.144423] RIP: e030:[<ffffffff81150b1a>]  [<ffffffff81150b1a>] free_block+0x1ea/0x220
+[15985.144441] RSP: e02b:ffff88000c19bcd0  EFLAGS: 00010082
+[15985.144449] RAX: 000000000000005a RBX: ffff88000c000300 RCX: 00000000f17df17c
+[15985.144459] RDX: ffff880003d86040 RSI: 0000000000000001 RDI: ffffffff8104d091
+[15985.144468] RBP: ffff88000c19bd40 R08: 0000000000000002 R09: 0000000000000001
+[15985.144478] R10: 0000000000000001 R11: 0000000000000000 R12: ffff88000c133950
+[15985.144487] R13: ffff880008ab25a0 R14: ffff88000c002080 R15: ffff880008ab2000
+[15985.144502] FS:  00007fe5f4126740(0000) GS:ffff88000c480000(0000) knlGS:0000000000000000
+[15985.144513] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[15985.144521] CR2: 00007f8298005178 CR3: 0000000000e08000 CR4: 0000000000002660
+[15985.144531] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[15985.144541] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[15985.144552] Process kworker/2:0 (pid: 1047, threadinfo ffff88000c19a000, task ffff880003d86040)
+[15985.144563] Stack:
+[15985.144568]  000000000c19bd50 ffff88000c0020d8 0000000000000000 ffff88000c133958
+[15985.144584]  000000000c0020c0 ffff88000c000350 ffff88000c000318 0000000000000000
+[15985.144599]  ffff88000c19bd40 ffff88000c1338f8 0000000000000003 ffff88000c000300
+[15985.144613] Call Trace:
+[15985.144622]  [<ffffffff81150c30>] drain_array+0xe0/0x140
+[15985.144631]  [<ffffffff81150de1>] ? cache_reap+0x21/0x160
+[15985.144641]  [<ffffffff81150e5e>] cache_reap+0x9e/0x160
+[15985.144652]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15985.144663]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15985.144674]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15985.144683]  [<ffffffff81150dc0>] ? drain_freelist+0xc0/0xc0
+[15985.144693]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15985.144703]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15985.144714]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15985.144725]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15985.144737]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15985.144746]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15985.144754] Code: 4c 89 ff e8 29 16 11 00 e9 99 fe ff ff 48 8b 40 30 e9 d6 fe ff ff 48 8b 73 50 4c 89 ea 48 c7 c7 48 ff 77 81 31 c0 e8 4b 36 35 00 <0f> 0b be 4a 0b 00 00 48 c7 c7 e8 fa 77 81 48 89 4d a0 89 4d 98 
+[15985.144841] RIP  [<ffffffff81150b1a>] free_block+0x1ea/0x220
+[15985.144851]  RSP <ffff88000c19bcd0>
+[15985.144859] ---[ end trace 529b628c4b489c9d ]---
+[15985.144904] BUG: unable to handle kernel paging request at fffffffffffffff8
+[15985.144917] IP: [<ffffffff8106ed81>] kthread_data+0x11/0x20
+[15985.144928] PGD 1a0d067 PUD 1a0e067 PMD 0 
+[15985.144950] Oops: 0000 [#4] SMP 
+[15985.144958] CPU 2 
+[15985.144961] Modules linked in: usbip_host(C) usbip_core(C) af_packet fuse lockd sunrpc bnep bluetooth rfkill ipt_REDIRECT iptable_raw xen_netback ipt_REJECT xt_state xt_tcpudp iptable_filter ipt_MASQUERADE iptable_nat nf_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_conntrack ip_tables ip6table_filter ip6_tables x_tables asix usbnet u2mfn(O) xen_blkback xen_evtchn uinput ehci_hcd coretemp hwmon uhci_hcd usbcore usb_common pcspkr microcode autofs4 ext4 crc16 jbd2 crc32c_intel ghash_clmulni_intel aesni_intel aes_x86_64 aes_generic cryptd dm_snapshot xen_blkfront
+[15985.145071] 
+[15985.145076] Pid: 1047, comm: kworker/2:0 Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1  
+[15985.145091] RIP: e030:[<ffffffff8106ed81>]  [<ffffffff8106ed81>] kthread_data+0x11/0x20
+[15985.145105] RSP: e02b:ffff88000c19b990  EFLAGS: 00010092
+[15985.145112] RAX: 0000000000000000 RBX: 0000000000000002 RCX: 0000000000000002
+[15985.145122] RDX: ffffffff81bcbd00 RSI: 0000000000000002 RDI: ffff880003d86040
+[15985.145131] RBP: ffff88000c19b9a8 R08: ffff880003d860b0 R09: ffffffff81bcbd00
+[15985.145141] R10: 0000000000000000 R11: 0000000000000000 R12: ffff880003d86410
+[15985.145150] R13: 0000000000000002 R14: 0000000000000000 R15: ffff880003d86040
+[15985.145162] FS:  00007fe5f4126740(0000) GS:ffff88000c480000(0000) knlGS:0000000000000000
+[15985.145173] CS:  e033 DS: 0000 ES: 0000 CR0: 000000008005003b
+[15985.145182] CR2: fffffffffffffff8 CR3: 0000000000e08000 CR4: 0000000000002660
+[15985.145191] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[15985.145201] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
+[15985.145211] Process kworker/2:0 (pid: 1047, threadinfo ffff88000c19a000, task ffff880003d86040)
+[15985.145222] Stack:
+[15985.145226]  ffffffff8106a155 ffff88000c19b9a8 ffff88000c493b40 ffff88000c19ba18
+[15985.148074]  ffffffff814ad368 ffff880003d86040 ffff88000c19bfd8 ffff88000c19bfd8
+[15985.148074]  ffff88000c19bfd8 ffff88000c19b9f8 ffff880003d86040 ffff880003c2e158
+[15985.148074] Call Trace:
+[15985.148074]  [<ffffffff8106a155>] ? wq_worker_sleeping+0x15/0xa0
+[15985.148074]  [<ffffffff814ad368>] __schedule+0x568/0x7d0
+[15985.148074]  [<ffffffff814ad8f9>] schedule+0x29/0x70
+[15985.148074]  [<ffffffff8105073f>] do_exit+0x56f/0x8a0
+[15985.148074]  [<ffffffff8104e0cf>] ? kmsg_dump+0xff/0x140
+[15985.148074]  [<ffffffff814b023e>] oops_end+0x9e/0xe0
+[15985.148074]  [<ffffffff81016878>] die+0x58/0x90
+[15985.148074]  [<ffffffff814afb30>] do_trap+0xc0/0x170
+[15985.148074]  [<ffffffff81013e70>] do_invalid_op+0xb0/0xc0
+[15985.148074]  [<ffffffff81150b1a>] ? free_block+0x1ea/0x220
+[15985.148074]  [<ffffffff8109d2ed>] ? trace_hardirqs_off+0xd/0x10
+[15985.148074]  [<ffffffff8125a5dd>] ? trace_hardirqs_off_thunk+0x3a/0x3c
+[15985.148074]  [<ffffffff814af3e0>] ? restore_args+0x30/0x30
+[15985.148074]  [<ffffffff814b84eb>] invalid_op+0x1b/0x20
+[15985.148074]  [<ffffffff8104d091>] ? vprintk+0x3a1/0x580
+[15985.148074]  [<ffffffff81150b1a>] ? free_block+0x1ea/0x220
+[15985.148074]  [<ffffffff81150c30>] drain_array+0xe0/0x140
+[15985.148074]  [<ffffffff81150de1>] ? cache_reap+0x21/0x160
+[15985.148074]  [<ffffffff81150e5e>] cache_reap+0x9e/0x160
+[15985.148074]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15985.148074]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15985.148074]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15985.148074]  [<ffffffff81150dc0>] ? drain_freelist+0xc0/0xc0
+[15985.148074]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15985.148074]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15985.148074]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15985.148074]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15985.148074]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15985.148074]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15985.148074] Code: ff ff 48 81 c4 d8 00 00 00 5b 5d c3 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 55 48 89 e5 66 66 66 66 90 48 8b 87 78 03 00 00 5d <48> 8b 40 f8 c3 66 2e 0f 1f 84 00 00 00 00 00 55 48 89 e5 66 66 
+[15985.148074] RIP  [<ffffffff8106ed81>] kthread_data+0x11/0x20
+[15985.148074]  RSP <ffff88000c19b990>
+[15985.148074] CR2: fffffffffffffff8
+[15985.148074] ---[ end trace 529b628c4b489c9e ]---
+[15985.148074] Fixing recursive fault but reboot is needed!
+[16044.058147] INFO: rcu_sched detected stalls on CPUs/tasks: { 0 1} (detected by 6, t=15476 jiffies)
+[16044.058168] INFO: Stall ended before state dump start
+[15980.652564] BUG: spinlock lockup on CPU#1, stub_tx/3730
+[15980.652564]  lock: ffff88000c413b40, .magic: dead4ead, .owner: kworker/0:1/3724, .owner_cpu: 0
+[15980.652564] Pid: 3730, comm: stub_tx Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15980.652564] Call Trace:
+[15980.652564]  [<ffffffff814a8152>] spin_dump+0x8c/0x91
+[15980.652564]  [<ffffffff81260489>] do_raw_spin_lock+0xf9/0x140
+[15980.652564]  [<ffffffff814ae869>] _raw_spin_lock+0x39/0x40
+[15980.652564]  [<ffffffff81080325>] ? try_to_wake_up+0x1c5/0x340
+[15980.652564]  [<ffffffff81080325>] try_to_wake_up+0x1c5/0x340
+[15980.652564]  [<ffffffff810804b2>] default_wake_function+0x12/0x20
+[15980.652564]  [<ffffffff8106f03d>] autoremove_wake_function+0x1d/0x50
+[15980.652564]  [<ffffffff810770a5>] __wake_up_common+0x55/0x90
+[15980.652564]  [<ffffffff8107a6c8>] __wake_up+0x48/0x70
+[15980.652564]  [<ffffffffa013106a>] xen_netbk_kick_thread+0x1a/0x20 [xen_netback]
+[15980.652564]  [<ffffffffa01320f3>] xen_netbk_queue_tx_skb+0x23/0x30 [xen_netback]
+[15980.652564]  [<ffffffffa0131f92>] ? xen_netbk_must_stop_queue+0x12/0x60 [xen_netback]
+[15980.652564]  [<ffffffffa0134b7f>] xenvif_start_xmit+0xaf/0x110 [xen_netback]
+[15980.652564]  [<ffffffff813b4c1c>] dev_hard_start_xmit+0x39c/0x670
+[15980.652564]  [<ffffffff813d111e>] sch_direct_xmit+0xfe/0x260
+[15980.652564]  [<ffffffff813b53b3>] dev_queue_xmit+0x4c3/0x8b0
+[15980.652564]  [<ffffffff813b4ef0>] ? dev_hard_start_xmit+0x670/0x670
+[15980.652564]  [<ffffffff810a17c4>] ? lock_release+0xd4/0x200
+[15980.652564]  [<ffffffff813ec990>] ip_finish_output+0x3f0/0x530
+[15980.652564]  [<ffffffff813ec6d5>] ? ip_finish_output+0x135/0x530
+[15980.652564]  [<ffffffff813ed670>] ip_output+0xa0/0x100
+[15980.652564]  [<ffffffff813e32bf>] ? ipv4_dst_check+0x2f/0x50
+[15980.652564]  [<ffffffff813ecc0d>] ip_local_out+0x2d/0x80
+[15980.652564]  [<ffffffff813ecdef>] ip_queue_xmit+0x18f/0x480
+[15980.652564]  [<ffffffff813ecc60>] ? ip_local_out+0x80/0x80
+[15980.652564]  [<ffffffff81093957>] ? getnstimeofday+0x57/0xf0
+[15980.652564]  [<ffffffff81404394>] tcp_transmit_skb+0x3b4/0x880
+[15980.652564]  [<ffffffff81404eb3>] tcp_write_xmit+0x103/0xa80
+[15980.652564]  [<ffffffff8114fef9>] ? ksize+0x19/0x80
+[15980.652564]  [<ffffffff81405896>] __tcp_push_pending_frames+0x26/0xc0
+[15980.652564]  [<ffffffff813f66fa>] tcp_sendmsg+0x98a/0xe30
+[15980.652564]  [<ffffffff8141d20c>] inet_sendmsg+0xbc/0xf0
+[15980.652564]  [<ffffffff8141d150>] ? ipv4_mib_init_net+0x1b0/0x1b0
+[15980.652564]  [<ffffffff813a0d27>] ? sock_update_netprioidx+0xa7/0xd0
+[15980.652564]  [<ffffffff8139ac10>] sock_sendmsg+0xf0/0x130
+[15980.652564]  [<ffffffff810a24ad>] ? trace_hardirqs_on+0xd/0x10
+[15980.652564]  [<ffffffff810167bc>] ? show_trace_log_lvl+0x5c/0x80
+[15980.652564]  [<ffffffff811501e2>] ? cache_alloc_debugcheck_after.isra.49+0x62/0x250
+[15980.652564]  [<ffffffff8115177b>] ? kmem_cache_alloc_trace+0x1db/0x1e0
+[15980.652564]  [<ffffffff8139ac90>] kernel_sendmsg+0x40/0x60
+[15980.652564]  [<ffffffffa021d3b1>] stub_send_ret_submit+0x251/0x4b0 [usbip_host]
+[15980.652564]  [<ffffffffa021d905>] stub_tx_loop+0x65/0x144 [usbip_host]
+[15980.652564]  [<ffffffff8106f020>] ? wake_up_bit+0x40/0x40
+[15980.652564]  [<ffffffffa021d8a0>] ? stub_complete+0x1f0/0x1f0 [usbip_host]
+[15980.652564]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.652564]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.652564]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.652564]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15980.652564] sending NMI to all CPUs:
+[15980.452958] BUG: spinlock lockup on CPU#0, kworker/0:1/3724
+[15980.452958]  lock: ffff88000c413b40, .magic: dead4ead, .owner: kworker/0:1/3724, .owner_cpu: 0
+[15980.452958] Pid: 3724, comm: kworker/0:1 Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15980.452958] Call Trace:
+[15980.452958]  [<ffffffff814a8152>] spin_dump+0x8c/0x91
+[15980.452958]  [<ffffffff81260489>] do_raw_spin_lock+0xf9/0x140
+[15980.452958]  [<ffffffff814ae8b5>] _raw_spin_lock_irq+0x45/0x50
+[15980.452958]  [<ffffffff814aceb7>] ? __schedule+0xb7/0x7d0
+[15980.452958]  [<ffffffff814aceb7>] __schedule+0xb7/0x7d0
+[15980.452958]  [<ffffffff814ad8f9>] schedule+0x29/0x70
+[15980.452958]  [<ffffffff81050a3d>] do_exit+0x86d/0x8a0
+[15980.452958]  [<ffffffff8104e0cf>] ? kmsg_dump+0xff/0x140
+[15980.452958]  [<ffffffff8104e054>] ? kmsg_dump+0x84/0x140
+[15980.452958]  [<ffffffff814b023e>] oops_end+0x9e/0xe0
+[15980.452958]  [<ffffffff814a3b35>] no_context+0x253/0x27e
+[15980.452958]  [<ffffffff8100786e>] ? xen_pud_val+0xe/0x10
+[15980.452958]  [<ffffffff814a3d2a>] __bad_area_nosemaphore+0x1ca/0x1e9
+[15980.452958]  [<ffffffff814af3e0>] ? restore_args+0x30/0x30
+[15980.452958]  [<ffffffff814a3d5c>] bad_area_nosemaphore+0x13/0x15
+[15980.452958]  [<ffffffff814b2d19>] do_page_fault+0x329/0x4c0
+[15980.452958]  [<ffffffff810a19ab>] ? lock_acquire+0xbb/0x120
+[15980.452958]  [<ffffffff810a19ab>] ? lock_acquire+0xbb/0x120
+[15980.452958]  [<ffffffff810a17c4>] ? lock_release+0xd4/0x200
+[15980.452958]  [<ffffffff81082840>] ? cpuacct_charge+0xb0/0xf0
+[15980.452958]  [<ffffffff810827b8>] ? cpuacct_charge+0x28/0xf0
+[15980.452958]  [<ffffffff8103e0f1>] ? pvclock_clocksource_read+0x61/0xf0
+[15980.452958]  [<ffffffff8125a5dd>] ? trace_hardirqs_off_thunk+0x3a/0x3c
+[15980.452958]  [<ffffffff814af635>] page_fault+0x25/0x30
+[15980.452958]  [<ffffffff8106ed81>] ? kthread_data+0x11/0x20
+[15980.452958]  [<ffffffff8106a155>] ? wq_worker_sleeping+0x15/0xa0
+[15980.452958]  [<ffffffff814ad368>] __schedule+0x568/0x7d0
+[15980.452958]  [<ffffffff814ad8f9>] schedule+0x29/0x70
+[15980.452958]  [<ffffffff8105073f>] do_exit+0x56f/0x8a0
+[15980.452958]  [<ffffffff8104e0cf>] ? kmsg_dump+0xff/0x140
+[15980.452958]  [<ffffffff8100a652>] ? check_events+0x12/0x20
+[15980.452958]  [<ffffffff814b023e>] oops_end+0x9e/0xe0
+[15980.452958]  [<ffffffff81016878>] die+0x58/0x90
+[15980.452958]  [<ffffffff814afd42>] do_general_protection+0x162/0x170
+[15980.452958]  [<ffffffff814af3e0>] ? restore_args+0x30/0x30
+[15980.452958]  [<ffffffff814af605>] general_protection+0x25/0x30
+[15980.452958]  [<ffffffff81119809>] ? __free_pages+0x9/0x40
+[15980.452958]  [<ffffffff813815c3>] kcopyd_put_pages+0x53/0x70
+[15980.452958]  [<ffffffff814aef2f>] ? _raw_spin_unlock_irqrestore+0x3f/0x80
+[15980.452958]  [<ffffffffa000ba90>] ? pending_complete+0x2c0/0x2c0 [dm_snapshot]
+[15980.452958]  [<ffffffff813816de>] run_complete_job+0x5e/0xd0
+[15980.452958]  [<ffffffff8138219d>] process_jobs+0x5d/0x110
+[15980.452958]  [<ffffffff81381680>] ? wake+0x20/0x20
+[15980.452958]  [<ffffffff81382283>] do_work+0x33/0x80
+[15980.452958]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15980.452958]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15980.452958]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15980.452958]  [<ffffffff81382250>] ? process_jobs+0x110/0x110
+[15980.452958]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15980.452958]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15980.452958]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15980.452958]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15980.452958]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15980.452958]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15985.148074] BUG: spinlock lockup on CPU#2, kworker/2:0/1047
+[15985.148074]  lock: ffff88000c493b40, .magic: dead4ead, .owner: kworker/2:0/1047, .owner_cpu: 2
+[15985.148074] Pid: 1047, comm: kworker/2:0 Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15985.148074] Call Trace:
+[15985.148074]  [<ffffffff814a8152>] spin_dump+0x8c/0x91
+[15985.148074]  [<ffffffff81260489>] do_raw_spin_lock+0xf9/0x140
+[15985.148074]  [<ffffffff814ae8b5>] _raw_spin_lock_irq+0x45/0x50
+[15985.148074]  [<ffffffff814aceb7>] ? __schedule+0xb7/0x7d0
+[15985.148074]  [<ffffffff814aceb7>] __schedule+0xb7/0x7d0
+[15985.148074]  [<ffffffff814ad8f9>] schedule+0x29/0x70
+[15985.148074]  [<ffffffff81050a3d>] do_exit+0x86d/0x8a0
+[15985.148074]  [<ffffffff8104e0cf>] ? kmsg_dump+0xff/0x140
+[15985.148074]  [<ffffffff8104e054>] ? kmsg_dump+0x84/0x140
+[15985.148074]  [<ffffffff814b023e>] oops_end+0x9e/0xe0
+[15985.148074]  [<ffffffff814a3b35>] no_context+0x253/0x27e
+[15985.148074]  [<ffffffff8100786e>] ? xen_pud_val+0xe/0x10
+[15985.148074]  [<ffffffff814a3d2a>] __bad_area_nosemaphore+0x1ca/0x1e9
+[15985.148074]  [<ffffffff814af3e0>] ? restore_args+0x30/0x30
+[15985.148074]  [<ffffffff814a3d5c>] bad_area_nosemaphore+0x13/0x15
+[15985.148074]  [<ffffffff814b2d19>] do_page_fault+0x329/0x4c0
+[15985.148074]  [<ffffffff810a19ab>] ? lock_acquire+0xbb/0x120
+[15985.148074]  [<ffffffff810a19ab>] ? lock_acquire+0xbb/0x120
+[15985.148074]  [<ffffffff810a17c4>] ? lock_release+0xd4/0x200
+[15985.148074]  [<ffffffff81082840>] ? cpuacct_charge+0xb0/0xf0
+[15985.148074]  [<ffffffff810827b8>] ? cpuacct_charge+0x28/0xf0
+[15985.148074]  [<ffffffff8103e0f1>] ? pvclock_clocksource_read+0x61/0xf0
+[15985.148074]  [<ffffffff8125a5dd>] ? trace_hardirqs_off_thunk+0x3a/0x3c
+[15985.148074]  [<ffffffff814af635>] page_fault+0x25/0x30
+[15985.148074]  [<ffffffff8106ed81>] ? kthread_data+0x11/0x20
+[15985.148074]  [<ffffffff8106a155>] ? wq_worker_sleeping+0x15/0xa0
+[15985.148074]  [<ffffffff814ad368>] __schedule+0x568/0x7d0
+[15985.148074]  [<ffffffff814ad8f9>] schedule+0x29/0x70
+[15985.148074]  [<ffffffff8105073f>] do_exit+0x56f/0x8a0
+[15985.148074]  [<ffffffff8104e0cf>] ? kmsg_dump+0xff/0x140
+[15985.148074]  [<ffffffff814b023e>] oops_end+0x9e/0xe0
+[15985.148074]  [<ffffffff81016878>] die+0x58/0x90
+[15985.148074]  [<ffffffff814afb30>] do_trap+0xc0/0x170
+[15985.148074]  [<ffffffff81013e70>] do_invalid_op+0xb0/0xc0
+[15985.148074]  [<ffffffff81150b1a>] ? free_block+0x1ea/0x220
+[15985.148074]  [<ffffffff8109d2ed>] ? trace_hardirqs_off+0xd/0x10
+[15985.148074]  [<ffffffff8125a5dd>] ? trace_hardirqs_off_thunk+0x3a/0x3c
+[15985.148074]  [<ffffffff814af3e0>] ? restore_args+0x30/0x30
+[15985.148074]  [<ffffffff814b84eb>] invalid_op+0x1b/0x20
+[15985.148074]  [<ffffffff8104d091>] ? vprintk+0x3a1/0x580
+[15985.148074]  [<ffffffff81150b1a>] ? free_block+0x1ea/0x220
+[15985.148074]  [<ffffffff81150c30>] drain_array+0xe0/0x140
+[15985.148074]  [<ffffffff81150de1>] ? cache_reap+0x21/0x160
+[15985.148074]  [<ffffffff81150e5e>] cache_reap+0x9e/0x160
+[15985.148074]  [<ffffffff810674cf>] process_one_work+0x19f/0x4e0
+[15985.148074]  [<ffffffff81067460>] ? process_one_work+0x130/0x4e0
+[15985.148074]  [<ffffffff810600bd>] ? send_sigqueue+0xdd/0x1c0
+[15985.148074]  [<ffffffff81150dc0>] ? drain_freelist+0xc0/0xc0
+[15985.148074]  [<ffffffff81068626>] worker_thread+0x126/0x2d0
+[15985.148074]  [<ffffffff81068500>] ? manage_workers.isra.25+0x1f0/0x1f0
+[15985.148074]  [<ffffffff8106e613>] kthread+0x93/0xa0
+[15985.148074]  [<ffffffff814b8674>] kernel_thread_helper+0x4/0x10
+[15985.148074]  [<ffffffff814af3b0>] ? retint_restore_args+0x13/0x13
+[15985.148074]  [<ffffffff814b8670>] ? gs_change+0x13/0x13
+[15987.552752] BUG: spinlock lockup on CPU#5, rtkit-daemon/839
+[15987.552752]  lock: ffff88000c413b40, .magic: dead4ead, .owner: kworker/0:1/3724, .owner_cpu: 0
+[15987.552752] Pid: 839, comm: rtkit-daemon Tainted: G      D  C O 3.4.18-1dbg20121118h.pvops.qubes.x86_64 #1
+[15987.552752] Call Trace:
+[15987.552752]  [<ffffffff814a8152>] spin_dump+0x8c/0x91
+[15987.552752]  [<ffffffff81260489>] do_raw_spin_lock+0xf9/0x140
+[15987.552752]  [<ffffffff814ae869>] _raw_spin_lock+0x39/0x40
+[15987.552752]  [<ffffffff81080325>] ? try_to_wake_up+0x1c5/0x340
+[15987.552752]  [<ffffffff81080325>] try_to_wake_up+0x1c5/0x340
+[15987.552752]  [<ffffffff810804b2>] default_wake_function+0x12/0x20
+[15987.552752]  [<ffffffff81170ff6>] pollwake+0x66/0x70
+[15987.552752]  [<ffffffff810804a0>] ? try_to_wake_up+0x340/0x340
+[15987.552752]  [<ffffffff810770a5>] __wake_up_common+0x55/0x90
+[15987.552752]  [<ffffffff81077118>] __wake_up_locked_key+0x18/0x20
+[15987.552752]  [<ffffffff811a462c>] eventfd_write+0xcc/0x1e0
+[15987.552752]  [<ffffffff810804a0>] ? try_to_wake_up+0x340/0x340
+[15987.552752]  [<ffffffff8115e21c>] vfs_write+0xac/0x180
+[15987.552752]  [<ffffffff8115e54a>] sys_write+0x4a/0x90
+[15987.552752]  [<ffffffff814b7229>] system_call_fastpath+0x16/0x1b
+[16224.408066] INFO: rcu_sched detected stalls on CPUs/tasks: { 0 1} (detected by 7, t=60564 jiffies)
+[16224.408089] INFO: Stall ended before state dump start
+[16408.035716] INFO: rcu_sched detected stalls on CPUs/tasks: { 0 1} (detected by 6, t=106470 jiffies)
+[16408.035738] INFO: Stall ended before state dump start
+[16588.052128] INFO: rcu_sched detected stalls on CPUs/tasks: { 0 1} (detected by 7, t=151475 jiffies)
+[16588.052150] INFO: Stall ended before state dump start
