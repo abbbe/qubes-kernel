@@ -1,0 +1,25 @@
+diff -pur linux-3.4.18.orig/drivers/staging/usbip/vhci_sysfs.c linux-3.4.18/drivers/staging/usbip/vhci_sysfs.c
+--- linux-3.4.18.orig/drivers/staging/usbip/vhci_sysfs.c	2012-11-05 09:50:52.000000000 +0100
++++ linux-3.4.18/drivers/staging/usbip/vhci_sysfs.c	2012-11-22 23:06:15.711999906 +0100
+@@ -31,10 +31,11 @@ static ssize_t show_status(struct device
+ {
+ 	char *s = out;
+ 	int i = 0;
++	unsigned long flags;
+ 
+ 	BUG_ON(!the_controller || !out);
+ 
+-	spin_lock(&the_controller->lock);
++	spin_lock_irqsave(&the_controller->lock, flags);
+ 
+ 	/*
+ 	 * output example:
+@@ -69,7 +70,7 @@ static ssize_t show_status(struct device
+ 		spin_unlock(&vdev->ud.lock);
+ 	}
+ 
+-	spin_unlock(&the_controller->lock);
++	spin_unlock_irqrestore(&the_controller->lock, flags);
+ 
+ 	return out - s;
+ }
