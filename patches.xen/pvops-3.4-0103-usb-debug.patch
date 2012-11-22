@@ -1,0 +1,44 @@
+--- linux-3.4.18.orig/drivers/usb/core/hcd.c	2012-11-05 09:50:52.000000000 +0100
++++ linux-3.4.18/drivers/usb/core/hcd.c	2012-11-23 00:41:54.556000268 +0100
+@@ -1493,6 +1493,7 @@ int usb_hcd_submit_urb (struct urb *urb,
+ 			wake_up(&usb_kill_urb_queue);
+ 		usb_put_urb(urb);
+ 	}
++	pr_debug("usb_hcd_submit_urb(%p) returns %d\n", urb, status);
+ 	return status;
+ }
+ 
+--- linux-3.4.18.orig/drivers/usb/core/urb.c	2012-11-05 09:50:52.000000000 +0100
++++ linux-3.4.18/drivers/usb/core/urb.c	2012-11-23 00:34:13.415999939 +0100
+@@ -73,6 +73,7 @@ struct urb *usb_alloc_urb(int iso_packet
+ 		return NULL;
+ 	}
+ 	usb_init_urb(urb);
++	pr_debug("usb_alloc_urb() returns %p\n", urb);
+ 	return urb;
+ }
+ EXPORT_SYMBOL_GPL(usb_alloc_urb);
+@@ -89,8 +90,10 @@ EXPORT_SYMBOL_GPL(usb_alloc_urb);
+  */
+ void usb_free_urb(struct urb *urb)
+ {
+-	if (urb)
++	if (urb) {
++		pr_debug("usb_free_urb(%p) calls kref_put(%p)\n", urb, &urb->kref);
+ 		kref_put(&urb->kref, urb_destroy);
++	}
+ }
+ EXPORT_SYMBOL_GPL(usb_free_urb);
+ 
+@@ -106,8 +109,10 @@ EXPORT_SYMBOL_GPL(usb_free_urb);
+  */
+ struct urb *usb_get_urb(struct urb *urb)
+ {
+-	if (urb)
++	if (urb) {
++		pr_debug("usb_get_urb(%p) calls kref_get(%p)\n", urb, &urb->kref);
+ 		kref_get(&urb->kref);
++        }
+ 	return urb;
+ }
+ EXPORT_SYMBOL_GPL(usb_get_urb);
