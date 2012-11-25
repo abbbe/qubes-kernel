@@ -5,7 +5,8 @@ cd `dirname $0`
 cd kernel-*.stash
 
 (
- diff -pur linux-3.4.18.orig/drivers/staging/usbip linux-3.4.18/drivers/staging/usbip
+ echo diff -pur linux-3.4.18.orig/drivers/staging/usbip/vhci_sysfs.c linux-3.4.18/drivers/staging/usbip/vhci_sysfs.c
+ diff -pur linux-3.4.18.orig/drivers/staging/usbip/vhci_sysfs.c linux-3.4.18/drivers/staging/usbip/vhci_sysfs.c
 ) | grep -v ^Only > ../patches.xen/pvops-3.4-0102-usbip-deadlock-fix.patch
 
 (
@@ -13,4 +14,10 @@ cd kernel-*.stash
  diff -pur linux-3.4.18.orig/drivers/usb/core/urb.c linux-3.4.18/drivers/usb/core/urb.c
 ) | grep -v ^Only > ../patches.xen/pvops-3.4-0103-usb-debug.patch
 
+
+(
+ diff -pur linux-3.4.18.orig/drivers/staging/usbip/stub_main.c linux-3.4.18/drivers/staging/usbip/stub_main.c ;
+ diff -pur linux-3.4.18.orig/drivers/staging/usbip/stub_tx.c linux-3.4.18/drivers/staging/usbip/stub_tx.c
+
+) | grep -v ^Only > ../patches.xen/pvops-3.4-0104-usbip-host-fix-doublefree.patch
 
