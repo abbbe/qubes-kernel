@@ -1,6 +1,14 @@
 --- linux-3.4.18.orig/drivers/staging/usbip/stub_main.c	2012-11-05 09:50:52.000000000 +0100
-+++ linux-3.4.18/drivers/staging/usbip/stub_main.c	2012-11-28 22:47:17.575999890 +0100
-@@ -236,8 +236,9 @@ void stub_device_cleanup_urbs(struct stu
++++ linux-3.4.18/drivers/staging/usbip/stub_main.c	2012-11-28 23:23:31.844000000 +0100
+@@ -19,6 +19,7 @@
+ 
+ #include <linux/string.h>
+ #include <linux/module.h>
++#include <linux/kernel.h>
+ 
+ #include "usbip_common.h"
+ #include "stub.h"
+@@ -236,8 +237,10 @@ void stub_device_cleanup_urbs(struct stu
  
  		kmem_cache_free(stub_priv_cache, priv);
  
@@ -8,12 +16,21 @@
 +		// kfree(urb->transfer_buffer);
  		kfree(urb->setup_packet);
 +	        pr_debug("stub_device_cleanup_urbs(%p) calls usb_free_urb(%p)", sdev, urb);
++		dump_stack();
  		usb_free_urb(urb);
  	}
  }
 --- linux-3.4.18.orig/drivers/staging/usbip/stub_tx.c	2012-11-05 09:50:52.000000000 +0100
-+++ linux-3.4.18/drivers/staging/usbip/stub_tx.c	2012-11-28 22:46:18.836000233 +0100
-@@ -28,9 +28,10 @@ static void stub_free_priv_and_urb(struc
++++ linux-3.4.18/drivers/staging/usbip/stub_tx.c	2012-11-28 23:23:13.320000000 +0100
+@@ -19,6 +19,7 @@
+ 
+ #include <linux/kthread.h>
+ #include <linux/socket.h>
++#include <linux/kernel.h>
+ 
+ #include "usbip_common.h"
+ #include "stub.h"
+@@ -28,9 +29,11 @@ static void stub_free_priv_and_urb(struc
  	struct urb *urb = priv->urb;
  
  	kfree(urb->setup_packet);
@@ -22,10 +39,11 @@
  	list_del(&priv->list);
  	kmem_cache_free(stub_priv_cache, priv);
 +	pr_debug("stub_free_priv_and_urb(%p) calls usb_free_urb(%p)", priv, urb);
++	dump_stack();
  	usb_free_urb(urb);
  }
  
-@@ -183,6 +184,7 @@ static int stub_send_ret_submit(struct s
+@@ -183,6 +186,7 @@ static int stub_send_ret_submit(struct s
  
  		if (!iov) {
  			usbip_event_add(&sdev->ud, SDEV_EVENT_ERROR_MALLOC);
@@ -33,7 +51,7 @@
  			return -1;
  		}
  
-@@ -250,6 +252,7 @@ static int stub_send_ret_submit(struct s
+@@ -250,6 +254,7 @@ static int stub_send_ret_submit(struct s
  				usbip_event_add(&sdev->ud,
  						SDEV_EVENT_ERROR_MALLOC);
  				kfree(iov);
