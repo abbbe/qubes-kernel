@@ -10,12 +10,6 @@ cd kernel-*.stash
 ) | grep -v ^Only > ../patches.xen/pvops-3.4-0102-usbip-deadlock-fix.patch
 
 (
- diff -pur linux-3.4.18.orig/drivers/usb/core/hcd.c linux-3.4.18/drivers/usb/core/hcd.c ;
- diff -pur linux-3.4.18.orig/drivers/usb/core/urb.c linux-3.4.18/drivers/usb/core/urb.c
-) | grep -v ^Only > ../patches.xen/pvops-3.4-0103-usb-debug.patch
-
-
-(
  diff -pur linux-3.4.18.orig/drivers/staging/usbip/stub_main.c linux-3.4.18/drivers/staging/usbip/stub_main.c ;
  diff -pur linux-3.4.18.orig/drivers/staging/usbip/stub_tx.c linux-3.4.18/drivers/staging/usbip/stub_tx.c
 
